@@ -1,0 +1,1 @@
+import{_ as t,c as a,o as e}from"./chunks/framework.BpLZpJbo.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"start/launch.md","filePath":"start/launch.md"}'),r={name:"start/launch.md"};function c(n,s,o,l,p,_){return e(),a("div")}const m=t(r,[["render",c]]);export{i as __pageData,m as default};
