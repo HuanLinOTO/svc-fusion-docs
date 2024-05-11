@@ -91,16 +91,6 @@ if (cur_version?.env) {
     questions.value.push("我已知晓该版本需要安装环境包，并且知道如何安装环境（不知道的看版本额外说明）")
 }
 
-if (cur_version?.env == "v1" || cur_version?.env == "v2") {
-    extra_info.value.push(`
-从 1.0.0 rc11 开始到 v3 环境包(也就是 v1.1.2 本体)，包内不再自带 uvr 模型，需要自行下载
-
-下载链接： <a href="https://www.123pan.com/s/BEzKjv-h7qqv.html">uvr 模型</a>
-
-下载后解压至整合包根目录 完成操作后你应该能 <code>other_weights</code> 文件夹
-    `.split("\n").map(l => `<p>${l}</p>`).join(""))
-}
-
 const gogogo = () => {
     if (props.wait_time > 0) {
         return
