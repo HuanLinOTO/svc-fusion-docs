@@ -1,4 +1,4 @@
-import{n as G}from"./chunks/index.Da_DU5FM.js";import{d as $,h as d,b as D,w as o,E as O,o as r,J as n,c as k,G as M,F as S,p as t,m as h,t as w,a as g,V as P}from"./chunks/framework.BpLZpJbo.js";const q="/assets/DB89BEF3-A9CF-4d4b-9CDD-D215FBE10D5B_.DUIR8b_p.png",F=i=>atob(i);function I(i){return[...new URL(i).searchParams].reduce((a,[l,c])=>(a[l]=c,a),{})}const R=[{link:"https://www.123pan.com/s/BEzKjv-R46qv.html",date:"2024/5/11",version:"1.0.0",changes:["从 DDSP 6.0 整合包迁移, 支持 ReflowVAESVC"],env:"v1"}],j="https://www.123pan.com/s/BEzKjv-O46qv.html",A={v1:j},T={class:"tip custom-block"},U={class:"custom-block-title"},H=["innerHTML"],J=$({__name:"comp",props:{wait_time:{},link:{},version:{}},setup(i){const{NButton:a,NSpace:l,NModalProvider:c,NCard:u,NModal:b,NCheckbox:x}=G,p=i,y=d([]),_=d([]),m=d([]),L=()=>{console.log(m.value),m.value.every(s=>s)&&m.value.length===_.value.length&&window.open(C.value,"_blank")},N=d(!1),C=d(""),e=R.find(s=>s.version===p.version);console.log(e),e!=null&&e.patch&&(y.value.push(`
+import{n as G}from"./chunks/index.Da_DU5FM.js";import{d as $,h as d,b as D,w as o,E as O,o as r,J as n,c as k,G as M,F as S,p as t,m as h,t as w,a as g,V as P}from"./chunks/framework.BpLZpJbo.js";const q="/assets/DB89BEF3-A9CF-4d4b-9CDD-D215FBE10D5B_.DUIR8b_p.png",F=i=>atob(i);function I(i){return[...new URL(i).searchParams].reduce((a,[l,c])=>(a[l]=c,a),{})}const j=[{link:"https://www.123pan.com/s/BEzKjv-K46qv.html",date:"2024/5/11",version:"1.0.0",changes:["从 DDSP 6.0 整合包迁移, 支持 ReflowVAESVC"],env:"v1"}],A="https://www.123pan.com/s/BEzKjv-O46qv.html",R={v1:A},T={class:"tip custom-block"},U={class:"custom-block-title"},H=["innerHTML"],J=$({__name:"comp",props:{wait_time:{},link:{},version:{}},setup(i){const{NButton:a,NSpace:l,NModalProvider:c,NCard:u,NModal:b,NCheckbox:x}=G,p=i,y=d([]),_=d([]),m=d([]),L=()=>{console.log(m.value),m.value.every(s=>s)&&m.value.length===_.value.length&&window.open(C.value,"_blank")},N=d(!1),C=d(""),e=j.find(s=>s.version===p.version);console.log(e),e!=null&&e.patch&&(y.value.push(`
 该版本需要安装补丁才可使用，补丁 <a href="${e==null?void 0:e.patch}" target="_blank">点击下载</a>
 
 使用方法：
@@ -10,7 +10,7 @@ import{n as G}from"./chunks/index.Da_DU5FM.js";import{d as $,h as d,b as D,w as 
 
 环境版本 ${e==null?void 0:e.env}，如果您已安装过该环境包，可直接下载整合包
 
-<a href="${A[e==null?void 0:e.env]}" target="_blank">点击下载</a>
+<a href="${R[e==null?void 0:e.env]}" target="_blank">点击下载</a>
 
 将环境包内文件覆盖到整合包根目录，确保根目录存在 <code>.conda</code> 文件夹即可
     `.split(`
