@@ -1,0 +1,24 @@
+{
+  "name": "svc-fusion-docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@vicons/material": "^0.12.0",
+    "autoprefixer": "^10.4.19",
+    "less": "^4.2.0",
+    "postcss": "^8.4.38",
+    "sass": "^1.72.0",
+    "tailwindcss": "^3.4.1",
+    "vfonts": "^0.0.3",
+    "vitepress": "^1.0.0-rc.42"
+  },
+  "scripts": {
+    "docs:dev": "vitepress dev .",
+    "docs:build": "node deploy.js && vitepress build . && node clean.js",
+    "docs:preview": "vitepress preview ."
+  },
+  "dependencies": {
+    "naive-ui": "^2.38.1"
+  }
+}
