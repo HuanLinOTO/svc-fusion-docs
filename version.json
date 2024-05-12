@@ -2,9 +2,10 @@
   {
     "link": "https://www.123pan.com/s/BEzKjv-K46qv.html",
     "date": "2024/5/11",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "changes": [
-      "从 DDSP 6.0 整合包迁移, 支持 ReflowVAESVC"
+      "从 DDSP 6.0 整合包迁移, 支持 ReflowVAESVC",
+      "**仅供尝鲜，目前没有进行过全量测试，有bug麻烦群内私聊发我**"
     ],
     "env": "v1"
   }
