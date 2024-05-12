@@ -6,7 +6,9 @@
 
 :::tip 
 :::details 新底模相关 
-SVC Fusion整合包中的底模是我自己炖的 非官方底模（截至发布也没有官方底模）
+SVC Fusion 整合包中
+ - DDSP 6.0 的 cvec768l12 底模是我自己炖的 非官方底模（截至发布也没有官方底模）
+ - Reflow VAE SVC 的 cvec768l12 底模来自 [bfloat16 的 hf 仓库](https://huggingface.co/OOPPEENN/pretrained_model)
 :::
 
 :::warning
