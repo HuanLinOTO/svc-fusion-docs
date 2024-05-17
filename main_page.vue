@@ -90,7 +90,7 @@ const showModal = ref(false)
 
 const message = useMessage();
 onMounted(() => {
-    message.info("文档已迁移到 ddsp.dysjs.com, 旧域名不再维护")
+    message.info("sf.dysjs.com 为新整合包, 旧整合包不再维护")
     console.log("mounted");
 
 })
@@ -134,9 +134,11 @@ onMounted(() => {
     border-radius: 5px;
     transition: all 0.3s !important;
     background-color: #fff;
+
     &:hover {
         background-color: #e0e0e0;
     }
+
     div {
         display: flex;
         max-width: 100%;
@@ -145,6 +147,7 @@ onMounted(() => {
         align-items: center;
         flex-wrap: wrap;
     }
+
     &.disable .n-avatar {
         filter: brightness(0.3);
     }
@@ -204,6 +207,7 @@ onMounted(() => {
         }
     }
 }
+
 .dark {
     .title-box {
         .title {
