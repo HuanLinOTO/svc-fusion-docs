@@ -63,6 +63,14 @@
                         幻灵的炼丹工坊二群
                     </n-space>
                 </n-space>
+                <n-space vertical>
+                    <!-- @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=Z93WMbn5a8v6MXDiBzcywyEFcIdhi_ls&jump_from=webapi&authKey=tCNl9eJLLVY2TNgf2KyT2cWylxNMAlWxScUHIVqc2bz0xbSf05ZMLR4ooq0yGcim')"> -->
+                    <n-space class="group-item disable" <n-badge value="暂未开放">
+                        <n-avatar :size="48" src="https://p.qlogo.cn/gh/172701496/172701496/40" />
+                        </n-badge>
+                        幻灵的炼丹工坊三群
+                    </n-space>
+                </n-space>
             </n-card>
         </n-modal>
     </NModalProvider>
