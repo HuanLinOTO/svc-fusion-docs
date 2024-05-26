@@ -14,7 +14,7 @@ const getVersion = () => new Promise((resolve, reject) => {
         resolve(dataObj);
     });
 })
-    
+
 /*
 params like:
 {
