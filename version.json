@@ -1,5 +1,15 @@
 [
   {
+    "link": "https://www.123pan.com/s/BEzKjv-a06qv.html",
+    "date": "2024/6/1",
+    "version": "0.0.1",
+    "changes": [
+      "修复了很多 bug",
+      "很忙，之前一直在群里发的，如果你更新了群里的就没必要更新这个了"
+    ],
+    "env": "v1"
+  },
+  {
     "link": "https://www.123pan.com/s/BEzKjv-K46qv.html",
     "date": "2024/5/11",
     "version": "0.0.0",
