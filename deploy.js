@@ -96,10 +96,6 @@ const main = async () => {
     replace_file("main_page.vue", params);
     replace_file("start/changelog.md", params);
     replace_file(".vitepress/config.mts", params);
-
-    // 复制 version.json env_version.json 到 .vitepress/dist
-    fs.copyFileSync("version.json", ".vitepress/dist/version.json");
-    fs.copyFileSync("env_version.json", ".vitepress/dist/env_version.json");
 }
 
 main()

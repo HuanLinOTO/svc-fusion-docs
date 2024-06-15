@@ -15,7 +15,7 @@
   },
   "scripts": {
     "docs:dev": "vitepress dev .",
-    "docs:build": "node deploy.js && vitepress build . && node clean.js",
+    "docs:build": "node deploy.js && vitepress build . && node clean.js && node after_build.js",
     "docs:preview": "vitepress preview ."
   },
   "dependencies": {
