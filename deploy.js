@@ -81,8 +81,8 @@ const main = async () => {
     const commit_hash = await getCommitHash()
     const params = {
         "VERSIONS": versions.map(i => `
-    ## [⏬](/download/?link=${encode_string(i.link)}&version=${encode_string(i.version)}) ${i.date} ${i.version}
-    ${i.changes.map(j => ` - ${j}`).join('\n')} 
+## [⏬](/download/?link=${encode_string(i.link)}&version=${encode_string(i.version)}) ${i.date} ${i.version}
+${i.changes.map(j => ` - ${j}`).join('\n')} 
             `),
         "LatestVersionLinkPlaceHolder": encode_string(latestVersion.link),
         "LatestVersionPlaceHolder": latestVersion.version,
