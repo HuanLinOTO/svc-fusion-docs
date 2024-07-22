@@ -98,7 +98,7 @@ const gogogo = () => {
     // window.open(props.link, "_blank")
     go_link.value = props.link
     showModal.value = true
-}   
+}
 
 </script>
 
