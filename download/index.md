@@ -4,11 +4,19 @@
 
 其中包含了十分重要的信息，缺失这些可能导致您无法使用整合包
 
-:::tip 
-:::details 新底模相关 
+:::tip
+:::details 新底模相关
 SVC Fusion 整合包中
- - DDSP 6.0 的 cvec768l12 底模是我自己炖的 非官方底模（截至发布也没有官方底模）
- - Reflow VAE SVC 的 cvec768l12 底模来自 [bfloat16 的 hf 仓库](https://huggingface.co/OOPPEENN/pretrained_model)
+
+- DDSP 6.0 的 cvec768l12 底模是我自己炖的 非官方底模（截至发布也没有官方底模）
+- Reflow VAE SVC 的 cvec768l12 底模来自 [bfloat16 的 hf 仓库](https://huggingface.co/OOPPEENN/pretrained_model)
+
+:::
+
+:::tip
+123Pan 链接已更换到 `.cn` 备用域名，如果无法访问请尝试使用代理
+
+那群恶意举报的不得好死
 :::
 
 :::warning

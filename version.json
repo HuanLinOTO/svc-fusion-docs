@@ -1,13 +1,15 @@
 [
   {
-    "link": "https://www.123pan.com/s/PMNsjv-W14l.html",
+    "link": "https://www.123pan.cn/s/PMNsjv-W14l.html",
     "date": "2024/7/22",
     "version": "1.0.0 beta 7",
-    "changes": ["全新的整合包"],
+    "changes": [
+      "全新的整合包"
+    ],
     "env": null
   },
   {
-    "link": "https://www.123pan.com/s/BEzKjv-a06qv.html",
+    "link": "https://www.123pan.cn/s/BEzKjv-a06qv.html",
     "date": "2024/6/1",
     "version": "0.0.1",
     "changes": [
@@ -17,7 +19,7 @@
     "env": "v1"
   },
   {
-    "link": "https://www.123pan.com/s/BEzKjv-K46qv.html",
+    "link": "https://www.123pan.cn/s/BEzKjv-K46qv.html",
     "date": "2024/5/11",
     "version": "0.0.0",
     "changes": [
