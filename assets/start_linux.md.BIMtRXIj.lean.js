@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,V as n}from"./chunks/framework.BpLZpJbo.js";const _=JSON.parse('{"title":"关于 Linux","description":"","frontmatter":{},"headers":[],"relativePath":"start/linux.md","filePath":"start/linux.md"}'),o={name:"start/linux.md"},i=n("",15),r=[i];function d(h,c,l,s,p,u){return t(),e("div",null,r)}const m=a(o,[["render",d]]);export{_ as __pageData,m as default};
