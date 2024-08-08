@@ -7,9 +7,16 @@
           <div v-html="item"></div>
         </div>
       </template>
+      <div class="tip custom-block" v-if="cur_version['123_link']">
+        <details>
+          <summary><span class="custom-block-title">其他链接</span></summary>
+          <div>{{ cur_version["123_link"] }}</div>
+          <!-- <p>123</p> -->
+        </details>
+      </div>
       <n-space vertical>
         <div>等待 {{ props.wait_time }}s 后，方可点击跳转按钮</div>
-        <NButton @click="gogogo" style="width: 100%">跳转到 123 云盘</NButton>
+        <NButton @click="gogogo" style="width: 100%">跳转到云盘</NButton>
       </n-space>
       <n-modal v-model:show="showModal">
         <n-card
@@ -75,6 +82,7 @@ const go_link = ref("");
 
 const cur_version: any = versions.find((v) => v.version === props.version);
 console.log(cur_version);
+// const has_123_link = cur_version?.123_link;
 
 if (cur_version?.patch) {
   extra_info.value.push(
@@ -107,7 +115,6 @@ Linux 用户可在下载完整包后，下载 <a href="${cur_version?.linux}" ta
       .map((l) => `<p>${l}</p>`)
       .join("")
   );
-  questions.value.push("我已知晓该版本需要安装补丁");
 }
 
 if (cur_version?.env) {
