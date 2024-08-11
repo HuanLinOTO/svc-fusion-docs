@@ -7,16 +7,9 @@
           <div v-html="item"></div>
         </div>
       </template>
-      <div class="tip custom-block" v-if="cur_version['123_link']">
-        <details>
-          <summary><span class="custom-block-title">其他链接</span></summary>
-          <div>{{ cur_version["123_link"] }}</div>
-          <!-- <p>123</p> -->
-        </details>
-      </div>
       <n-space vertical>
         <div>等待 {{ props.wait_time }}s 后，方可点击跳转按钮</div>
-        <NButton @click="gogogo" style="width: 100%">跳转到云盘</NButton>
+        <NButton @click="gogogo" style="width: 100%">跳转到 123 云盘</NButton>
       </n-space>
       <n-modal v-model:show="showModal">
         <n-card
