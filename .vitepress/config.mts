@@ -33,7 +33,7 @@ export default defineConfig({
     },
     socialLinks: [
       { icon: "github", link: "https://github.com/huanlinoto/svc-fusion-docs" },
-      { icon: { svg: afd_svg }, link: "https://afdian.net/a/dwhlqwq" },
+      { icon: { svg: afd_svg }, link: "https://afdian.com/a/dwhlqwq" },
     ],
     footer: {
       message:
