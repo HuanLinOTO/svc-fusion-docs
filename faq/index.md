@@ -1,4 +1,4 @@
-# DDSP-SVC 常见错误及解决方法
+# SVC-Fusion 常见错误及解决方法
 
 本文档提供了在使用 DDSP-SVC 过程中可能遇到的一些常见错误及其解决方法。
 
@@ -42,6 +42,14 @@ Authors:
 
 - 5.如果显示仍然有空余显存却还是爆显存了，那就是你的虚拟内存不够大，调整到至少 50G 以上。
 
+## Access is denied. Press any key to continue . . . \ " ddsp.webui.exe " is not recognized as an internal or external operable program or bantch file. Press any key to continue . . . \ ModuleNotFoundError: No module named 'dist' Press any key to continue . . .
+
+- 关掉你那些该死的杀毒软件，包括 Windows Defender ，然后重新解压软件。
+
+## IMPORTANT: You are using gradio version 4.18.0, however version 4.29.0 is available, please upgrade.
+
+- 这不是报错，不用管
+
 ## 内存错误
 
 错误信息可能为：
@@ -61,17 +69,9 @@ Authors:
 
 数据集过短，切不出验证，或者可能根本没数据集
 
-## RuntimeError: Carnot load audio from file: ffprobe' not found. Please install ffmpeg in your system to use non-WAV audio file formats and make sure 'ffprobe'
-
-更新整合包
-
 ## fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
 
 - 没有问题，程序正在训练，请等待日志出现。
-
-## 为什么我没有去除背景音乐和自动混音？
-
-- 请在下载界面下载 [uvr 权重](https://www.123pan.cn/s/BEzKjv-MCqqv.html) 文件，并且解压后放入 ddsp 项目的根目录内。
 
 ## Error 请将你的数据集放到 dataset_raw/你的角色名字文件夹中
 
@@ -93,9 +93,11 @@ Authors:
 
 - 请确保已正确解压压缩包，并重新尝试。
 
-## File corrupted! This program has been manipulated and maybe it's infected by a Virus or cracked. This file won"t work anymore.
+## AttributeError: 'SoVITSModel' object has no attribute 'use_cluster'
 
-- 关掉你那些该死的杀毒软件，包括 Windows Defender ，然后重新解压软件。
+- 请先加载模型
+
+##
 
 :::tip
 **_持续更新中。。。_**
