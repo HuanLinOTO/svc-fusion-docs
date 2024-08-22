@@ -6,7 +6,9 @@
 
 # 正式使用 SVC Fusion
 
-## 启动！
+https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
+
+<!-- ## 启动！
 
 在正确解压 SVC Fusion 后，你可以一个名叫 `启动 WebUI.bat`(你可能看不到 `.bat` 后缀) 的文件
 
@@ -14,4 +16,4 @@
 
 :::info
 每个版本只有第一次启动会触发弹窗，无需担心效率问题
-:::
+::: -->
