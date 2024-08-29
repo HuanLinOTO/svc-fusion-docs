@@ -20,6 +20,7 @@ export default defineConfig({
         items: [
           { text: "更新日志", link: "/start/changelog" },
           { text: "下载与安装", link: "/start/download" },
+          { text: "必看基础知识", link: "/start/base_knowledge" },
           { text: "正式使用", link: "/start/launch" },
         ],
       },
