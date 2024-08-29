@@ -1,6 +1,9 @@
 # 正式使用 SVC Fusion
 
+:::tip
+下文搬运自
 https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
+:::
 
 ## 1：下载和部署
 
