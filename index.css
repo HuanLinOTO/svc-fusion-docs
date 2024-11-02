@@ -37,3 +37,8 @@
 .VPDocOutlineItem a {
     text-shadow: none;
 } */
+
+.n-avatar {
+    /* border-radius: 9999px; */
+    --n-color: none !important;
+}
