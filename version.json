@@ -2,6 +2,18 @@
   {
     "link": "https://www.123pan.com/s/PMNsjv-zw4l.html",
     "date": "2024/8/20",
+    "version": "1.2.0",
+    "changes": [
+      "更新了6.1 的模型训练",
+      "修复了sovits 打包问题",
+      "新增了DLC 功能",
+      "DDSP6.1 实时功能"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://www.123pan.com/s/PMNsjv-zw4l.html",
+    "date": "2024/8/20",
     "version": "1.1.0",
     "changes": [
       "更新了人声分离（Kim 的 Vocals）模型",
