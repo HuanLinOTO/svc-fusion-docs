@@ -4,7 +4,7 @@ import afd_svg from "./afd_svg";
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "SVC Fusion整合包文档",
-  description: "一个 SVC Fusion的非官方整合包文档",
+  description: "SVC Fusion 的官方文档",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
@@ -38,7 +38,7 @@ export default defineConfig({
     ],
     footer: {
       message:
-        '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/ddsp6-docs/commit/|| CommitHash ||">|| CommitHashShort ||</a> || DeployTime ||',
+        '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/|| CommitHash ||">|| CommitHashShort ||</a> || DeployTime ||',
       copyright: "Copyright © 2024 多玩幻灵qwq",
     },
   },
