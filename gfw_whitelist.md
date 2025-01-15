@@ -11,7 +11,7 @@
 1. 用浏览器访问 alist.hancat.work
     如果你能访问，看解决方案第一条
     如果不能，请继续看第二条
-2. 访问 https://www.nslookup.io/domains/alist.hancat.work/dns-records/，复制第一条	IPv4 address 的 ip，用浏览器访问
+2. 访问 [这里](https://www.nslookup.io/domains/alist.hancat.work/dns-records/)，复制第一条	IPv4 address 的 ip，用浏览器访问
     如果你能访问，看解决方案第二条
 
 
