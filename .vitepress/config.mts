@@ -11,7 +11,7 @@ export default defineConfig({
       { text: "Home", link: "/" },
       { text: "全流程教程", link: "/start/index" },
       { text: "常见问题", link: "/faq/index" },
-      { text: "ModelHub", link: "/model_hub/index" },
+      { text: "二次贩卖授权", link: "/daomai" },
     ],
 
     sidebar: [
