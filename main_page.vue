@@ -100,7 +100,7 @@ const showModal = ref(false)
 
 const message = useMessage();
 onMounted(() => {
-    message.info("sf.dysjs.com 为新整合包, 旧整合包不再维护")
+    message.info("www.svcfusion.com 为新整合包, 旧整合包不再维护")
     console.log("mounted");
 
 })

@@ -1,6 +1,6 @@
 # SVC-Fusion 常见错误及解决方法
 
-本文档提供了在使用 DDSP-SVC 过程中可能遇到的一些常见错误及其解决方法。
+本文档提供了在使用 SVC Fusion 过程中可能遇到的一些常见错误及其解决方法。
 
 Authors:
 
@@ -10,9 +10,6 @@ Authors:
 
 [@多玩幻灵 qwq](https://space.bilibili.com/503423945)
 
-## The system cannot find the path specified.
-
-- Tips :教你一个生活小技巧：压缩包要解压才能使用。
 
 ## CUDA out of memory. Tried to allocate ...
 
@@ -88,10 +85,6 @@ Authors:
 ## Error No such file or directory: data/train pitch aug_dict.npy
 
 - 请重新进行数据预处理。
-
-## RuntimeError: Cannot load audio from file: ffprobe not found.Please install ffmpeg your system use non WAV dio file formats and make sure ffprobe is in your PATH
-
-- 请确保已正确解压压缩包，并重新尝试。
 
 ## AttributeError: 'SoVITSModel' object has no attribute 'use_cluster'
 
