@@ -1,5 +1,9 @@
 # 正式使用 SVC Fusion
 
+:::danger
+新版本使用启动器来下载和更新本体
+:::
+
 :::tip
 下文搬运自
 https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
@@ -7,21 +11,13 @@ https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
 
 ## 1：下载和部署
 
-官网：[https://sf.dysjs.com/](https://sf.dysjs.com/)
+官网：[https://www.svcfusion.com/](https://www/svcfusion.com/)
 
-[SVC Fusion 整合包文档](https://sf.dysjs.com/)
-
-点击链接加入群聊【幻灵的炼丹工坊】：
-
-[正在跳转](https://qm.qq.com/q/9VZmMSQUbm)
+点击链接加入群聊【幻灵的炼丹工坊】：<a href="https://qm.qq.com/q/FvdR8Z8SMU" target="_blank" title="点击加入玩家交流群">172701496</a>
 
 获取整合包链接后进入网盘下载（目前 Fusion 使用 123 网盘发布）
 
-下载完成后用 bandizip 或 7zip 进行解压（不要使用 winrar，会出现解压文件损坏的报错）
-
-[7-Zip](https://7-zip.com)
-
-解压完成后进入整合包（整合包本体如下）
+整合包本体如下
 
 ![image.png](..\imgs\08787f1dfffc36740e6865934e46cb3f9b1eb449f867a4c7a7f55ea00d95caa1.png)
 
@@ -33,14 +29,13 @@ https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
 | archieve    | 训练归档文件夹                               |
 | models      | 已训练模型文件夹                             |
 | dataset_raw | 原始数据集文件夹                             |
-| data        | 可用于训练的数据集存放位置，完成训练后可删除 |
-| tmp         | 数据处理临时文件夹，完成数据处理后可删除     |
+| data        | 可用于训练的数据集存放位置 |
+| tmp         | 数据处理临时文件夹    |
 
 ## 2：SVC-Fusion，启动！
 
-双击启动 WebUI.bat
+在启动器中点击启动按钮
 
-![启动 WebUI.bat.jpg](..\imgs\f3afbad6bc14640fd467b038ee9e77cc0a4c62a048ef6a5086fed10b7074533c.png)
 
 初次启动可能需要等待一段时间。
 
@@ -194,7 +189,7 @@ dataset_raw/
 
 Tensorboard 可作为 loss 数值上的参考
 
-~~训练日子参数和推荐训练步数会在文档 DLC 中发布~~
+
 
 **注意：不要迷信步数和 loss，无论哪个算法都不是炼的越久越好的！**
 
@@ -204,7 +199,7 @@ Tensorboard 可作为 loss 数值上的参考
 
 ## 5：推理
 
-#### 训练完成并归档后点击推理，来到推理界面
+#### 来到推理界面
 
 ![image.png](..\imgs\0a258014f3faa94b5c02707f0f9bdbd7b6cdbf58ae48fcfd2bc8fbd04045647f.png)
 

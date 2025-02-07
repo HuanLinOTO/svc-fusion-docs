@@ -24,11 +24,17 @@ export default defineConfig({
           { text: "下载与安装", link: "/start/download" },
           { text: "必看基础知识", link: "/start/base_knowledge" },
           { text: "正式使用", link: "/start/launch" },
+          { text: "关于Linux", link: "/start/linux" },
+          { text: "其他设备", link: "/start/other_equimpment" },
         ],
       },
       {
         text: "常见问题",
         items: [{ text: "常见问题-首页", link: "/faq/index" }],
+      },
+      {
+        text: "特殊版块",
+        items: [{ text: "傻逼倒钩", link: "/start/sbdaogou" }],
       },
     ],
     search: {
@@ -41,7 +47,10 @@ export default defineConfig({
     footer: {
       message:
         '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/|| CommitHash ||">|| CommitHashShort ||</a> || DeployTime ||',
-      copyright: "Copyright © 2024 多玩幻灵qwq",
+      copyright: "Copyright © 2023-2025 多玩幻灵qwq | 爱过留过",
     },
   },
+  head: [
+    ['link', { rel: 'icon', href: '/imgs/SVCFusion.ico' }],
+  ],
 });
