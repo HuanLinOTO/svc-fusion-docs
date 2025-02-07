@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,V as l}from"./chunks/framework.BpLZpJbo.js";const u=JSON.parse('{"title":"全流程教程","description":"","frontmatter":{},"headers":[],"relativePath":"start/index.md","filePath":"start/index.md"}'),i={name:"start/index.md"},r=l("",2),n=[r];function o(_,s,c,d,h,m){return t(),e("div",null,n)}const p=a(i,[["render",o]]);export{u as __pageData,p as default};
