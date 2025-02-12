@@ -9,6 +9,8 @@ export default defineConfig({
   description: "SVC Fusion 的官方文档",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
+    logo: "/favicon.ico",
+
     nav: [
       { text: "Home", link: "/" },
       { text: "全流程教程", link: "/start/index" },
@@ -46,11 +48,11 @@ export default defineConfig({
     ],
     footer: {
       message:
-        '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/|| CommitHash ||">|| CommitHashShort ||</a> || DeployTime ||',
+        '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/bb043db8bb3e92c19e8c7e1728904bda750616c2">bb043db</a> 2/12/2025, 5:09:22 PM',
       copyright: "Copyright © 2023-2025 多玩幻灵qwq | 爱过留过",
     },
   },
   head: [
-    ['link', { rel: 'icon', href: '/imgs/SVCFusion.ico' }],
-  ],
+    ["link", { rel: "icon", href: "/favicon.ico" }],
+  ]
 });
