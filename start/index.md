@@ -5,3 +5,5 @@
 - [必看基础知识](base_knowledge.md)
 - [正式使用](launch.md)
 - [关于Linux](linux.md)
+- [其他设备](other_equimpment.md)
+- [傻逼倒狗](sbdaogou.md)
