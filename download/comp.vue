@@ -12,30 +12,15 @@
         <NButton @click="gogogo" style="width: 100%">跳转到 123 云盘</NButton>
       </n-space>
       <n-modal v-model:show="showModal">
-        <n-card
-          style="width: 600px"
-          title="请确认"
-          :bordered="false"
-          size="huge"
-          role="dialog"
-          aria-modal="true"
-        >
+        <n-card style="width: 600px" title="请确认" :bordered="false" size="huge" role="dialog" aria-modal="true">
           <!-- 免责声明和隐私说明按钮 -->
           <n-space>
-            <n-button
-              :type="showDisclaimer ? 'primary' : 'default'"
-              :autofocus="showDisclaimer"
-              :disabled="showDisclaimer"
-              @click="showDisclaimer = true; showPrivacy = false"
-            >
+            <n-button :type="showDisclaimer ? 'primary' : 'default'" :autofocus="showDisclaimer"
+              :disabled="showDisclaimer" @click="showDisclaimer = true; showPrivacy = false">
               免责声明
             </n-button>
-            <n-button
-              :type="showPrivacy ? 'primary' : 'default'"
-              :autofocus="showPrivacy"
-              :disabled="showPrivacy"
-              @click="showPrivacy = true; showDisclaimer = false"
-            >
+            <n-button :type="showPrivacy ? 'primary' : 'default'" :autofocus="showPrivacy" :disabled="showPrivacy"
+              @click="showPrivacy = true; showDisclaimer = false">
               隐私说明
             </n-button>
           </n-space>
@@ -107,8 +92,8 @@ const disclaimerContent = computed(() => {
     <ol>
         <li><strong>整合包版权：</strong>本整合包所有权及相关知识产权归属于原作者“HuanLin”（B站@多玩幻灵qwq）所有。</li>
         <li><strong>启动器版权：</strong>本整合包启动器版权归属于“爱过留过”和“南京睿思澳科技有限公司”。</li>
-        <li><strong>产品所有权及限制：</strong>本产品所有权归南京睿思澳电子科技有限公司所有，未经公司书面许可，严禁进行任何形式的商用、转售、分发、修改或复制。本产品及其相关内容受版权法保护，任何未经授权的使用行为将追究法律责任。</li>
-        <li><strong>软件著作权：</strong>本产品拥有软件著作权保护。</li>
+        <li><strong>产品所有权及限制：</strong>启动器所有权归南京睿思澳电子科技有限公司所有，未经公司书面许可，严禁进行任何形式的商用、转售、分发、修改或复制。本产品及其相关内容受版权法保护，任何未经授权的使用行为将追究法律责任。</li>
+        <li><strong>软件著作权：</strong>本产品暂未拥有软件著作权保护。（正在申请）</li>
     </ol>
     <p><strong>四、免责场景</strong></p>
     <ol>
@@ -250,6 +235,7 @@ const gogogo = () => {
   max-height: 300px;
   overflow-y: auto;
 }
+
 .disclaimer h3 {
   font-size: 16px;
   font-weight: bold;
