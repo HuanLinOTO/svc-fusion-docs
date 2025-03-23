@@ -58,7 +58,7 @@
                     <n-space class="group-item"
                         @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=Z93WMbn5a8v6MXDiBzcywyEFcIdhi_ls&jump_from=webapi&authKey=tCNl9eJLLVY2TNgf2KyT2cWylxNMAlWxScUHIVqc2bz0xbSf05ZMLR4ooq0yGcim')">
                         <n-badge value="新群">
-                            <n-avatar :size="48" src="https://p.qlogo.cn/gh/172701496/172701496/40" />
+                            <n-avatar :size="48" src="https://p.qlogo.cn/gh/894118597/894118597/40" />
                         </n-badge>
                         幻灵的炼丹工坊二群
                     </n-space>
