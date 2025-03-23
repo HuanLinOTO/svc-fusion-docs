@@ -48,7 +48,7 @@ export default defineConfig({
     ],
     footer: {
       message:
-        '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/bb043db8bb3e92c19e8c7e1728904bda750616c2">bb043db</a> 2/12/2025, 5:09:22 PM',
+        '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/|| CommitHash ||">|| CommitHashShort ||</a>',
       copyright: "Copyright © 2023-2025 多玩幻灵qwq | 爱过留过",
     },
   },
