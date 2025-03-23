@@ -47,6 +47,7 @@
         <n-modal v-model:show="showModal">
             <n-card style="width: 600px" title="请选择" :bordered="false" size="huge" role="dialog" aria-modal="true">
                 <!-- //p.qlogo.cn/gh/172701496/172701496/40 -->
+                PS: 开群费用有点贵，欢迎赞助（
                 <n-space vertical>
                     <n-space class="group-item"
                         @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=igP4OFTLm_-8QFpXb5l6qXrunFYJDMDt&jump_from=webapi&authKey=KlzIXtfCZmCm7mv+gFS7GXnUm+cL1DQ2OVoqaY8IOUxxREnIoAnIDHcJOHbQLTo0')">
