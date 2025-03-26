@@ -16,7 +16,7 @@ export default defineConfig({
       { text: "全流程教程", link: "/start/index" },
       { text: "常见问题", link: "/faq/index" },
       { text: "二次贩卖授权", link: "/daomai" },
-      { text: "MSST WebUI 声音分离整合包", link: "https://r1kc63iz15l.feishu.cn/wiki/JSp3wk7zuinvIXkIqSUcCXY1nKc" },
+      { text: "MSST WebUI", link: "https://r1kc63iz15l.feishu.cn/wiki/JSp3wk7zuinvIXkIqSUcCXY1nKc" },
     ],
 
     sidebar: [
