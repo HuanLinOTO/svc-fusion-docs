@@ -9,9 +9,9 @@ title: 下载中转页
 其中包含了十分重要的信息，缺失这些可能导致您无法使用整合包
 
 :::warning 如果你显卡垃圾需要上云，以下是云端地址合集：
-**1、优云智算（首推，注册送50算力，需实名，高校认证后送10）**
+**1、优云智算（首推，注册送 20 算力，需实名，高校认证后送 10 ）**
 
-SVC-Fusion：https://www.compshare.cn/images-detail?ImageID=compshareImage-182yc3qjpr8z&referral_code=1ywd4VqDKknFWCEUZvOoWo
+SVC-Fusion：https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo
 
 
 MSST：https://www.compshare.cn/images-detail?ImageID=compshareImage-182xc7pifxqb&referral_code=1ywd4VqDKknFWCEUZvOoWo
