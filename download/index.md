@@ -14,7 +14,7 @@ title: 下载中转页
 SVC-Fusion：https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo
 
 
-MSST：https://www.compshare.cn/images-detail?ImageID=compshareImage-182xc7pifxqb&referral_code=1ywd4VqDKknFWCEUZvOoWo
+MSST：https://www.compshare.cn/images/compshareImage-19o9qlm9x5f6?referral_code=1ywd4VqDKknFWCEUZvOoWo
 
 
 **2、AutoDL**
