@@ -1,6 +1,6 @@
 import { defineConfig } from "vitepress";
 import afd_svg from "./afd_svg";
-
+import { fileURLToPath, URL } from 'node:url'
 
 
 // https://vitepress.dev/reference/site-config
@@ -55,5 +55,17 @@ export default defineConfig({
   },
   head: [
     ["link", { rel: "icon", href: "/favicon.ico" }],
-  ]
+  ],
+  vite: {
+    resolve: {
+      alias: [
+        {
+          find: /^.*\/VPDocAside\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/VPDocAside.vue', import.meta.url)
+          )
+        }
+      ]
+    }
+  }
 });
