@@ -1,0 +1,1 @@
+import{_ as a,c as e,o as t,K as l}from"./chunks/framework.v3b_Jckq.js";const u=JSON.parse('{"title":"全流程教程","description":"","frontmatter":{},"headers":[],"relativePath":"start/index.md","filePath":"start/index.md"}'),i={name:"start/index.md"},r=l("",2),o=[r];function n(_,h,s,d,c,m){return t(),e("div",null,o)}const p=a(i,[["render",n]]);export{u as __pageData,p as default};

@@ -1,0 +1,1 @@
+import{_ as t,c as a,o as e}from"./chunks/framework.v3b_Jckq.js";const i=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"start/old_launch.md","filePath":"start/old_launch.md"}'),o={name:"start/old_launch.md"};function r(c,n,s,l,_,d){return e(),a("div")}const m=t(o,[["render",r]]);export{i as __pageData,m as default};
