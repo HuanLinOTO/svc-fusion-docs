@@ -1,6 +1,7 @@
 <template>
     <!-- Banner Start -->
-    <div class="banner" @click="goto('https://www.uyunzhisuan.com/register')">
+    <div class="banner"
+        @click="goto('https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF')">
         <img class="banner-icon"
             src="https://cdn.udelivrs.com/2024/11/437c3c1914197056212918f3d2cb53c1_1730962202072.png" alt="优云智算" />
         <span class="banner-text">
