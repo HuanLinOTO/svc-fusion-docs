@@ -1,4 +1,13 @@
 <template>
+    <!-- Banner Start -->
+    <div class="banner" @click="goto('https://www.uyunzhisuan.com/register')">
+        <img class="banner-icon"
+            src="https://cdn.udelivrs.com/2024/11/437c3c1914197056212918f3d2cb53c1_1730962202072.png" alt="优云智算" />
+        <span class="banner-text">
+            点击注册优云智算领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
+        </span>
+    </div>
+    <!-- Banner End -->
     <NModalProvider>
         <div class="title-box">
             <!-- <div class="title-bg"></div> -->
@@ -133,6 +142,42 @@ const message = useMessage();
             font-size: 1em;
         }
 
+    }
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 32px;
+    background-color: var(--vp-c-bg-alt);
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+
+    &-icon {
+        padding: 1px;
+        height: 30px;
+        margin-right: 10px;
+        background-color: #f0f0f02f;
+        display: none;
+    }
+
+    &-text {
+        font-size: 0.6em;
+        color: --vp-c-text-2;
+        text-align: center;
+        font-weight: bold
+    }
+
+    &-arrow {
+        margin-left: auto;
+        height: 22px;
+        width: 22px;
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
     }
 }
 
