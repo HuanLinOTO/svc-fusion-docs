@@ -156,16 +156,17 @@ const message = useMessage();
     border-bottom: 1px solid #ddd;
 
     &-icon {
-        padding: 1px;
+        padding: 6px;
         height: 30px;
         margin-right: 10px;
-        background-color: #f0f0f02f;
-        display: none;
+        background-color: #ebebeb;
+        border-radius: 6px 0px 0px 6px;
+        // display: none;
     }
 
     &-text {
         font-size: 0.6em;
-        color: --vp-c-text-2;
+        color: #2196f3;
         text-align: center;
         font-weight: bold
     }
