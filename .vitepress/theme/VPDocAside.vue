@@ -20,7 +20,7 @@ const { theme } = useData()
                 target="_blank">
                 <img src="/imgs/UCloud-AD.png" alt="">
             </a>
-            <div style="font-size: 8px; font-weight: 200; line-height: normal;">
+            <div style="font-size: 8px; line-height: normal;">
                 点击注册领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
             </div>
         </div>
