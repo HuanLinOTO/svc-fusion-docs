@@ -8,6 +8,7 @@ export const go_uc_ad = (): void => {
     }
     // @ts-ignore
     if (typeof window.gtag === "function") {
+        console.log("Sending click_ad event to Google Analytics");
         // @ts-ignore
         window.gtag('event', 'click_ad', {
             event_category: 'ad',
