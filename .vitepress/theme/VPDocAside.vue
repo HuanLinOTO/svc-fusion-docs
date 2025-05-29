@@ -2,7 +2,7 @@
 import { useData } from 'vitepress/dist/client/theme-default/composables/data.js'
 import VPDocAsideOutline from 'vitepress/dist/client/theme-default/components/VPDocAsideOutline.vue'
 import VPDocAsideCarbonAds from 'vitepress/dist/client/theme-default/components/VPDocAsideCarbonAds.vue'
-
+import { go_uc_ad } from '../../utils/ad'
 
 const { theme } = useData()
 </script>
@@ -16,7 +16,7 @@ const { theme } = useData()
         <slot name="aside-outline-after" />
         <div style="background-color: var(--vp-c-bg-soft); padding: 16px; border-radius: 8px; margin-top: 16px  ">
             <p style="font-weight: bold; padding: 4px 0; font-size: 12px;">赞助商广告</p>
-            <a href="https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF"
+            <a @click="go_uc_ad">
                 target="_blank">
                 <img src="/imgs/UCloud-AD.png" alt="">
             </a>

@@ -1,7 +1,6 @@
 <template>
     <!-- Banner Start -->
-    <div class="banner"
-        @click="goto('https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF')">
+    <div class="banner" @click="go_uc_ad">
         <img class="banner-icon"
             src="https://cdn.udelivrs.com/2024/11/437c3c1914197056212918f3d2cb53c1_1730962202072.png" alt="优云智算" />
         <span class="banner-text">
@@ -96,6 +95,7 @@ import { RocketLaunchRound, ChatBubbleFilled, FileDownloadFilled } from '@vicons
 import { onMounted, ref } from "vue"
 // import Button from './components/Button.vue';
 import './index.css'
+import { go_uc_ad } from './utils/ad'
 
 const goto = (url: string) => {
     // console.log("goto", url);
