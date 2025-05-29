@@ -8,19 +8,18 @@ export default defineConfig({
   title: "SVC Fusion整合包文档",
   description: "SVC Fusion 的官方文档",
   head: [
+    ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-NWWVMWZF9F" }],
     [
-      ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-NWWVMWZF9F" }],
-      [
-        "script",
-        {},
-        `
+      "script",
+      {},
+      `
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
           gtag('config', 'G-NWWVMWZF9F');
         `
-      ]
-    ]
+    ],
+    ["link", { rel: "stylesheet", href: "https://example.com/styles.css" }]
   ],
   themeConfig: {
 
@@ -69,9 +68,6 @@ export default defineConfig({
       copyright: "Copyright © 2023-2025 多玩幻灵qwq | 爱过留过",
     },
   },
-  head: [
-    ["link", { rel: "icon", href: "/favicon.ico" }],
-  ],
   vite: {
     resolve: {
       alias: [
