@@ -7,7 +7,23 @@ import { fileURLToPath, URL } from 'node:url'
 export default defineConfig({
   title: "SVC Fusion整合包文档",
   description: "SVC Fusion 的官方文档",
+  head: [
+    [
+      ["script", { async: "true", src: "https://www.googletagmanager.com/gtag/js?id=G-NWWVMWZF9F" }],
+      [
+        "script",
+        {},
+        `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NWWVMWZF9F');
+        `
+      ]
+    ]
+  ],
   themeConfig: {
+
     // https://vitepress.dev/reference/default-theme-config
     logo: "/favicon.ico",
 
