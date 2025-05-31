@@ -14,10 +14,9 @@ const { theme } = useData()
         <slot name="aside-outline-before" />
         <VPDocAsideOutline />
         <slot name="aside-outline-after" />
-        <div style="background-color: var(--vp-c-bg-soft); padding: 16px; border-radius: 8px; margin-top: 16px  ">
+        <div style="background-color: var(--vp-c-bg-soft); padding: 16px; border-radius: 8px; margin-top: 16px">
             <p style="font-weight: bold; padding: 4px 0; font-size: 12px;">赞助商广告</p>
             <a @click="go_uc_ad">
-                target="_blank">
                 <img src="/imgs/UCloud-AD.png" alt="">
             </a>
             <div style="font-size: 8px; line-height: normal;">
