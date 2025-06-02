@@ -1,6 +1,22 @@
 [
   {
     "link": "https://www.123pan.com/s/PMNsjv-zw4l.html",
+    "date": "2025/6/2",
+    "version": "2.0.0",
+    "changes": [
+      "已加大校验力度，倒狗可以死一死了",
+      "更新DDSP-SVC 6.3",
+      "更新Pitch Controllable 声码器（音区偏移）",
+      "So-VITS-SVC 无扩散音区偏移，可以硬拔高比较大一部分垃圾模型的音域，推荐迁移",
+      "更新声码器 DLC",
+      "更新CUDA BenchMark | Author: zzc0721@github",
+      "支持一键从显存卸载所有模型急救",
+      "fap 支持带空格路径"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://www.123pan.com/s/PMNsjv-zw4l.html",
     "date": "2024/8/20",
     "version": "1.2.0",
     "changes": [
