@@ -37,3 +37,9 @@
 .VPDocOutlineItem a {
     text-shadow: none;
 } */
+
+.VPHome {
+    padding: 0 !important
+}
+
+.VPFooter {}
