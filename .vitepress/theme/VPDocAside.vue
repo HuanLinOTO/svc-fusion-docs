@@ -15,11 +15,11 @@ const { theme } = useData()
         <VPDocAsideOutline />
         <slot name="aside-outline-after" />
         <div style="background-color: var(--vp-c-bg-soft); padding: 16px; border-radius: 8px; margin-top: 16px">
-            <p style="font-weight: bold; padding: 4px 0; font-size: 12px;">赞助商广告</p>
+            <p style="font-weight: bold; padding: 4px 0; font-size: 1rem;">赞助商广告</p>
             <a @click="go_uc_ad">
                 <img src="/imgs/UCloud-AD.png" alt="">
             </a>
-            <div style="font-size: 8px; line-height: normal;">
+            <div style="font-size: 0.9rem; line-height: normal;">
                 点击注册领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
             </div>
         </div>
