@@ -1,41 +1,35 @@
 # 正式使用 SVC Fusion
 
-:::danger
-新版本使用启动器来下载和更新本体
-:::
-
 :::tip
-下文搬运自
-https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
+新版本使用启动器来下载和更新本体
 :::
 
 ## 1：下载和部署
 
 官网：[https://www.svcfusion.com/](https://www/svcfusion.com/)
 
-点击链接加入群聊【幻灵的炼丹工坊】：<a href="https://qm.qq.com/q/FvdR8Z8SMU" target="_blank" title="点击加入玩家交流群">172701496</a>
+点击链接加入群聊【幻灵的炼丹工坊】：<a href="https://qm.qq.com/q/FvdR8Z8SMU" target="_blank" title="点击加入交流群">172701496</a>
 
-获取整合包链接后进入网盘下载（目前 Fusion 使用 123 网盘发布）
+获取整合包链接后进入网盘下载（目前 SVCFusion 使用 夸克网盘 发布）
 
-整合包本体如下
+整合包本体如下(该目录在 `启动器目录/project` 下)：
 
 ![image.png](..\imgs\08787f1dfffc36740e6865934e46cb3f9b1eb449f867a4c7a7f55ea00d95caa1.png)
 
 **文件结构说明**
 
-| 文件夹      | 说明                                         |
-| ----------- | -------------------------------------------- |
-| exp         | 工作目录                                     |
-| archieve    | 训练归档文件夹                               |
-| models      | 已训练模型文件夹                             |
-| dataset_raw | 原始数据集文件夹                             |
+| 文件夹      | 说明                       |
+| ----------- | -------------------------- |
+| exp         | 工作目录                   |
+| archive     | 训练归档文件夹             |
+| models      | 已训练模型文件夹           |
+| dataset_raw | 原始数据集文件夹           |
 | data        | 可用于训练的数据集存放位置 |
-| tmp         | 数据处理临时文件夹    |
+| tmp         | 数据处理临时文件夹         |
 
 ## 2：SVC-Fusion，启动！
 
 在启动器中点击启动按钮
-
 
 初次启动可能需要等待一段时间。
 
@@ -67,25 +61,15 @@ https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3
 
 ```
 dataset_raw/
-
 |-你的角色名字 1/
-
 | | 1.wav
-
 | | 2.wav
-
 | | 3.wav
-
 | ...
-
 |-你的角色名字 2/
-
 | | 1.wav
-
 | | 2.wav
-
 | | 3.wav
-
 | ...
 ```
 
@@ -188,8 +172,6 @@ dataset_raw/
 训练时长与数据集时长、质量、算法、预测器、bs、lr、GPU 相关，因此一般建议每 1000-2000 步（step）停下进行试听。
 
 Tensorboard 可作为 loss 数值上的参考
-
-
 
 **注意：不要迷信步数和 loss，无论哪个算法都不是炼的越久越好的！**
 
