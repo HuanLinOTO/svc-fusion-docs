@@ -1,7 +1,7 @@
 [
   {
     "link": "https://pan.quark.cn/s/f5476dfbde71",
-    "date": "2024/6/8",
+    "date": "2025/6/8",
     "version": "2.0.1",
     "changes": [
       "添加 get-free-port 依赖。",
@@ -73,9 +73,7 @@
     "link": "https://www.123pan.com/s/PMNsjv-zw4l.html",
     "date": "2024/8/2",
     "version": "1.0.0",
-    "changes": [
-      "正式版发布"
-    ],
+    "changes": ["正式版发布"],
     "env": null,
     "linux": "https://www.123pan.com/s/BEzKjv-3JVqv.html"
   },
@@ -83,9 +81,7 @@
     "link": "https://www.123pan.cn/s/PMNsjv-W14l.html",
     "date": "2024/7/22",
     "version": "1.0.0 beta 7",
-    "changes": [
-      "全新的整合包"
-    ],
+    "changes": ["全新的整合包"],
     "env": null
   },
   {
