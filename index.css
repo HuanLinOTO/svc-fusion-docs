@@ -65,6 +65,10 @@
   background: transparent;
 }
 
+.VPNavScreen {
+    height: 100vh;
+}
+
 .VPDoc {
   background: white;
   border-radius: 20px;
