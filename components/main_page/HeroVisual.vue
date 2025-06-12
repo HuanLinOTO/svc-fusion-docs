@@ -28,6 +28,18 @@
 </template>
 
 <style lang="scss" scoped>
+@media (max-width: 480px) {
+    .hero-visual {
+        display: none;
+    }
+}
+
+.use-mobile {
+    .hero-visual {
+        display: none;
+    }
+}
+
 .hero-visual {
     position: relative;
     width: 400px;
