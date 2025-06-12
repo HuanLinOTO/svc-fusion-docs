@@ -71,6 +71,7 @@ ${i.changes.map(j => ` - ${j}`).join('\n')}
         "DeployTime": new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai' })
     }
     replace_file("main_page.vue", params);
+    replace_file("components/main_page/ActionButtons.vue", params);
     replace_file("start/changelog.md", params);
     replace_file(".vitepress/config.mts", params);
 })
