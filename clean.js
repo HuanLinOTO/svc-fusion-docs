@@ -17,7 +17,7 @@ const recover = (path) => {
     });
 }
 
-const files = ['start/changelog.md', 'main_page.vue', ".vitepress/config.mts"];
+const files = ['start/changelog.md', 'main_page.vue', ".vitepress/config.mts", "components/main_page/ActionButtons.vue"];
 
 files.forEach((file) => {
     recover(file)

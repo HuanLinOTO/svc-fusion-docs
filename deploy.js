@@ -97,6 +97,8 @@ ${i.changes.map(j => ` - ${j}`).join('\n')}
     replace_file("main_page.vue", params);
     replace_file("start/changelog.md", params);
     replace_file(".vitepress/config.mts", params);
+    replace_file("components/main_page/ActionButtons.vue", params);
+
 }
 
 main()
