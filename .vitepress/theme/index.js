@@ -10,7 +10,7 @@ export default {
         })
     },
     enhanceApp({ app, router, siteData }) {
-        if (/Mobi|Android/i.test(navigator.userAgent)) {
+        if (typeof window !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent)) {
             // html 插入 class use-mobile
             document.documentElement.classList.add('use-mobile');
         }
