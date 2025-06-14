@@ -49,32 +49,34 @@ const getCommitHash = () => new Promise((resolve, reject) => {
             console.error(err);
             return;
         }
+        console.log(`Current commit hash: ${stdout.trim()}`);
+
         resolve(stdout.trim());
     });
 });
 
-getVersion().then(async (versions) => {
-    const latestVersion = versions[0];
-    const commit_hash = await getCommitHash()
-    const params = {
-        "VERSIONS": versions.map(i => `
-## [⏬](/download/?link=${encode_string(i.link)}&version=${encode_string(i.version)}) ${i.date} ${i.version}
-${i.changes.map(j => ` - ${j}`).join('\n')} 
-        `),
-        "LatestVersionLinkPlaceHolder": encode_string(latestVersion.link),
-        "LatestVersionPlaceHolder": latestVersion.version,
-        "LatestVersionPlaceHolderEncoded": encode_string(latestVersion.version),
-        "ReleaseTime": latestVersion.date,
-        "CommitHash": commit_hash,
-        "CommitHashShort": commit_hash.slice(0, 7),
-        // utc+8
-        "DeployTime": new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai' })
-    }
-    replace_file("main_page.vue", params);
-    replace_file("components/main_page/ActionButtons.vue", params);
-    replace_file("start/changelog.md", params);
-    replace_file(".vitepress/config.mts", params);
-})
+// getVersion().then(async (versions) => {
+//     const latestVersion = versions[0];
+//     const commit_hash = await getCommitHash()
+//     const params = {
+//         "VERSIONS": versions.map(i => `
+// ## [⏬](/download/?link=${encode_string(i.link)}&version=${encode_string(i.version)}) ${i.date} ${i.version}
+// ${i.changes.map(j => ` - ${j}`).join('\n')} 
+//         `),
+//         "LatestVersionLinkPlaceHolder": encode_string(latestVersion.link),
+//         "LatestVersionPlaceHolder": latestVersion.version,
+//         "LatestVersionPlaceHolderEncoded": encode_string(latestVersion.version),
+//         "ReleaseTime": latestVersion.date,
+//         "CommitHash": commit_hash,
+//         "CommitHashShort": commit_hash.slice(0, 7),
+//         // utc+8
+//         "DeployTime": new Date().toLocaleString('en-US', { timeZone: 'Asia/Shanghai' })
+//     }
+//     replace_file("main_page.vue", params);
+//     replace_file("components/main_page/ActionButtons.vue", params);
+//     replace_file("start/changelog.md", params);
+//     replace_file(".vitepress/config.mts", params);
+// })
 
 const main = async () => {
     const versions = await getVersion()
