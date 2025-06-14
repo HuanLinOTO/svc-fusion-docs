@@ -176,7 +176,7 @@ const goto = (url: string) => {
     }
 
     // 移动端等宽按钮样式
-    :global(.is-mobile) & .button-group {
+    :global(.is-mobile) {
 
         .action-btn,
         .download-btn-wrapper {

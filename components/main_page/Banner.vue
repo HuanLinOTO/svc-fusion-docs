@@ -69,6 +69,7 @@ import { go_uc_ad } from '../../utils/ad'
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 
+
     &-text-wrapper {
         flex: 1;
         text-align: center;
