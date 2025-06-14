@@ -174,6 +174,20 @@ const goto = (url: string) => {
             }
         }
     }
+
+    // 移动端等宽按钮样式
+    :global(.is-mobile) & .button-group {
+
+        .action-btn,
+        .download-btn-wrapper {
+            width: 100%;
+            max-width: 280px;
+        }
+
+        .download-btn-wrapper .action-btn {
+            width: 100%;
+        }
+    }
 }
 
 @media (max-width: 480px) {
