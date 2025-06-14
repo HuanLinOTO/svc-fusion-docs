@@ -44,6 +44,7 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+  color: transparent;
 }
 
 /* 导航链接样式 */
@@ -93,6 +94,7 @@
   font-weight: 700;
   position: relative;
   padding-bottom: 20px;
+  color: transparent;
 }
 
 .vp-doc h1::after {
@@ -332,24 +334,57 @@
 
   /* 导航栏 */
   .VPNav {
-    background: rgba(30, 41, 59, 0.9) !important;
-    border-bottom-color: rgba(102, 126, 234, 0.2);
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-bottom-color: rgba(102, 126, 234, 0.3);
+    backdrop-filter: blur(20px);
+  }
+
+  .VPNavBar {
+    background: transparent !important;
   }
 
   .VPNavBarTitle .title {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: var(--gradient-primary) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    /* display: inline-block; */
   }
 
   .VPNavBarMenuLink {
-    color: #cbd5e1;
+    color: #e2e8f0 !important;
   }
 
   .VPNavBarMenuLink:hover {
     background: var(--vp-c-brand-soft);
+    color: #667eea !important;
+  }
+
+  .VPNavBarMenuLink.active {
+    color: #667eea !important;
+  }
+
+  /* 汉堡菜单按钮 */
+  .VPNavBarHamburger {
+    color: #e2e8f0;
+  }
+
+  .VPNavBarHamburger:hover {
     color: #667eea;
+  }
+
+  /* 移动端菜单 */
+  .VPNavScreen {
+    background: rgba(15, 23, 42, 0.98);
+  }
+
+  .VPNavScreenMenuLink {
+    color: #e2e8f0 !important;
+  }
+
+  .VPNavScreenMenuLink:hover {
+    color: #667eea !important;
   }
 
   /* 侧边栏 */
@@ -386,10 +421,12 @@
 
   /* 文档内容 */
   .vp-doc h1 {
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    background: var(--gradient-primary) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    color: transparent !important;
+    display: inline-block;
   }
 
   .vp-doc h2 {
