@@ -77,6 +77,7 @@ defineEmits<{
 .hero-left {
     .title-group {
         .main-title {
+            color: #ffffff00;
             font-size: 4.5rem;
             font-weight: 800;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
