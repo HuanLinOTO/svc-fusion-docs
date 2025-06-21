@@ -13,29 +13,21 @@ title: 下载中转页
 
 SVC-Fusion：https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo
 
-
 MSST：https://www.compshare.cn/images/compshareImage-19o9qlm9x5f6?referral_code=1ywd4VqDKknFWCEUZvOoWo
-
 
 **2、AutoDL**
 
-
 SVC-Fusion：https://www.codewithgpu.com/i/HuanLinOTO/SVCFusion/svc-fusion
-
 
 MSST：https://www.codewithgpu.com/i/ZFTurbo/Music-Source-Separation-Training/MSST-webUI
 
 或 https://www.codewithgpu.com/i/SUC-DriverOld/MSST-WebUI/MSST
 
-
 **3、星海智算**
-
 
 SVC-Fusion/MSST：https://gpu.spacehpc.com/user/register?inviteCode=21777196
 
-
 **4、算力互联**
-
 
 SVC-Fusion/MSST：https://console.casdao.com:9001/#/s-login?refer=236d58849beebe9e243149f256dc90092de32d6a552e46cbfc170118fd22f8a6
 :::
@@ -53,14 +45,6 @@ SVC Fusion 整合包中
 - Reflow VAE SVC 的 cvec768l12 底模来自 [bfloat16 的 hf 仓库](https://huggingface.co/OOPPEENN/pretrained_model)
 
 :::
-
-:::tip
-123Pan 链接已更换到 `.cn` 备用域名，如果无法访问请尝试使用代理
-
-那群恶意举报的不得好死
-:::
-
-
 
 <comp :wait_time="wait_time" :link="link" :version="version"></comp>
 

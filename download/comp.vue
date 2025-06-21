@@ -9,7 +9,7 @@
       </template>
       <n-space vertical>
         <div>等待 {{ props.wait_time }}s 后，方可点击跳转按钮</div>
-        <NButton @click="gogogo" style="width: 100%">跳转到 123 云盘</NButton>
+        <NButton @click="gogogo" style="width: 100%">跳转到云盘</NButton>
       </n-space>
       <n-modal v-model:show="showModal">
         <n-card style="width: 600px" title="请确认" :bordered="false" size="huge" role="dialog" aria-modal="true">
