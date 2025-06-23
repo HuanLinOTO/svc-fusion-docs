@@ -30,7 +30,7 @@ So-VITS-SVC 的长老级整合包：作者 [bilibili@羽毛布団](https://space
 So-VITS-SVC5.0 并不是新版 sovits，sovits 在 4.1 后再也没有更新了，这个 5.0 是个碰瓷抄袭的项目，并且多次攻击其他 SVC 开发者，甚至开盒了很多开发者。请不要使用
 :::
 
-### 3.2 DDSP-SVC 6.0
+### 3.2 DDSP-SVC 系列
 
 作者：[bilibili@yxlllc](https://www.yuque.com/yuqueyonghux2gzt8/ek7xd3/br0b1g2thqm7h5pz)
 
@@ -40,7 +40,9 @@ So-VITS-SVC5.0 并不是新版 sovits，sovits 在 4.1 后再也没有更新了�
 
 作为 SVC 中更新最快的算法，ddsp 从 3.0 时期的勉强能用，到 4.0 时期作为 sovits 的下位替代，再到 6.0 时期的能在一些数据集中与 sovits 抗衡（别问为什么没有 ddsp5，因为某人懒得改 5.0 的 bug 直接更新到了 6.0）
 
-目前已集成进 fusion 整合包，原 ddsp6.0 整合包 (指我自己那个) 不再维护。
+目前已集成进 svcfusion 整合包，原 ddsp6.0 整合包 (指我自己那个) 不再维护。
+
+ddsp6.3 目前是 ddsp 系列的最新版本，拥有更好的音色转换质量。
 
 ### 3.3 ReFlow-VAE-SVC
 
