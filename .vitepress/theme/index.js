@@ -1,6 +1,7 @@
 import "../../index.css";
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
+import DlcItem from '../../components/DlcItem.vue'
 
 export default {
     extends: DefaultTheme,
@@ -15,6 +16,7 @@ export default {
             document.documentElement.classList.add('use-mobile');
         }
 
-        // 可以在这里注册全局组件或添加其他配置
+        // 注册全局组件
+        app.component('DlcItem', DlcItem)
     }
 }
