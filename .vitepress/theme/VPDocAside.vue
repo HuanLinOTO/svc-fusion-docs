@@ -19,10 +19,10 @@ const { theme } = useData()
             <p class="sponsor-title">赞助商广告</p>
             <a @click="go_uc_ad" class="sponsor-link">
                 <img src="/imgs/UCloud-AD.png" alt="" class="sponsor-image">
+                <div class="sponsor-description">
+                    点击注册领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
+                </div>
             </a>
-            <div class="sponsor-description">
-                点击注册领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
-            </div>
         </div>
 
         <div class="spacer" />
