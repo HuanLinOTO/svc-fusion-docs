@@ -44,6 +44,7 @@ export default defineConfig({
           { text: "正式使用", link: "/start/launch" },
           { text: "关于Linux", link: "/start/linux" },
           { text: "其他设备", link: "/start/other_equimpment" },
+          { text: "DLC 功能", link: "/start/dlc" },
         ],
       },
       {
