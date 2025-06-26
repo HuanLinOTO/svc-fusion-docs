@@ -10,4 +10,4 @@
 
 请搭配视频食用
 
-<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114717418852414&bvid=BV1LFKKzuEEV&cid=30609444015&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+<iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114717418852414&bvid=BV1LFKKzuEEV&cid=30609444015&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="100%" height="400px"></iframe>
