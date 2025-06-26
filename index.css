@@ -343,6 +343,11 @@
     background: transparent !important;
   }
 
+  .VPNavBar div.title {
+    /* color: #e2e8f0 !important; */
+    background-color: var(--vp-nav-bg-color) !important;
+  }
+
   .VPNavBarTitle .title {
     background: var(--gradient-primary) !important;
     -webkit-background-clip: text !important;
