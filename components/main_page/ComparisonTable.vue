@@ -16,7 +16,12 @@
                 </thead>
                 <tbody>
                     <tr v-for="(feature, index) in features" :key="index" class="feature-row">
-                        <td class="feature-name">{{ feature.name }}</td>
+                        <td class="feature-name">
+                            <span v-if="feature.link" class="clickable-feature" @click="openLink(feature.link)">
+                                {{ feature.name }}
+                            </span>
+                            <span v-else>{{ feature.name }}</span>
+                        </td>
                         <td class="support-cell feather">
                             <span class="support-icon"
                                 :class="{ supported: feature.feather, unsupported: !feature.feather }">
@@ -51,8 +56,12 @@ const features = [
     { name: '实时（变声器）', feather: false, fusion: true },
     { name: '声码器变调', feather: false, fusion: true },
     { name: '完整的模型管理系统', feather: false, fusion: true },
-    { name: 'AMD 显卡支持', feather: false, fusion: true }
+    { name: 'AMD 显卡支持', feather: false, fusion: true, link: 'https://www.bilibili.com/video/BV1k9NtzmEV2/' }
 ]
+
+const openLink = (url: string) => {
+    window.open(url, '_blank')
+}
 </script>
 
 <style lang="scss" scoped>
@@ -154,6 +163,18 @@ const features = [
                         font-weight: 600;
                         color: #374151;
                         font-size: 1rem;
+
+                        .clickable-feature {
+                            cursor: pointer;
+                            color: #667eea;
+                            text-decoration: underline;
+                            transition: all 0.3s ease;
+
+                            &:hover {
+                                color: #764ba2;
+                                text-decoration: none;
+                            }
+                        }
                     }
 
                     &.support-cell {
@@ -306,6 +327,14 @@ const features = [
 
                     &.feature-name {
                         color: #e2e8f0;
+
+                        .clickable-feature {
+                            color: #818cf8;
+
+                            &:hover {
+                                color: #a5b4fc;
+                            }
+                        }
                     }
                 }
             }
