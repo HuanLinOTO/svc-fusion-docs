@@ -791,6 +791,12 @@ if (cur_version?.env) {
     }
   }
 
+  .tab-content {
+    * {
+      color: white !important
+    }
+  }
+
   .checkbox-item {
     background: rgba(51, 65, 85, 0.5);
     border-color: rgba(102, 126, 234, 0.2);
