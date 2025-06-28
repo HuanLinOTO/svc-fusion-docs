@@ -3,6 +3,9 @@
         <h4>{{ icon }} {{ title }}</h4>
         <p>{{ description }}</p>
         <div class="dlc-links">
+            <a v-if="netdiskLink" :href="netdiskLink" target="_blank" class="download-btn netdisk">
+                💾 网盘下载
+            </a>
             <a :href="primaryLink" target="_blank" class="download-btn primary">
                 📥 HuggingFace 下载
             </a>
@@ -36,6 +39,10 @@ export default {
         mirrorLink: {
             type: String,
             required: true
+        },
+        netdiskLink: {
+            type: String,
+            default: ''
         }
     }
 }
@@ -123,6 +130,19 @@ export default {
     text-decoration: none;
 }
 
+.download-btn.netdisk {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+    border-color: transparent;
+}
+
+.download-btn.netdisk:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+    color: white;
+    text-decoration: none;
+}
+
 /* 黑暗主题适配 */
 .dark .dlc-item {
     background: rgba(30, 41, 59, 0.8);
@@ -168,6 +188,15 @@ export default {
     color: #e2e8f0;
     border-color: rgba(148, 163, 184, 0.5);
     box-shadow: 0 4px 12px rgba(148, 163, 184, 0.3);
+}
+
+.dark .download-btn.netdisk {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+    color: white;
+}
+
+.dark .download-btn.netdisk:hover {
+    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
 }
 
 @media (max-width: 768px) {
