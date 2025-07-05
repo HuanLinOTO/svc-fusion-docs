@@ -43,7 +43,16 @@ SVC Fusion 整合包中
 
 - DDSP 6.0 的 cvec768l12 底模是我自己炖的 非官方底模（截至发布也没有官方底模）
 - Reflow VAE SVC 的 cvec768l12 底模来自 [bfloat16 的 hf 仓库](https://huggingface.co/OOPPEENN/pretrained_model)
+  :::
 
+:::warning
+如果你出现了突然打不开 SVCFusion 的情况，请下载 [火绒](https://www.huorong.cn/)
+
+微软的 Windows Defender 和其他杀毒软件可能会误报 SVCFusion 的文件为病毒，导致无法打开。
+
+即使添加了信任，仍然可能会被误报，必须得要交钱买证书才能解决这个问题。
+
+安装火绒可以让 WD 闭嘴
 :::
 
 <comp :wait_time="wait_time" :link="link" :version="version"></comp>
