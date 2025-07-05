@@ -6,7 +6,7 @@
 
 ## 1：下载和部署
 
-官网：[https://www.svcfusion.com/](https://www/svcfusion.com/)
+官网：[https://www.svcfusion.com/](https://www.svcfusion.com/)
 
 点击链接加入群聊【幻灵的炼丹工坊】：<a href="https://qm.qq.com/q/FvdR8Z8SMU" target="_blank" title="点击加入交流群">172701496</a>
 
