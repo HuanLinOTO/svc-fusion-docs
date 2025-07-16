@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 import afd_svg from "./afd_svg";
 import { fileURLToPath, URL } from 'node:url'
-
+import { Analytics } from "@vercel/analytics/next"
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({

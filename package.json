@@ -19,6 +19,7 @@
     "docs:preview": "vitepress preview ."
   },
   "dependencies": {
+    "@vercel/analytics": "^1.5.0",
     "naive-ui": "^2.38.1"
   }
 }
