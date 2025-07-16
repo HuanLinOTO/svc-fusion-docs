@@ -40,14 +40,6 @@ SVC-Fusion/MSST：https://console.casdao.com:9001/#/s-login?refer=236d58849beebe
 在你检查了你的网络测速没有问题的情况下，这边建议先直接打爆你的宽带运营商电话，质问他为什么屏蔽阿里云的服务
 :::
 
-:::tip
-:::details 新底模相关
-SVC Fusion 整合包中
-
-- DDSP 6.0 的 cvec768l12 底模是我自己炖的 非官方底模（截至发布也没有官方底模）
-- Reflow VAE SVC 的 cvec768l12 底模来自 [bfloat16 的 hf 仓库](https://huggingface.co/OOPPEENN/pretrained_model)
-  :::
-
 :::warning
 如果你出现了突然打不开 SVCFusion 的情况，请下载 [火绒](https://www.huorong.cn/)
 
