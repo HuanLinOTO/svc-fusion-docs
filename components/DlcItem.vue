@@ -67,7 +67,7 @@ export default {
 
 .dlc-item h4 {
     margin-top: 0;
-    color: rgba(44, 62, 80, 0);
+    color: #e2e8f000 !important;
     font-size: 1.2em;
     font-weight: 600;
     background: var(--gradient-primary);

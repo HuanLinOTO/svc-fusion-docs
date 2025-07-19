@@ -121,6 +121,7 @@ const { theme } = useData()
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 600;
+    color: #00000000;
 }
 
 .VPDocAside :deep(.VPDocAsideOutline .outline-link) {
