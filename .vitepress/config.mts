@@ -19,7 +19,6 @@ export default defineConfig({
           gtag('config', 'G-NWWVMWZF9F');
         `
     ],
-    ["link", { rel: "stylesheet", href: "https://example.com/styles.css" }]
   ],
   themeConfig: {
 
