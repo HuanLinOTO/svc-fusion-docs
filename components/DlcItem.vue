@@ -1,6 +1,6 @@
 <template>
     <div class="dlc-item">
-        <h4>{{ icon }} {{ title }}</h4>
+        <h4>{{ title }}</h4>
         <p>{{ description }}</p>
         <div class="dlc-links">
             <a v-if="netdiskLink" :href="netdiskLink" target="_blank" class="download-btn netdisk">
@@ -67,7 +67,7 @@ export default {
 
 .dlc-item h4 {
     margin-top: 0;
-    color: #2c3e50;
+    color: rgba(44, 62, 80, 0);
     font-size: 1.2em;
     font-weight: 600;
     background: var(--gradient-primary);
