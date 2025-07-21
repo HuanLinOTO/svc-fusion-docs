@@ -340,8 +340,7 @@
 
   /* 导航栏 */
   .VPNav {
-    background: rgba(15, 23, 42, 0.95) !important;
-    border-bottom-color: rgba(102, 126, 234, 0.3);
+    background: var(--vp-nav-bg-color) !important;
     backdrop-filter: blur(20px);
   }
 
