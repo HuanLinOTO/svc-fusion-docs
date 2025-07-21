@@ -76,6 +76,12 @@ export default defineConfig({
           replacement: fileURLToPath(
             new URL('./theme/VPDocAside.vue', import.meta.url)
           )
+        },
+        {
+          find: /^.*\/VPFooter\.vue$/,
+          replacement: fileURLToPath(
+            new URL('./theme/VPFooter.vue', import.meta.url)
+          )
         }
       ]
     }

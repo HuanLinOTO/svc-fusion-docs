@@ -108,6 +108,9 @@ const openLink = (url: string) => {
     .comparison-table {
         width: 100%;
         border-collapse: collapse;
+        display: table;
+        margin: 0 !important;
+
 
         thead {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -122,7 +125,7 @@ const openLink = (url: string) => {
 
                 &.feature-header {
                     text-align: left;
-                    background: rgba(255, 255, 255, 0.1);
+                    background: #39c5bb;
                 }
 
                 &.package-header {
