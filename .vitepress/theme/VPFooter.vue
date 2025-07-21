@@ -23,6 +23,11 @@ const friendLinks: FriendLink[] = [
         link: 'https://www.openfrp.net/',
         title: 'OpenFrp',
         description: '免费内网穿透，支持映射MC多人游戏、泰拉瑞亚多人联机'
+    },
+    {
+        link: 'https://www.locyan.cn/',
+        title: '乐青团队',
+        description: '灵感无界，执笔未来'
     }
 ]
 </script>
