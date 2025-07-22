@@ -669,3 +669,7 @@ body {
     padding-top: 30px;
   }
 }
+
+.section-title {
+  border-bottom: none !important;
+}

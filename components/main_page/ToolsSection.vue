@@ -389,7 +389,7 @@ onUnmounted(() => {
     &.animate {
         .section-header {
             .section-title {
-                animation: titleFloat 3s ease-in-out infinite;
+                // animation: titleFloat 3s ease-in-out infinite;
             }
 
             .section-subtitle {

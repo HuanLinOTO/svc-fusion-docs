@@ -97,7 +97,7 @@ const friendLinks: FriendLink[] = [
 .friend-links-title {
     font-size: 16px;
     font-weight: 600;
-    color: var(--vp-c-text-1);
+    color: white;
     margin-bottom: 16px;
 }
 
@@ -111,15 +111,16 @@ const friendLinks: FriendLink[] = [
 .friend-link-item {
     display: block;
     padding: 16px 20px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(80, 80, 80, 0.3);
     border-radius: 12px;
     text-decoration: none;
     transition: all 0.3s ease;
+    backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .friend-link-item:hover {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.158);
     border-color: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
 }
@@ -127,13 +128,13 @@ const friendLinks: FriendLink[] = [
 .friend-link-title {
     font-size: 15px;
     font-weight: 600;
-    color: var(--vp-c-text-1);
+    color: white;
     margin-bottom: 6px;
 }
 
 .friend-link-description {
     font-size: 13px;
-    color: var(--vp-c-text-2);
+    color: whitesmoke;
     line-height: 1.5;
     opacity: 0.8;
 }
