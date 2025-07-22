@@ -2,12 +2,19 @@
 
 ## DDSP-SVC 6.3
 
-第一个*x*是前级参数，第二个*x*是后级参数
+<DlcItem
+  icon="🤖"
+  title="ddsp6.3_6x512_6x1024"
+  description="推荐这个 前级参数 6x512，后级参数 6x1024"
+  netdisk-link="https://pan.quark.cn/s/f47eff7e88dc"
+  primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x1024.sf_dlc"
+  mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x1024.sf_dlc"
+/>
 
 <DlcItem
   icon="🤖"
   title="ddsp6.3_6x512_10x2048"
-  description="最推荐模型"
+  description="前级参数 6x512，后级参数 10x2048"
   netdisk-link="https://pan.quark.cn/s/3ecb7fcc93cc"
   primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_10x2048.sf_dlc"
   mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_10x2048.sf_dlc"
@@ -16,7 +23,7 @@
 <DlcItem
   icon="🤖"
   title="ddsp6.3_6x1024_6x1024"
-  description="DDSP 6.3 预训练模型"
+  description="前级参数 6x1024，后级参数 6x1024"
   netdisk-link="https://pan.quark.cn/s/6170968a28b6"
   primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x1024_6x1024.sf_dlc"
   mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x1024_6x1024.sf_dlc"
@@ -25,7 +32,7 @@
 <DlcItem
   icon="🤖"
   title="ddsp6.3_10x1024_6x512"
-  description="DDSP 6.3 预训练模型"
+  description="前级参数 10x1024，后级参数 6x512"
   netdisk-link="https://pan.quark.cn/s/ebb194d574f4"
   primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_10x1024_6x512.sf_dlc"
   mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_10x1024_6x512.sf_dlc"
@@ -34,7 +41,7 @@
 <DlcItem
   icon="🤖"
   title="ddsp6.3_10x1024_6x1024"
-  description="DDSP 6.3 预训练模型"
+  description="前级参数 10x1024，后级参数 6x1024"
   netdisk-link="https://pan.quark.cn/s/0dd1da7c39b5"
   primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_10x1024_6x1024.sf_dlc"
   mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_10x1024_6x1024.sf_dlc"
@@ -43,7 +50,7 @@
 <DlcItem
   icon="🤖"
   title="ddsp6.3_6x512_6x512"
-  description="轻量模型"
+  description="前级参数 6x512，后级参数 6x512（轻量模型）"
   netdisk-link="https://pan.quark.cn/s/d13c7a9ddbb8"
   primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x512.sf_dlc"
   mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x512.sf_dlc"
@@ -52,24 +59,15 @@
 <DlcItem
   icon="🤖"
   title="ddsp6.3_6x512_6x768"
-  description="DDSP 6.3 预训练模型"
+  description="前级参数 6x512，后级参数 6x768"
   netdisk-link="https://pan.quark.cn/s/e271491451d6"
   primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x768.sf_dlc"
   mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x768.sf_dlc"
 />
 
-<DlcItem
-  icon="🤖"
-  title="ddsp6.3_6x512_6x1024"
-  description="DDSP 6.3 预训练模型"
-  netdisk-link="https://pan.quark.cn/s/f47eff7e88dc"
-  primary-link="https://huggingface.co/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x1024.sf_dlc"
-  mirror-link="https://hf-mirror.com/SVCFusion/DDSP6.3-Pretrain/resolve/main/ddsp6.3_6x512_6x1024.sf_dlc"
-/>
-
 ## DDSP-SVC 6.1
 
-a_b a 是深度 b 是宽度，attn 代表有注意力机制，noise 代表非人声优化
+attn 代表有注意力机制，noise 代表非人声优化
 
 <DlcItem
   icon="🤖"
@@ -145,7 +143,7 @@ a_b a 是深度 b 是宽度，attn 代表有注意力机制，noise 代表非人
 
 ## DDSP-SVC 6.0
 
-a_b a 是深度 b 是宽度，attn 代表有注意力机制，noise 代表非人声优化
+attn 代表有注意力机制，noise 代表非人声优化
 
 <DlcItem
   icon="🤖"
