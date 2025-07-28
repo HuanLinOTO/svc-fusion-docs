@@ -33,6 +33,7 @@
 </template>
 
 <script lang="ts" setup>
+
 import ActionButtons from './ActionButtons.vue'
 import HeroVisual from './HeroVisual.vue'
 
