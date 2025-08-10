@@ -31,12 +31,12 @@
                             </div>
                             <div class="group-info">
                                 <h4 class="group-name">幻灵的炼丹工坊一群</h4>
-                                <p class="group-desc">群组已被封禁😅 · 请加入二群</p>
+                                <p class="group-desc">人多·首选</p>
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">暂时关闭</span>
-                            <span class="join-btn disabled" style="color: red">已被封禁</span>
+                            <span class="member-count">～2000人</span>
+                            <span class="join-btn">点击加入</span>
                         </div>
                     </div>
 
