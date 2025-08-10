@@ -21,13 +21,13 @@
                 </div>
 
                 <div class="groups-grid">
-                    <div class="group-item disabled">
+                    <div class="group-item active"
+                        @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=PLACEHOLDER_KEY_FOR_GROUP_1&jump_from=webapi&authKey=PLACEHOLDER_AUTH_KEY')">
                         <div class="group-header">
                             <div class="avatar-container">
                                 <img class="group-avatar" src="https://p.qlogo.cn/gh/172701496/172701496/40"
                                     alt="群头像" />
-                                <div class="status-dot offline"></div>
-                                <div class="disabled-overlay"></div>
+                                <div class="status-dot online"></div>
                             </div>
                             <div class="group-info">
                                 <h4 class="group-name">幻灵的炼丹工坊一群</h4>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="group-footer">
                             <span class="member-count">～2000人</span>
-                            <span class="join-btn">点击加入</span>
+                            <span class="join-btn">立即加入</span>
                         </div>
                     </div>
 
