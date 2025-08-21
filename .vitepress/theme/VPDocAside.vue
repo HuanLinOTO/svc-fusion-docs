@@ -2,7 +2,7 @@
 import { useData } from 'vitepress/dist/client/theme-default/composables/data.js'
 import VPDocAsideOutline from 'vitepress/dist/client/theme-default/components/VPDocAsideOutline.vue'
 import VPDocAsideCarbonAds from 'vitepress/dist/client/theme-default/components/VPDocAsideCarbonAds.vue'
-import { go_uc_ad } from '../../utils/ad'
+import { go_uc_ad, go_aigate_ad } from '../../utils/ad'
 
 const { theme } = useData()
 </script>
@@ -14,6 +14,16 @@ const { theme } = useData()
         <slot name="aside-outline-before" />
         <VPDocAsideOutline />
         <slot name="aside-outline-after" />
+
+        <div class="sponsor-card sponsor-card-secondary">
+            <p class="sponsor-title">赞助商广告</p>
+            <a @click="go_aigate_ad" class="sponsor-link">
+                <img src="/imgs/AIGate-AD.jpg" alt="赞助商" class="sponsor-image">
+                <div class="sponsor-description">
+                    点击注册领20元算力点，16小时4090d免费用，充值再享百分之8额外优惠！
+                </div>
+            </a>
+        </div>
 
         <div class="sponsor-card">
             <p class="sponsor-title">赞助商广告</p>
@@ -51,9 +61,18 @@ const { theme } = useData()
     transition: all 0.3s ease;
 }
 
+.sponsor-card-secondary {
+    background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);
+    border: 2px solid #0ea5e9;
+}
+
 .sponsor-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 32px rgba(251, 146, 60, 0.15);
+}
+
+.sponsor-card-secondary:hover {
+    box-shadow: 0 12px 32px rgba(14, 165, 233, 0.15);
 }
 
 .sponsor-title {
@@ -63,6 +82,11 @@ const { theme } = useData()
     color: #c2410c;
     margin: 0;
     text-align: center;
+}
+
+.sponsor-card-secondary .sponsor-title,
+.sponsor-card-secondary .sponsor-description {
+    color: #0c4a6e;
 }
 
 .sponsor-link {
@@ -149,9 +173,19 @@ const { theme } = useData()
     border-color: #d97706;
 }
 
+.dark .sponsor-card-secondary {
+    background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
+    border-color: #0284c7;
+}
+
 .dark .sponsor-title,
 .dark .sponsor-description {
     color: #fed7aa;
+}
+
+.dark .sponsor-card-secondary .sponsor-title,
+.dark .sponsor-card-secondary .sponsor-description {
+    color: #bae6fd;
 }
 
 .dark .VPDocAside :deep(.VPDocAsideOutline) {

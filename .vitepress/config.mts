@@ -49,7 +49,7 @@ export default defineConfig({
         text: "功能解释",
         items: [
           { text: "DLC 功能", link: "/start/dlc" },
-          { text: "模型兼容", link: "/start/model_compatibility" },
+          { text: "SoVITS 模型兼容", link: "/start/model_compatibility" },
         ],
       },
       {
@@ -71,7 +71,7 @@ export default defineConfig({
     footer: {
       message:
         '<a href="http://beian.miit.gov.cn/?spm=a2c4g.11174386.n2.3.41d561dbuHrgEv">备案 苏ICP备2024094491号-3</a> <br> 🚀 <a href="https://github.com/HuanLinOTO/svc-fusion-docs/commit/|| CommitHash ||">|| CommitHashShort ||</a> || DeployTime ||',
-      copyright: "Copyright © 2023-2025 多玩幻灵qwq | 爱过留过",
+      copyright: "Copyright © 2023-2025 多玩幻灵qwq | 爱过_留过",
     },
   },
   vite: {
