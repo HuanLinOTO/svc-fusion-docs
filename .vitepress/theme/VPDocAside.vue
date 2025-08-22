@@ -16,9 +16,9 @@ const { theme } = useData()
         <slot name="aside-outline-after" />
 
         <div class="sponsor-card sponsor-card-secondary">
-            <p class="sponsor-title">赞助商广告</p>
+            <p class="sponsor-title">智算云扉</p>
             <a @click="go_aigate_ad" class="sponsor-link">
-                <img src="/imgs/AIGate-AD.jpg" alt="赞助商" class="sponsor-image">
+                <img src="/imgs/AIGate-AD.jpg" alt="智算云扉" class="sponsor-image">
                 <div class="sponsor-description">
                     点击注册领20元算力点，16小时4090d免费用，充值再享百分之8额外优惠！
                 </div>
@@ -26,9 +26,9 @@ const { theme } = useData()
         </div>
 
         <div class="sponsor-card">
-            <p class="sponsor-title">赞助商广告</p>
+            <p class="sponsor-title">优云智算</p>
             <a @click="go_uc_ad" class="sponsor-link">
-                <img src="/imgs/UCloud-AD.png" alt="" class="sponsor-image">
+                <img src="/imgs/UCloud-AD.png" alt="优云智算" class="sponsor-image">
                 <div class="sponsor-description">
                     点击注册领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
                 </div>
@@ -106,7 +106,7 @@ const { theme } = useData()
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 8px;
+    border-radius: 10px;
 }
 
 .sponsor-description {
