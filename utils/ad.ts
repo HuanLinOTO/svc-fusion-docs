@@ -16,3 +16,23 @@ export const go_uc_ad = (): void => {
         });
     }
 }
+
+// 添加第二个广告网站的函数
+export const go_aigate_ad = (): void => {
+    const url = "https://waas.aigate.cc/user/charge?channel=E4Z7B2W5C&coupon=AM8HLIZE2C"
+    // 打开新页面
+    const newWindow = window.open(url, "_blank");
+    if (newWindow) {
+        // 成功打开新页面
+        newWindow.focus();
+    }
+    // @ts-ignore
+    if (typeof window.gtag === "function") {
+        console.log("Sending click_ad event to Google Analytics");
+        // @ts-ignore
+        window.gtag('event', 'click_ad', {
+            event_category: 'ad',
+            event_label: 'go_aigate_ad'
+        });
+    }
+}

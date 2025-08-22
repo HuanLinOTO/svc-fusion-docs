@@ -1,14 +1,14 @@
 <template>
-    <div class="banner" @click="go_uc_ad">
+    <div class="banner" @click="go_aigate_ad">
         <div class="banner-content">
             <div class="banner-icon-wrapper">
                 <img class="banner-icon"
-                    src="https://cdn.udelivrs.com/2024/11/437c3c1914197056212918f3d2cb53c1_1730962202072.png"
-                    alt="优云智算" />
+                    src="/imgs/AIGate-Logo.png"
+                    alt="智算云扉" />
             </div>
             <div class="banner-text-wrapper">
                 <span class="banner-text">
-                    🚀 点击注册优云智算领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
+                    🚀 点击此处注册智算云扉，实名送20算力点和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享百分之8额外优惠
                 </span>
             </div>
             <div class="banner-arrow">
@@ -21,12 +21,12 @@
 </template>
 
 <script lang="ts" setup>
-import { go_uc_ad } from '../../utils/ad'
+import { go_aigate_ad } from '../../utils/ad'
 </script>
 
 <style lang="scss" scoped>
 .banner {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #39c5bb 0%, #4facfe 100%);
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;

@@ -673,3 +673,8 @@ body {
 .section-title {
   border-bottom: none !important;
 }
+
+/* 广告下面的aside-curtain，dark下去掉底边渐变 */
+.aside-curtain {
+  background: none !important;
+}

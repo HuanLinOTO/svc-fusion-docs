@@ -56,7 +56,7 @@ const features = [
     { name: '实时（变声器）', feather: false, fusion: true },
     { name: '声码器变调', feather: false, fusion: true },
     { name: '完整的模型管理系统', feather: false, fusion: true },
-    { name: 'AMD 显卡支持', feather: false, fusion: true, link: 'https://www.bilibili.com/video/BV1k9NtzmEV2/' }
+    { name: 'AMD 显卡支持', feather: false, fusion: true, link: 'https://www.bilibili.com/video/BV1NdewzpE5K/' }
 ]
 
 const openLink = (url: string) => {
