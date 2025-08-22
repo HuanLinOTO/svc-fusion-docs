@@ -21,28 +21,28 @@
                 </div>
 
                 <div class="groups-grid">
-                    <div class="group-item disabled">
+                    <div class="group-item active"
+                        @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=IZUTPdPpO2o-v4jt4i5LqUl5ZqXWLhpL&jump_from=webapi&authKey=EoTXKZUb7L6ooqWHEAV7qcGfFnczg1b7JuXlWVwYtXcX2cCJbTsqLCcJlkfD+xAW')">
+                        <div class="new-tag">推荐</div>
                         <div class="group-header">
                             <div class="avatar-container">
                                 <img class="group-avatar" src="https://p.qlogo.cn/gh/172701496/172701496/40"
                                     alt="群头像" />
-                                <div class="status-dot offline"></div>
-                                <div class="disabled-overlay"></div>
+                                <div class="status-dot online"></div>
                             </div>
                             <div class="group-info">
                                 <h4 class="group-name">幻灵的炼丹工坊一群</h4>
-                                <p class="group-desc">群组已被封禁😅 · 请加入二群</p>
+                                <p class="group-desc">人多·首选</p>
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">暂时关闭</span>
-                            <span class="join-btn disabled" style="color: red">已被封禁</span>
+                            <span class="member-count">～2000人</span>
+                            <span class="join-btn">立即加入</span>
                         </div>
                     </div>
 
                     <div class="group-item active"
                         @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=Z93WMbn5a8v6MXDiBzcywyEFcIdhi_ls&jump_from=webapi&authKey=tCNl9eJLLVY2TNgf2KyT2cWylxNMAlWxScUHIVqc2bz0xbSf05ZMLR4ooq0yGcim')">
-                        <div class="new-tag">推荐</div>
                         <div class="group-header">
                             <div class="avatar-container">
                                 <img class="group-avatar" src="https://p.qlogo.cn/gh/894118597/894118597/40"

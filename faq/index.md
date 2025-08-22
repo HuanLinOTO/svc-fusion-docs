@@ -64,7 +64,7 @@ Authors:
 
 ## num_samples should be a positive integer value,but got num_samples=0
 
-数据集过短，切不出验证，或者可能根本没数据集
+- 数据集过短，切不出验证，或者可能根本没数据集，文件夹为空
 
 ## fairseq.tasks.text_to_speech | Please install tensorboardX: pip install tensorboardX
 
@@ -73,6 +73,10 @@ Authors:
 ## Error 请将你的数据集放到 dataset_raw/你的角色名字文件夹中
 
 - 按照错误信息中的提示操作即可。
+
+## size mismatch for ddsp_model.unit2ctrl.dense_out.weight_v: copying a param with shape torch.Size([4100, 512]) from checkpoint, the shape in current model is torch.Size([4100, 1024]).
+
+- 请检查选择的底模是否为一开始训练使用的底模
 
 ## raise ValueError(' [x] nan ddsp_loss ') ValueError: [x] nan ddsp_loss
 
@@ -89,6 +93,10 @@ Authors:
 ## AttributeError: 'SoVITSModel' object has no attribute 'use_cluster'
 
 - 请先加载模型
+
+## Compilation is in progress. Please wait...
+
+- 正在编译，请等待
 
 ##
 
