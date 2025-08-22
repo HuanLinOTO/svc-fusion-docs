@@ -7,6 +7,7 @@
 - [关于 Linux](linux.md)
 - [其他设备](other_equimpment.md)
 - [傻逼倒狗](sbdaogou.md)
+- [社区经验分享](community_experience.md)
 
 请搭配视频食用
 
