@@ -1,5 +1,10 @@
 <template>
-    <div class="banner" :style="{ background: current.bg }" @click="onClick">
+    <div class="banner" :class="`banner--${current.key}`" @click="onClick">
+        <!-- 背景渐变层 -->
+        <div class="banner-bg banner-bg--aigate"></div>
+        <div class="banner-bg banner-bg--ucloud"></div>
+        
+        <!-- 内容层 -->
         <transition name="banner" mode="out-in">
             <div class="banner-content" :key="index">
                 <div class="banner-icon-wrapper">
@@ -111,10 +116,36 @@ function onClick() {
 .banner {
     cursor: pointer;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    transition: background 0.6s ease;
     position: relative;
     overflow: hidden;
 
+    // 背景渐变层
+    &-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transition: opacity 0.8s ease;
+        z-index: 1;
+        
+        &--aigate {
+            background: linear-gradient(135deg, #39c5bb 0%, #4facfe 100%);
+        }
+        
+        &--ucloud {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+    }
+
+    // 控制显示哪个背景
+    &--aigate &-bg--aigate,
+    &--ucloud &-bg--ucloud {
+        opacity: 1;
+    }
+
+    // 高光效果层
     &::before {
         content: '';
         position: absolute;
@@ -124,6 +155,7 @@ function onClick() {
         height: 100%;
         background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
         transition: left 0.5s;
+        z-index: 2;
     }
 
     &:hover::before {
@@ -137,6 +169,8 @@ function onClick() {
         padding: 12px 32px;
         max-width: 1200px;
         margin: 0 auto;
+        position: relative;
+        z-index: 3;
     }
 
     &-icon-wrapper {
