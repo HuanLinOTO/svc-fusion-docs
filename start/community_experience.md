@@ -13,3 +13,11 @@
 作者: [@阿祖拉达亚贡](https://space.bilibili.com/28723812)
 
 <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=113628778859194&bvid=BV1iKqCYEE4e&cid=27275167464&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
+
+## AI 翻唱：分辨哑音与去除和声
+
+作者: [原视频（Bilibili）](https://www.bilibili.com/video/BV1YeenzJExZ)
+
+AI 翻唱，今天我们来谈谈【分辨哑音】与【去除和声】。
+
+<iframe src="//player.bilibili.com/player.html?isOutside=true&bvid=BV1YeenzJExZ&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
