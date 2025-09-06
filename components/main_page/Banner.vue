@@ -61,10 +61,43 @@ onMounted(() => {
         index.value = (index.value + 1) % sponsors.value.length
         console.log('timer tick, index:', index.value, new Date().toISOString())
     }
-    timer = setInterval(do_in_timer, 5000)
+
+    const startTimer = () => {
+        if (timer) return
+        timer = setInterval(do_in_timer, 5000)
+        console.log('timer started', new Date().toISOString())
+    }
+
+    const stopTimer = () => {
+        if (timer) {
+            clearInterval(timer)
+            timer = null
+            console.log('timer stopped', new Date().toISOString())
+        }
+    }
+
+    const handleVisibilityChange = () => {
+        if (document.hidden) {
+            stopTimer()
+        } else {
+            startTimer()
+        }
+    }
+
+    // start only when page is visible
+    if (!document.hidden) startTimer()
+
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+
+    // ensure cleanup of listener when component unmounts
+    onUnmounted(() => {
+        stopTimer()
+        document.removeEventListener('visibilitychange', handleVisibilityChange)
+    })
 })
 
 onUnmounted(() => {
+    // fallback: ensure timer cleared (no-op if already cleared)
     if (timer) clearInterval(timer)
 })
 
