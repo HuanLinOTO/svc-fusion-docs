@@ -59,13 +59,12 @@ onMounted(() => {
     const do_in_timer = () => {
         index.value = (index.value + 1) % sponsors.value.length
         console.log('timer tick, index:', index.value, new Date().toISOString())
-        timer = setTimeout(do_in_timer, 5000)
     }
     timer = setInterval(do_in_timer, 5000)
 })
 
 onUnmounted(() => {
-    if (timer) clearTimeout(timer)
+    if (timer) clearInterval(timer)
 })
 
 function onClick() {
