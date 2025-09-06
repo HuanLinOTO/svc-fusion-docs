@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "jsx": "preserve",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "baseUrl": ".",
+    "typeRoots": ["./types", "./node_modules/@types"]
+  },
+  "include": [
+    "types/**/*.d.ts",
+    "components/**/*",
+    ".vitepress/**/*",
+    "docs/**/*",
+    "*.md"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

@@ -20,6 +20,7 @@
 
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import AIGateLogo from '../../imgs/AIGate-Logo.png'
 import { go_uc_ad, go_aigate_ad } from '../../utils/ad'
 
 type Sponsor = {
@@ -34,7 +35,7 @@ type Sponsor = {
 const sponsors = ref<Sponsor[]>([
     {
         key: 'aigate',
-        icon: '/imgs/AIGate-Logo.png',
+        icon: AIGateLogo,
         alt: '智算云扉',
         text: '🚀 点击此处注册智算云扉，实名送20算力点和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享百分之8额外优惠',
         bg: 'linear-gradient(135deg, #39c5bb 0%, #4facfe 100%)',
