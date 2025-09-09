@@ -51,7 +51,7 @@
                             </div>
                             <div class="group-info">
                                 <h4 class="group-name">幻灵的炼丹工坊二群</h4>
-                                <p class="group-desc">新群 · 欢迎新人 · 活跃讨论</p>
+                                <p class="group-desc">活跃讨论</p>
                             </div>
                         </div>
                         <div class="group-footer">
@@ -60,7 +60,8 @@
                         </div>
                     </div>
 
-                    <div class="group-item active" @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=lbGSH-YcsabtCsy7g7ckpvBlPaLLwKdi&jump_from=webapi&authKey=UzTwXtfSKvkiBavgYQgkJ8lrcbV3lK0evVuYZjtKYcBiHdnyo8Q1JBOC4pmE2y65')">
+                    <div class="group-item active" 
+                        @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=lbGSH-YcsabtCsy7g7ckpvBlPaLLwKdi&jump_from=webapi&authKey=UzTwXtfSKvkiBavgYQgkJ8lrcbV3lK0evVuYZjtKYcBiHdnyo8Q1JBOC4pmE2y65')">
                         <div class="group-header">
                             <div class="avatar-container">
                                 <img class="group-avatar" src="https://p.qlogo.cn/gh/1038540343/1038540343/40"

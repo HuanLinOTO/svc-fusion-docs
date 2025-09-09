@@ -1,6 +1,26 @@
 [
   {
     "link": "https://pan.quark.cn/s/f5476dfbde71",
+    "date": "2025/9/6",
+    "version": "2.1.1",
+    "changes": [
+      "修复归档问题",
+      "添加预训练模型未找到提示，并更新版本号至 v2.1.1"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://pan.quark.cn/s/f5476dfbde71",
+    "date": "2025/9/3",
+    "version": "2.1.0",
+    "changes": [
+      "修复 SoVITS 训练",
+      "添加预训练模型未找到提示，并更新版本号至 v2.1.1"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://pan.quark.cn/s/f5476dfbde71",
     "date": "2025/6/15",
     "version": "2.0.2",
     "changes": [
@@ -26,7 +46,7 @@
       "删除未使用的InferenceResult数据类。",
       "修复加载模型推理问题。",
       "emojilang限时回归。",
-      "更新英文i18n。"
+      "更新英文i18n"
     ],
     "env": null
   },
