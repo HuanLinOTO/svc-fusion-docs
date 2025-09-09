@@ -55,27 +55,26 @@
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">700+ 成员</span>
+                            <span class="member-count">~1000 成员</span>
                             <span class="join-btn">立即加入</span>
                         </div>
                     </div>
 
-                    <div class="group-item disabled">
+                    <div class="group-item active" @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=lbGSH-YcsabtCsy7g7ckpvBlPaLLwKdi&jump_from=webapi&authKey=UzTwXtfSKvkiBavgYQgkJ8lrcbV3lK0evVuYZjtKYcBiHdnyo8Q1JBOC4pmE2y65')">
                         <div class="group-header">
                             <div class="avatar-container">
-                                <img class="group-avatar" src="https://p.qlogo.cn/gh/172701496/172701496/40"
+                                <img class="group-avatar" src="https://p.qlogo.cn/gh/1038540343/1038540343/40"
                                     alt="群头像" />
-                                <div class="status-dot offline"></div>
-                                <div class="disabled-overlay"></div>
+                                <div class="status-dot online"></div>
                             </div>
                             <div class="group-info">
                                 <h4 class="group-name">幻灵的炼丹工坊三群</h4>
-                                <p class="group-desc">即将开放 · 敬请期待</p>
+                                <p class="group-desc">新群 · 欢迎加入</p>
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">0 成员</span>
-                            <span class="join-btn disabled">暂未开放</span>
+                            <span class="member-count">成员增长中</span>
+                            <span class="join-btn">立即加入</span>
                         </div>
                     </div>
                 </div>
@@ -139,9 +138,11 @@ const goto = (url: string) => {
     max-width: 700px;
     width: 100%;
     max-height: 90vh;
-    overflow: hidden;
+    overflow: hidden; // header圆角等仍需隐藏溢出
     animation: modalSlideIn 0.3s ease-out;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .modal-header {
@@ -194,6 +195,9 @@ const goto = (url: string) => {
 
 .modal-content {
     padding: 32px;
+    flex: 1 1 auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .sponsor-notice {
