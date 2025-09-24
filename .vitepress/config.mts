@@ -31,6 +31,7 @@ export default defineConfig({
       { text: "常见问题", link: "/faq/index" },
       { text: "二次贩卖授权", link: "/daomai" },
       { text: "MSST WebUI", link: "https://r1kc63iz15l.feishu.cn/wiki/JSp3wk7zuinvIXkIqSUcCXY1nKc" },
+      { text: "性能数据统计平台", link: "https://perf.svcfusion.com/?from=sf-docs" },
     ],
 
     sidebar: [
