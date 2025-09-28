@@ -10,7 +10,7 @@ export const go_uc_ad = (): void => {
     if (typeof window.gtag === "function") {
         console.log("Sending click_ad event to Google Analytics");
         // @ts-ignore
-        window.gtag('event', 'click_ad', {
+        window.gtag('event', 'click_ucloud_ad', {
             event_category: 'ad',
             event_label: 'go_uc_ad'
         });
@@ -30,7 +30,7 @@ export const go_aigate_ad = (): void => {
     if (typeof window.gtag === "function") {
         console.log("Sending click_ad event to Google Analytics");
         // @ts-ignore
-        window.gtag('event', 'click_ad', {
+        window.gtag('event', 'click_aigate_ad', {
             event_category: 'ad',
             event_label: 'go_aigate_ad'
         });
