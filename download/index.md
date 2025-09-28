@@ -11,7 +11,8 @@ title: 下载中转页
 :::warning 如果你显卡垃圾需要上云，以下是云端地址合集：
 **1、智算云扉（首推，注册送 20 算力 + 16小时4090D算力券，需实名，充值再享百分之8额外优惠）**
 
-SVC-Fusion：https://studio.aigate.cc/#/images/1007735255911759872?release=v2.1.1&channel=E4Z7B2W5C&coupon=AM8HLIZE2C
+SVC-Fusion：https://studio.aigate.cc/images/1007735255911759872?channel=E4Z7B2W5C&coupon=AM8HLIZE2C
+
 **2、优云智算（注册送 10 算力，需实名，高校认证后送 10 ）**
 
 SVC-Fusion：https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF
