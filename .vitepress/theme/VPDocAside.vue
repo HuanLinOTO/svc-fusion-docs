@@ -4,6 +4,9 @@ import { useData } from 'vitepress/dist/client/theme-default/composables/data.js
 import VPDocAsideOutline from 'vitepress/dist/client/theme-default/components/VPDocAsideOutline.vue'
 import VPDocAsideCarbonAds from 'vitepress/dist/client/theme-default/components/VPDocAsideCarbonAds.vue'
 import { go_uc_ad, go_aigate_ad, go_xunduyun_ad } from '../../utils/ad'
+import AIGateAD from '../../imgs/AIGate-AD.jpg'
+import UCloudAD from '../../imgs/UCloud-AD.png'
+import XunduyunAD from '../../imgs/d793fa7b2a698aa722a2fa361cf6c48a.png'
 
 const { theme } = useData()
 
@@ -21,7 +24,7 @@ const sponsors = ref<SponsorCard[]>([
     {
         id: 'aigate',
         title: '智算云扉',
-        image: '/imgs/AIGate-AD.jpg',
+        image: AIGateAD,
         alt: '智算云扉',
         description: '20元算力点+16小时4090d免费用，充值再享百分之8额外优惠！',
         action: go_aigate_ad,
@@ -30,7 +33,7 @@ const sponsors = ref<SponsorCard[]>([
     {
         id: 'ucloud',
         title: '优云智算',
-        image: '/imgs/UCloud-AD.png',
+        image: UCloudAD,
         alt: '优云智算',
         description: '10元算力金GPU免费用，高校/企业认证再得10元+额外享受95折！',
         action: go_uc_ad,
@@ -39,7 +42,7 @@ const sponsors = ref<SponsorCard[]>([
     {
         id: 'xunduyun',
         title: '讯度云计算',
-        image: '/imgs/d793fa7b2a698aa722a2fa361cf6c48a.png',
+        image: XunduyunAD,
         alt: '讯度云计算',
         description: '免费赞助服务器合作 | 快速赚米30%佣金返利合作 | 不超开独享大宽带服务器',
         action: go_xunduyun_ad,
