@@ -1,10 +1,65 @@
 <script setup lang="ts">
+import { ref, onMounted } from 'vue'
 import { useData } from 'vitepress/dist/client/theme-default/composables/data.js'
 import VPDocAsideOutline from 'vitepress/dist/client/theme-default/components/VPDocAsideOutline.vue'
 import VPDocAsideCarbonAds from 'vitepress/dist/client/theme-default/components/VPDocAsideCarbonAds.vue'
-import { go_uc_ad, go_aigate_ad } from '../../utils/ad'
+import { go_uc_ad, go_aigate_ad, go_xunduyun_ad } from '../../utils/ad'
 
 const { theme } = useData()
+
+type SponsorCard = {
+    id: string
+    title: string
+    image: string
+    alt: string
+    description: string
+    action: () => void
+    cardClass: string
+}
+
+const sponsors = ref<SponsorCard[]>([
+    {
+        id: 'aigate',
+        title: '智算云扉',
+        image: '/imgs/AIGate-AD.jpg',
+        alt: '智算云扉',
+        description: '20元算力点+16小时4090d免费用，充值再享百分之8额外优惠！',
+        action: go_aigate_ad,
+        cardClass: 'sponsor-card-secondary'
+    },
+    {
+        id: 'ucloud',
+        title: '优云智算',
+        image: '/imgs/UCloud-AD.png',
+        alt: '优云智算',
+        description: '10元算力金GPU免费用，高校/企业认证再得10元+额外享受95折！',
+        action: go_uc_ad,
+        cardClass: ''
+    },
+    {
+        id: 'xunduyun',
+        title: '讯度云计算',
+        image: '/imgs/d793fa7b2a698aa722a2fa361cf6c48a.png',
+        alt: '讯度云计算',
+        description: '免费赞助服务器合作 | 快速赚米30%佣金返利合作 | 不超开独享大宽带服务器',
+        action: go_xunduyun_ad,
+        cardClass: 'sponsor-card-tertiary'
+    }
+])
+
+// 随机打乱数组
+function shuffleArray<T>(array: T[]): T[] {
+    const newArray = [...array]
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+    }
+    return newArray
+}
+
+onMounted(() => {
+    sponsors.value = shuffleArray(sponsors.value)
+})
 </script>
 
 <template>
@@ -15,24 +70,16 @@ const { theme } = useData()
         <VPDocAsideOutline />
         <slot name="aside-outline-after" />
 
-        <div class="sponsor-card sponsor-card-secondary">
-            <p class="sponsor-title">智算云扉</p>
-            <a @click="go_aigate_ad" class="sponsor-link">
-                <img src="/imgs/AIGate-AD.jpg" alt="智算云扉" class="sponsor-image">
-                <div class="sponsor-description">
-                    点击注册领20元算力点，16小时4090d免费用，充值再享百分之8额外优惠！
-                </div>
-            </a>
-        </div>
-
-        <div class="sponsor-card">
-            <p class="sponsor-title">优云智算</p>
-            <a @click="go_uc_ad" class="sponsor-link">
-                <img src="/imgs/UCloud-AD.png" alt="优云智算" class="sponsor-image">
-                <div class="sponsor-description">
-                    点击注册领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！
-                </div>
-            </a>
+        <div class="sponsors-grid">
+            <div v-for="sponsor in sponsors" :key="sponsor.id" class="sponsor-card" :class="sponsor.cardClass">
+                <!-- <p class="sponsor-title">{{ sponsor.title }}</p> -->
+                <a @click="sponsor.action" class="sponsor-link">
+                    <img :src="sponsor.image" :alt="sponsor.alt" class="sponsor-image">
+                    <div class="sponsor-description">
+                        {{ sponsor.description }}
+                    </div>
+                </a>
+            </div>
         </div>
 
         <div class="spacer" />
@@ -52,18 +99,29 @@ const { theme } = useData()
     padding: 0 16px;
 }
 
+.sponsors-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+}
+
 .sponsor-card {
     background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
     border: 2px solid #fb923c;
     border-radius: 16px;
-    padding: 20px;
-    margin-top: 24px;
+    padding: 16px;
     transition: all 0.3s ease;
 }
 
 .sponsor-card-secondary {
     background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);
     border: 2px solid #0ea5e9;
+}
+
+.sponsor-card-tertiary {
+    background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
+    border: 2px solid #22c55e;
 }
 
 .sponsor-card:hover {
@@ -75,10 +133,14 @@ const { theme } = useData()
     box-shadow: 0 12px 32px rgba(14, 165, 233, 0.15);
 }
 
+.sponsor-card-tertiary:hover {
+    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.15);
+}
+
 .sponsor-title {
     font-weight: bold;
-    padding: 0 0 12px 0;
-    font-size: 1rem;
+    padding: 0 0 8px 0;
+    font-size: 0.9rem;
     color: #c2410c;
     margin: 0;
     text-align: center;
@@ -89,12 +151,17 @@ const { theme } = useData()
     color: #0c4a6e;
 }
 
+.sponsor-card-tertiary .sponsor-title,
+.sponsor-card-tertiary .sponsor-description {
+    color: #14532d;
+}
+
 .sponsor-link {
     display: block;
     cursor: pointer;
     border-radius: 12px;
     overflow: hidden;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
     transition: all 0.3s ease;
 }
 
@@ -110,8 +177,8 @@ const { theme } = useData()
 }
 
 .sponsor-description {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 0.75rem;
+    line-height: 1.4;
     color: #c2410c;
     text-align: center;
     font-weight: 500;
@@ -178,6 +245,11 @@ const { theme } = useData()
     border-color: #0284c7;
 }
 
+.dark .sponsor-card-tertiary {
+    background: linear-gradient(135deg, #14532d 0%, #15803d 100%);
+    border-color: #16a34a;
+}
+
 .dark .sponsor-title,
 .dark .sponsor-description {
     color: #fed7aa;
@@ -186,6 +258,11 @@ const { theme } = useData()
 .dark .sponsor-card-secondary .sponsor-title,
 .dark .sponsor-card-secondary .sponsor-description {
     color: #bae6fd;
+}
+
+.dark .sponsor-card-tertiary .sponsor-title,
+.dark .sponsor-card-tertiary .sponsor-description {
+    color: #bbf7d0;
 }
 
 .dark .VPDocAside :deep(.VPDocAsideOutline) {

@@ -678,3 +678,7 @@ body {
 .aside-curtain {
   background: none !important;
 }
+
+.aside-container {
+  width: 300px !important;
+}

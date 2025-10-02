@@ -19,7 +19,7 @@ export const go_uc_ad = (): void => {
 
 // 添加第二个广告网站的函数
 export const go_aigate_ad = (): void => {
-    const url = "https://studio.aigate.cc/images/1007735255911759872?channel=E4Z7B2W5C&coupon=AM8HLIZE2C"
+    const url = "https://studio.aigate.cc/#/images/1007735255911759872?release=v2.1.1&channel=E4Z7B2W5C&coupon=AM8HLIZE2C"
     // 打开新页面
     const newWindow = window.open(url, "_blank");
     if (newWindow) {
@@ -33,6 +33,25 @@ export const go_aigate_ad = (): void => {
         window.gtag('event', 'click_aigate_ad', {
             event_category: 'ad',
             event_label: 'go_aigate_ad'
+        });
+    }
+}
+// 添加讯度云计算广告函数
+export const go_xunduyun_ad = (): void => {
+    const url = "https://xunduyun.com"
+    // 打开新页面
+    const newWindow = window.open(url, "_blank");
+    if (newWindow) {
+        // 成功打开新页面
+        newWindow.focus();
+    }
+    // @ts-ignore
+    if (typeof window.gtag === "function") {
+        console.log("Sending click_ad event to Google Analytics");
+        // @ts-ignore
+        window.gtag('event', 'click_xunduyun_ad', {
+            event_category: 'ad',
+            event_label: 'go_xunduyun_ad'
         });
     }
 }
