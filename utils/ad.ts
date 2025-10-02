@@ -38,7 +38,7 @@ export const go_aigate_ad = (): void => {
 }
 // 添加讯度云计算广告函数
 export const go_xunduyun_ad = (): void => {
-    const url = "https://xunduyun.com"
+    const url = "https://www.kdocs.cn/l/cjQe2kMl8GuG"
     // 打开新页面
     const newWindow = window.open(url, "_blank");
     if (newWindow) {
