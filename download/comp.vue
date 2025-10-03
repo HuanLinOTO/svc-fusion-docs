@@ -206,7 +206,7 @@
         <n-modal v-model:show="showSponsorModal" class="sponsor-modal">
           <div class="sponsor-card">
             <div class="sponsor-header">
-              <span class="sponsor-icon">💝</span>
+              <span class="sponsor-icon"></span>
               <h2 class="sponsor-title">是否愿意赞助?</h2>
               <p class="sponsor-subtitle">您的支持是我们持续开发的动力</p>
             </div>
