@@ -201,6 +201,42 @@
             </div>
           </div>
         </n-modal>
+
+        <!-- 赞助模态框 -->
+        <n-modal v-model:show="showSponsorModal" class="sponsor-modal">
+          <div class="sponsor-card">
+            <div class="sponsor-header">
+              <span class="sponsor-icon"></span>
+              <h2 class="sponsor-title">是否愿意赞助?</h2>
+              <p class="sponsor-subtitle">您的支持是我们持续开发的动力</p>
+            </div>
+            <div class="sponsor-actions">
+              <NButton class="sponsor-confirm-btn" type="primary" size="large" @click="handleSponsorConfirm">
+                <span class="btn-icon">❤️</span>
+                确认
+              </NButton>
+              <NButton class="sponsor-cancel-btn" size="large" @click="handleSponsorCancel">
+                <span class="btn-icon">⏭️</span>
+                取消
+              </NButton>
+            </div>
+          </div>
+        </n-modal>
+
+        <!-- 感谢赞助模态框 -->
+        <n-modal v-model:show="showThankYouModal" class="thank-you-modal">
+          <div class="thank-you-card">
+            <div class="thank-you-header">
+              <span class="thank-you-icon">🎉</span>
+              <h2 class="thank-you-title">感谢您的赞助</h2>
+              <p class="thank-you-subtitle">点击跳转到网盘</p>
+            </div>
+            <NButton class="thank-you-btn" type="primary" size="large" @click="handleThankYouClick">
+              <span class="btn-icon">📦</span>
+              跳转到网盘
+            </NButton>
+          </div>
+        </n-modal>
       </NModalProvider>
     </div>
   </ClientOnly>
@@ -225,6 +261,8 @@ const question_values = ref<boolean[]>([]);
 const agreementChecked = ref(false);
 const showDisclaimer = ref(true);
 const showPrivacy = ref(false);
+const showSponsorModal = ref(false);
+const showThankYouModal = ref(false);
 
 const gogogo = () => {
   if (props.wait_time > 0) {
@@ -241,9 +279,27 @@ const check_question = () => {
     question_values.value.length === questions.value.length &&
     agreementChecked.value
   ) {
-    window.open(go_link.value, "_blank");
+    showModal.value = false;
+    showSponsorModal.value = true;
   }
 };
+
+const handleSponsorConfirm = () => {
+  window.open("https://afdian.com/a/dwhlqwq", "_blank");
+  showSponsorModal.value = false;
+  showThankYouModal.value = true;
+};
+
+const handleSponsorCancel = () => {
+  window.open(go_link.value, "_blank");
+  showSponsorModal.value = false;
+};
+
+const handleThankYouClick = () => {
+  window.open(go_link.value, "_blank");
+  showThankYouModal.value = false;
+};
+
 const showModal = ref(false);
 const go_link = ref("");
 const cur_version: any = versions.find((v) => v.version === props.version);
@@ -823,6 +879,243 @@ if (cur_version?.env) {
 
   .content-scroll::-webkit-scrollbar-track {
     background: rgba(51, 65, 85, 0.5);
+  }
+}
+
+// 赞助模态框样式
+.sponsor-modal {
+  :deep(.n-modal) {
+    max-width: 90vw;
+  }
+}
+
+.sponsor-card {
+  width: 500px;
+  max-width: 90vw;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+
+  .sponsor-header {
+    margin-bottom: 32px;
+
+    .sponsor-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 16px;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .sponsor-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .sponsor-subtitle {
+      color: #64748b;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+
+  .sponsor-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+
+    .sponsor-confirm-btn {
+      flex: 1;
+      max-width: 180px;
+      height: 48px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: linear-gradient(135deg, #ec4899 0%, #f43f5e 100%);
+      border: none;
+      color: white;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(236, 72, 153, 0.35);
+      }
+
+      .btn-icon {
+        margin-right: 6px;
+        font-size: 1rem;
+      }
+    }
+
+    .sponsor-cancel-btn {
+      flex: 1;
+      max-width: 180px;
+      height: 48px;
+      border-radius: 14px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      background: rgba(248, 250, 252, 0.8);
+      border: 2px solid rgba(102, 126, 234, 0.2);
+      color: #64748b;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        background: rgba(102, 126, 234, 0.1);
+        border-color: rgba(102, 126, 234, 0.4);
+        color: #667eea;
+      }
+
+      .btn-icon {
+        margin-right: 6px;
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+// 暗色模式下的赞助模态框样式
+.dark {
+  .sponsor-card {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(102, 126, 234, 0.25);
+
+    .sponsor-header {
+      .sponsor-subtitle {
+        color: #94a3b8;
+      }
+    }
+
+    .sponsor-actions {
+      .sponsor-cancel-btn {
+        background: rgba(51, 65, 85, 0.8);
+        border-color: rgba(102, 126, 234, 0.3);
+        color: #cbd5e1;
+
+        &:hover {
+          background: rgba(102, 126, 234, 0.2);
+          border-color: rgba(102, 126, 234, 0.5);
+          color: #818cf8;
+        }
+      }
+    }
+  }
+}
+
+// 感谢赞助模态框样式
+.thank-you-modal {
+  :deep(.n-modal) {
+    max-width: 90vw;
+  }
+}
+
+.thank-you-card {
+  width: 500px;
+  max-width: 90vw;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  border-radius: 24px;
+  padding: 40px 32px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+
+  .thank-you-header {
+    margin-bottom: 32px;
+
+    .thank-you-icon {
+      font-size: 4rem;
+      display: block;
+      margin-bottom: 16px;
+      animation: bounce 1s ease-in-out;
+    }
+
+    .thank-you-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .thank-you-subtitle {
+      color: #64748b;
+      font-size: 1rem;
+      font-weight: 500;
+      margin: 0;
+    }
+  }
+
+  .thank-you-btn {
+    width: 100%;
+    max-width: 300px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    color: white;
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+    }
+
+    .btn-icon {
+      margin-right: 6px;
+      font-size: 1rem;
+    }
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+}
+
+// 暗色模式下的感谢赞助模态框样式
+.dark {
+  .thank-you-card {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: rgba(102, 126, 234, 0.25);
+
+    .thank-you-header {
+      .thank-you-subtitle {
+        color: #94a3b8;
+      }
+    }
   }
 }
 </style>
