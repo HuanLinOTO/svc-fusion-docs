@@ -1,6 +1,9 @@
 <template>
     <div class="dlc-item">
-        <h4>{{ title }}</h4>
+        <div class="dlc-header">
+            <span v-if="icon" class="dlc-icon" aria-hidden="true">{{ icon }}</span>
+            <h4>{{ title }}</h4>
+        </div>
         <p>{{ description }}</p>
         <div class="dlc-links">
             <a v-if="netdiskLink" :href="netdiskLink" target="_blank" class="download-btn netdisk">
@@ -65,8 +68,21 @@ export default {
     border-color: rgba(102, 126, 234, 0.2);
 }
 
+.dlc-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.dlc-icon {
+    font-size: 1.6em;
+    line-height: 1;
+}
+
 .dlc-item h4 {
     margin-top: 0;
+    margin-bottom: 0;
     color: #e2e8f000 !important;
     font-size: 1.2em;
     font-weight: 600;
@@ -154,6 +170,10 @@ export default {
     background: rgba(30, 41, 59, 0.95);
     border-color: rgba(102, 126, 234, 0.4);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+}
+
+.dark .dlc-icon {
+    color: #e2e8f0;
 }
 
 .dark .dlc-item h4 {
