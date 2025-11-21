@@ -26,7 +26,7 @@ const sponsors = ref<SponsorCard[]>([
         title: '智算云扉',
         image: AIGateAD,
         alt: '智算云扉',
-        description: '20元算力点+16小时4090d免费用，充值再享百分之8额外优惠！',
+        description: '20元算力+16小时4090d免费用，充值再享8%额外优惠！',
         action: go_aigate_ad,
         cardClass: 'sponsor-card-secondary'
     },

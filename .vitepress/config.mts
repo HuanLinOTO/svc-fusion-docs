@@ -68,6 +68,7 @@ export default defineConfig({
     },
     socialLinks: [
       { icon: "github", link: "https://github.com/huanlinoto/svc-fusion-docs" },
+      { icon: "discord", link: "https://discord.gg/vMhrkqFdwx" },
       { icon: { svg: afd_svg }, link: "https://afdian.com/a/dwhlqwq" },
     ],
     footer: {

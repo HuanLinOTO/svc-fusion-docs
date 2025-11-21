@@ -42,7 +42,7 @@ const sponsors = ref<Sponsor[]>([
         key: 'aigate',
         icon: AIGateLogo,
         alt: '智算云扉',
-        text: '🚀 点击此处注册智算云扉，实名送20算力点和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享百分之8额外优惠',
+        text: '🚀 点击此处注册智算云扉，实名送20算力和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享8%额外优惠',
         bg: 'linear-gradient(135deg, #39c5bb 0%, #4facfe 100%)',
         action: go_aigate_ad
     },

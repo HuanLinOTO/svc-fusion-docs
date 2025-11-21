@@ -9,7 +9,7 @@ title: 下载中转页
 其中包含了十分重要的信息，缺失这些可能导致您无法使用整合包
 
 :::warning 如果你显卡垃圾需要上云，以下是云端地址合集：
-**1、智算云扉（首推，注册送 20 算力 + 16小时4090D算力券，需实名，充值再享百分之8额外优惠）**
+**1、智算云扉（首推，注册送 20 算力 + 16小时4090D算力券，需实名，充值再享8%额外优惠）**
 
 SVC-Fusion：https://studio.aigate.cc/images/1007735255911759872?channel=E4Z7B2W5C&coupon=AM8HLIZE2C
 
@@ -36,16 +36,6 @@ MSST：https://www.codewithgpu.com/i/ZFTurbo/Music-Source-Separation-Training/MS
 如果启动器无法正常下载或者下载速度很慢
 
 在你检查了你的网络测速没有问题的情况下，这边建议先直接打爆你的宽带运营商电话，质问他为什么屏蔽阿里云的服务
-:::
-
-:::warning
-如果你出现了突然打不开 SVCFusion 的情况，请下载 [火绒](https://www.huorong.cn/)
-
-微软的 Windows Defender 和其他杀毒软件可能会误报 SVCFusion 的文件为病毒，导致无法打开。
-
-即使添加了信任，仍然可能会被误报，必须得要交钱买证书才能解决这个问题。
-
-安装火绒可以让 WD 闭嘴
 :::
 
 <comp :wait_time="wait_time" :link="link" :version="version"></comp>

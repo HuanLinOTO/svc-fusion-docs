@@ -11,5 +11,5 @@
 | 主模型       | G 开头，.pth 结尾的模型 | G_114514.pth     |
 | 主模型配置   | .json 结尾的配置        | config.json      |
 | 扩散模型     | .pt 结尾的模型          | model_1919810.pt |
-| 扩散模型配置 | .yml 结尾的配置         | config.yml       |
+| 扩散模型配置 | .yaml 结尾的配置         | config.yaml       |
 | 检索/聚类    | 不用填，没法用          | -                |

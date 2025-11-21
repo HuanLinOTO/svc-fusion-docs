@@ -6,7 +6,7 @@ SVC 是 Singing Voice Conversion（歌声转换）的缩写。Voice Conversion �
 
 ## 2. SVC 有哪些项目
 
-常见的开源的 SVC 项目有 So-VITS-SVC，RVC，DDSP-SVC，Diffusion-SVC，Diff-SVC，ReFlow-VAE-SVC
+常见的开源的 SVC 项目有 So-VITS-SVC，RVC，DDSP-SVC，Diffusion-SVC，ReFlow-VAE-SVC
 
 本 fusion 整合包集成了 So-VITS 4.1 ，DDSP 6.3 / 6.1 / 6.0 ，ReFlow-VAE-SVC 三个项目（后续可能加入 RVC）
 
@@ -219,5 +219,5 @@ sovits 需要一小时（最佳一个半小时以上），ddsp 需要 10 分钟�
 高质量数据集要求响度统一，干净清晰，内容正常的干声。不缺频，以 wav （必须小写wav）或 flac 格式录制。录音环境要求：无底噪，杂音，不可出现伴奏、压缩效果和混响。唱歌和朗读请保持口齿清楚不含糊。唱歌尽量选三首及以上有高音的歌。
 
 :::tip
-手机录音和杂牌麦克风录音质量基本偏差，经 UVR5 分离的有损音频一般更差，只能说勉强能用。
+手机录音和杂牌麦克风录音质量基本偏差，经 MSST 分离的有损音频一般更差，只能说勉强能用。
 :::

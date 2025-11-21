@@ -39,10 +39,6 @@ Authors:
 
 - 5.如果显示仍然有空余显存却还是爆显存了，那就是你的虚拟内存不够大，调整到至少 50G 以上。
 
-## Access is denied. Press any key to continue . . . \ " ddsp.webui.exe " is not recognized as an internal or external operable program or bantch file. Press any key to continue . . . \ ModuleNotFoundError: No module named 'dist' Press any key to continue . . .
-
-- 关掉你那些该死的杀毒软件，包括 Windows Defender ，然后重新解压软件。
-
 ## IMPORTANT: You are using gradio version 4.18.0, however version 4.29.0 is available, please upgrade.
 
 - 这不是报错，不用管
