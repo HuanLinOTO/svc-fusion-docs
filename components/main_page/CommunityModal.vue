@@ -36,7 +36,19 @@
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">～2000人</span>
+                            <div class="member-progress-section">
+                                <div class="member-info">
+                                    <span class="member-count">{{ getMemberCount(172701496, '~2000 成员') }}</span>
+                                    <span v-if="groupsData.get(172701496)" class="max-count">/ {{
+                                        getMaxMembersDisplay(172701496) }}</span>
+                                </div>
+                                <div v-if="groupsData.get(172701496)" class="progress-bar">
+                                    <div class="progress-fill" :style="{
+                                        width: getMemberProgress(172701496) + '%',
+                                        backgroundColor: getProgressColor(172701496)
+                                    }"></div>
+                                </div>
+                            </div>
                             <span class="join-btn">立即加入</span>
                         </div>
                     </div>
@@ -55,12 +67,24 @@
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">~1000 成员</span>
+                            <div class="member-progress-section">
+                                <div class="member-info">
+                                    <span class="member-count">{{ getMemberCount(894118597, '~1000 成员') }}</span>
+                                    <span v-if="groupsData.get(894118597)" class="max-count">/ {{
+                                        getMaxMembersDisplay(894118597) }}</span>
+                                </div>
+                                <div v-if="groupsData.get(894118597)" class="progress-bar">
+                                    <div class="progress-fill" :style="{
+                                        width: getMemberProgress(894118597) + '%',
+                                        backgroundColor: getProgressColor(894118597)
+                                    }"></div>
+                                </div>
+                            </div>
                             <span class="join-btn">立即加入</span>
                         </div>
                     </div>
 
-                    <div class="group-item active" 
+                    <div class="group-item active"
                         @click="goto('https://qm.qq.com/cgi-bin/qm/qr?k=lbGSH-YcsabtCsy7g7ckpvBlPaLLwKdi&jump_from=webapi&authKey=UzTwXtfSKvkiBavgYQgkJ8lrcbV3lK0evVuYZjtKYcBiHdnyo8Q1JBOC4pmE2y65')">
                         <div class="group-header">
                             <div class="avatar-container">
@@ -74,7 +98,19 @@
                             </div>
                         </div>
                         <div class="group-footer">
-                            <span class="member-count">成员增长中</span>
+                            <div class="member-progress-section">
+                                <div class="member-info">
+                                    <span class="member-count">{{ getMemberCount(1038540343, '成员增长中') }}</span>
+                                    <span v-if="groupsData.get(1038540343)" class="max-count">/ {{
+                                        getMaxMembersDisplay(1038540343) }}</span>
+                                </div>
+                                <div v-if="groupsData.get(1038540343)" class="progress-bar">
+                                    <div class="progress-fill" :style="{
+                                        width: getMemberProgress(1038540343) + '%',
+                                        backgroundColor: getProgressColor(1038540343)
+                                    }"></div>
+                                </div>
+                            </div>
                             <span class="join-btn">立即加入</span>
                         </div>
                     </div>
@@ -100,13 +136,94 @@
 </template>
 
 <script lang="ts" setup>
-defineProps<{
+import { ref, onMounted, watch } from 'vue'
+
+const props = defineProps<{
     visible: boolean
 }>()
 
 defineEmits<{
     'update:visible': [value: boolean]
 }>()
+
+interface GroupInfo {
+    id: number
+    member_count: number
+    name: string
+}
+
+const groupsData = ref<Map<number, GroupInfo>>(new Map())
+
+const fetchGroupsData = async () => {
+    try {
+        const response = await fetch('https://syg.xdy.huanlin2026.me/api/groups')
+        const result = await response.json()
+        if (result.code === 0 && result.data?.groups) {
+            const map = new Map<number, GroupInfo>()
+            result.data.groups.forEach((group: GroupInfo) => {
+                map.set(group.id, group)
+            })
+            groupsData.value = map
+        }
+    } catch (error) {
+        console.error('Failed to fetch groups data:', error)
+    }
+}
+
+const getMemberCount = (groupId: number, fallback: string) => {
+    const group = groupsData.value.get(groupId)
+    if (group) {
+        return `${group.member_count} 成员`
+    }
+    return fallback
+}
+
+// 群最大人数档位
+const maxMemberLevels = [100, 300, 500, 1000, 2000, 3000]
+
+// 根据当前人数计算最大人数（向上取整到最近的档位）
+const getMaxMembers = (currentCount: number): number => {
+    for (const level of maxMemberLevels) {
+        if (currentCount <= level) {
+            return level
+        }
+    }
+    return 3000 // 默认最大3000
+}
+
+// 获取进度百分比
+const getMemberProgress = (groupId: number): number => {
+    const group = groupsData.value.get(groupId)
+    if (group) {
+        const maxMembers = getMaxMembers(group.member_count)
+        return Math.min((group.member_count / maxMembers) * 100, 100)
+    }
+    return 0
+}
+
+// 获取进度条颜色（根据占用率）
+const getProgressColor = (groupId: number): string => {
+    const progress = getMemberProgress(groupId)
+    if (progress >= 90) return '#ef4444' // 红色 - 快满了
+    if (progress >= 70) return '#f59e0b' // 橙色 - 较多
+    return '#10b981' // 绿色 - 正常
+}
+
+// 获取最大人数显示
+const getMaxMembersDisplay = (groupId: number): string => {
+    const group = groupsData.value.get(groupId)
+    if (group) {
+        return `${getMaxMembers(group.member_count)}`
+    }
+    return ''
+}
+
+// 当弹窗显示时获取数据
+watch(() => props.visible, (newVal) => {
+    if (newVal) {
+        fetchGroupsData()
+    }
+})
 
 const goto = (url: string) => {
     if (typeof window !== 'undefined') {
@@ -342,6 +459,45 @@ const goto = (url: string) => {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 16px;
+
+            .member-progress-section {
+                flex: 1;
+                min-width: 0;
+
+                .member-info {
+                    display: flex;
+                    align-items: baseline;
+                    gap: 4px;
+                    margin-bottom: 6px;
+
+                    .member-count {
+                        font-size: 0.85rem;
+                        color: #374151;
+                        font-weight: 600;
+                    }
+
+                    .max-count {
+                        font-size: 0.75rem;
+                        color: #9ca3af;
+                        font-weight: 500;
+                    }
+                }
+
+                .progress-bar {
+                    width: 100%;
+                    height: 6px;
+                    background: #e5e7eb;
+                    border-radius: 3px;
+                    overflow: hidden;
+
+                    .progress-fill {
+                        height: 100%;
+                        border-radius: 3px;
+                        transition: width 0.5s ease, background-color 0.3s ease;
+                    }
+                }
+            }
 
             .member-count {
                 font-size: 0.85rem;
@@ -357,6 +513,7 @@ const goto = (url: string) => {
                 padding: 8px 16px;
                 border-radius: 12px;
                 transition: all 0.3s ease;
+                flex-shrink: 0;
 
                 &.disabled {
                     opacity: 0.5;

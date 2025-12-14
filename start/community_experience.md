@@ -2,6 +2,36 @@
 
 <script setup>
 import VideoCard from '../components/VideoCard.vue'
+import { ref, onMounted } from 'vue'
+
+// QQ群信息
+const groups = ref([
+  { id: 172701496, member_count: 0, name: '一群' },
+  { id: 894118597, member_count: 0, name: '二群' }
+])
+const totalMembers = ref(0)
+const isLoading = ref(true)
+
+// 获取群人数
+onMounted(async () => {
+  try {
+    const res = await fetch('https://syg.xdy.huanlin2026.me/api/groups')
+    const data = await res.json()
+    if (data.code === 0 && data.data?.groups) {
+      data.data.groups.forEach(g => {
+        const group = groups.value.find(item => item.id === g.id)
+        if (group) {
+          group.member_count = g.member_count
+        }
+      })
+      totalMembers.value = groups.value.reduce((sum, g) => sum + g.member_count, 0)
+    }
+  } catch (e) {
+    console.error('获取群人数失败', e)
+  } finally {
+    isLoading.value = false
+  }
+})
 
 const videos = [
   {
@@ -54,6 +84,40 @@ const videos = [
   <p class="hero-description">
     🎤 这儿是社区成员分享的经验和技巧，帮助你更好地使用 SVC Fusion
   </p>
+  
+  <!-- QQ群统计 -->
+  <div class="group-stats">
+    <div class="stats-header">
+      <span class="stats-icon">👥</span>
+      <span class="stats-title">社区规模</span>
+      <span class="stats-total" v-if="!isLoading">
+        共 <strong>{{ totalMembers.toLocaleString() }}</strong> 位成员
+      </span>
+      <span class="stats-loading" v-else>加载中...</span>
+    </div>
+    <div class="group-cards">
+      <a 
+        v-for="group in groups" 
+        :key="group.id"
+        :href="`https://qm.qq.com/q/${group.id}`"
+        target="_blank"
+        class="group-card"
+      >
+        <div class="group-info">
+          <span class="group-name">{{ group.name }}</span>
+          <span class="group-id">{{ group.id }}</span>
+        </div>
+        <div class="group-count" v-if="!isLoading">
+          <span class="count-number">{{ group.member_count.toLocaleString() }}</span>
+          <span class="count-label">人</span>
+        </div>
+        <div class="group-count loading" v-else>
+          <span class="count-number">--</span>
+        </div>
+      </a>
+    </div>
+  </div>
+  
   <div class="contribute-banner">
     <span class="contribute-icon">💡</span>
     <span>有任何想分享的经验？欢迎在 QQ 群找我添加，或直接 PR 到文档，喊 <strong>@aiguoliuguo</strong> 合并</span>
@@ -95,6 +159,122 @@ const videos = [
   font-size: 1.2em;
   color: #4a5568;
   margin-bottom: 20px;
+}
+
+/* QQ群统计样式 */
+.group-stats {
+  margin: 24px 0;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 16px;
+  border: 1px solid rgba(102, 126, 234, 0.1);
+}
+
+.stats-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.stats-icon {
+  font-size: 1.3em;
+}
+
+.stats-title {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.stats-total {
+  padding: 4px 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.85em;
+}
+
+.stats-total strong {
+  font-weight: 700;
+}
+
+.stats-loading {
+  color: #a0aec0;
+  font-size: 0.85em;
+}
+
+.group-cards {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.group-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.15);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  min-width: 180px;
+}
+
+.group-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.group-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.group-name {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.95em;
+}
+
+.group-id {
+  font-size: 0.75em;
+  color: #a0aec0;
+  font-family: monospace;
+}
+
+.group-count {
+  display: flex;
+  align-items: baseline;
+  gap: 2px;
+  margin-left: auto;
+}
+
+.group-count .count-number {
+  font-size: 1.4em;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.group-count .count-label {
+  font-size: 0.8em;
+  color: #718096;
+}
+
+.group-count.loading .count-number {
+  color: #a0aec0;
+  background: none;
+  -webkit-text-fill-color: #a0aec0;
 }
 
 .contribute-banner {
@@ -157,6 +337,36 @@ const videos = [
 }
 
 .dark .hero-description {
+  color: #a0aec0;
+}
+
+.dark .group-stats {
+  background: rgba(26, 32, 44, 0.6);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.dark .stats-title {
+  color: #e2e8f0;
+}
+
+.dark .group-card {
+  background: #1a202c;
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+.dark .group-card:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.dark .group-name {
+  color: #e2e8f0;
+}
+
+.dark .group-id {
+  color: #718096;
+}
+
+.dark .group-count .count-label {
   color: #a0aec0;
 }
 
