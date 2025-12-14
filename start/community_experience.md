@@ -4,35 +4,6 @@
 import VideoCard from '../components/VideoCard.vue'
 import { ref, onMounted } from 'vue'
 
-// QQ群信息
-const groups = ref([
-  { id: 172701496, member_count: 0, name: '一群' },
-  { id: 894118597, member_count: 0, name: '二群' }
-])
-const totalMembers = ref(0)
-const isLoading = ref(true)
-
-// 获取群人数
-onMounted(async () => {
-  try {
-    const res = await fetch('https://syg.xdy.huanlin2026.me/api/groups')
-    const data = await res.json()
-    if (data.code === 0 && data.data?.groups) {
-      data.data.groups.forEach(g => {
-        const group = groups.value.find(item => item.id === g.id)
-        if (group) {
-          group.member_count = g.member_count
-        }
-      })
-      totalMembers.value = groups.value.reduce((sum, g) => sum + g.member_count, 0)
-    }
-  } catch (e) {
-    console.error('获取群人数失败', e)
-  } finally {
-    isLoading.value = false
-  }
-})
-
 const videos = [
   {
     icon: '📦',
@@ -82,45 +53,12 @@ const videos = [
 
 <div class="community-hero">
   <p class="hero-description">
-    🎤 这儿是社区成员分享的经验和技巧，帮助你更好地使用 SVC Fusion
+    🎤 这是社区的经验和技巧，帮助你更好地使用 SVC Fusion
   </p>
-  
-  <!-- QQ群统计 -->
-  <div class="group-stats">
-    <div class="stats-header">
-      <span class="stats-icon">👥</span>
-      <span class="stats-title">社区规模</span>
-      <span class="stats-total" v-if="!isLoading">
-        共 <strong>{{ totalMembers.toLocaleString() }}</strong> 位成员
-      </span>
-      <span class="stats-loading" v-else>加载中...</span>
-    </div>
-    <div class="group-cards">
-      <a 
-        v-for="group in groups" 
-        :key="group.id"
-        :href="`https://qm.qq.com/q/${group.id}`"
-        target="_blank"
-        class="group-card"
-      >
-        <div class="group-info">
-          <span class="group-name">{{ group.name }}</span>
-          <span class="group-id">{{ group.id }}</span>
-        </div>
-        <div class="group-count" v-if="!isLoading">
-          <span class="count-number">{{ group.member_count.toLocaleString() }}</span>
-          <span class="count-label">人</span>
-        </div>
-        <div class="group-count loading" v-else>
-          <span class="count-number">--</span>
-        </div>
-      </a>
-    </div>
-  </div>
   
   <div class="contribute-banner">
     <span class="contribute-icon">💡</span>
-    <span>有任何想分享的经验？欢迎在 QQ 群找我添加，或直接 PR 到文档，喊 <strong>@aiguoliuguo</strong> 合并</span>
+    <span>有任何想分享的经验？欢迎在 QQ 群直接找我添加，或在视频简介中 [@多玩幻灵qwq](https://space.bilibili.com/503423945)</span>
   </div>
 </div>
 
