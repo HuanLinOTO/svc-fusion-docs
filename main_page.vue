@@ -1,5 +1,6 @@
 <template>
     <NModalProvider>
+        <NewYearEffects />
         <Banner />
         <HeroSection @show-modal="showModal = true" />
         <ComparisonTable />
@@ -15,6 +16,7 @@ const { NModalProvider } = naive
 import { ref } from "vue"
 import './index.css'
 
+import NewYearEffects from './components/main_page/NewYearEffects.vue'
 import Banner from './components/main_page/Banner.vue'
 import HeroSection from './components/main_page/HeroSection.vue'
 import ComparisonTable from './components/main_page/ComparisonTable.vue'
