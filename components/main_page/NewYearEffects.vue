@@ -5,21 +5,21 @@
         <!-- 红包/福字飘落容器 -->
         <div class="falling-items" aria-hidden="true">
             <div class="falling-item" v-for="i in 15" :key="i">
-                <div class="inner">{{ ['🧧', '福', '🏮', '🎊', '✨'][i % 5] }}</div>
+                <div class="inner" v-html="fallingIcons[i % 5]"></div>
             </div>
         </div>
         <!-- 新年横幅 -->
         <Transition name="banner-fade">
             <div class="new-year-banner" v-if="showBanner" @click="closeBanner">
+                <div class="banner-sub">↓点击关闭↓</div>
                 <div class="banner-content chinese-style">
                     <span class="text">SVCFusion 开发团队祝各位新年快乐，万事如意！</span>
                 </div>
-                <div class="banner-sub">↑点击关闭↑</div>
             </div>
         </Transition>
         <!-- 角落装饰 -->
-        <div class="corner-decoration top-left">🏮</div>
-        <div class="corner-decoration top-right">🏮</div>
+        <div class="corner-decoration top-left" v-html="lanternSvg"></div>
+        <div class="corner-decoration top-right" v-html="lanternSvg"></div>
     </div>
 </template>
 
@@ -29,6 +29,65 @@ import { ref, onMounted, onUnmounted } from 'vue'
 const fireworksCanvas = ref<HTMLCanvasElement | null>(null)
 const showBanner = ref(true)
 let animationId: number | null = null
+
+// SVG 图标定义
+const redEnvelopeSvg = `<svg viewBox="0 0 64 64" width="1em" height="1em">
+  <rect x="8" y="4" width="48" height="56" rx="4" fill="#e53935"/>
+  <rect x="8" y="4" width="48" height="20" rx="4" fill="#c62828"/>
+  <circle cx="32" cy="24" r="10" fill="#ffd54f"/>
+  <text x="32" y="29" text-anchor="middle" fill="#c62828" font-size="12" font-weight="bold">福</text>
+  <rect x="28" y="34" width="8" height="16" fill="#ffd54f"/>
+</svg>`
+
+const fuSvg = `<svg viewBox="0 0 64 64" width="1em" height="1em">
+  <rect x="4" y="4" width="56" height="56" rx="4" fill="#e53935"/>
+  <rect x="8" y="8" width="48" height="48" rx="2" fill="#c62828" stroke="#ffd54f" stroke-width="2"/>
+  <text x="32" y="45" text-anchor="middle" fill="#ffd54f" font-size="36" font-weight="bold" font-family="serif">福</text>
+</svg>`
+
+const lanternSvg = `<svg viewBox="0 0 64 80" width="1em" height="1em">
+  <rect x="24" y="0" width="16" height="8" fill="#ffd54f"/>
+  <line x1="32" y1="8" x2="32" y2="14" stroke="#c62828" stroke-width="2"/>
+  <ellipse cx="32" cy="40" rx="24" ry="28" fill="#e53935"/>
+  <ellipse cx="32" cy="40" rx="20" ry="24" fill="#ff5722"/>
+  <ellipse cx="32" cy="40" rx="16" ry="20" fill="#ff7043"/>
+  <rect x="8" y="36" width="48" height="8" fill="#ffd54f" opacity="0.6"/>
+  <text x="32" y="45" text-anchor="middle" fill="#ffd54f" font-size="16" font-weight="bold">春</text>
+  <rect x="24" y="66" width="16" height="6" fill="#ffd54f"/>
+  <line x1="28" y1="72" x2="28" y2="80" stroke="#e53935" stroke-width="2"/>
+  <line x1="32" y1="72" x2="32" y2="82" stroke="#e53935" stroke-width="2"/>
+  <line x1="36" y1="72" x2="36" y2="80" stroke="#e53935" stroke-width="2"/>
+</svg>`
+
+const fireworkSvg = `<svg viewBox="0 0 64 64" width="1em" height="1em">
+  <circle cx="32" cy="32" r="6" fill="#ffd54f"/>
+  <g stroke="#ff5722" stroke-width="2">
+    <line x1="32" y1="8" x2="32" y2="20"/>
+    <line x1="32" y1="44" x2="32" y2="56"/>
+    <line x1="8" y1="32" x2="20" y2="32"/>
+    <line x1="44" y1="32" x2="56" y2="32"/>
+    <line x1="15" y1="15" x2="23" y2="23"/>
+    <line x1="41" y1="41" x2="49" y2="49"/>
+    <line x1="49" y1="15" x2="41" y2="23"/>
+    <line x1="23" y1="41" x2="15" y2="49"/>
+  </g>
+  <circle cx="32" cy="8" r="3" fill="#e53935"/>
+  <circle cx="32" cy="56" r="3" fill="#e53935"/>
+  <circle cx="8" cy="32" r="3" fill="#ffd54f"/>
+  <circle cx="56" cy="32" r="3" fill="#ffd54f"/>
+  <circle cx="15" cy="15" r="2" fill="#ff9800"/>
+  <circle cx="49" cy="49" r="2" fill="#ff9800"/>
+  <circle cx="49" cy="15" r="2" fill="#ff9800"/>
+  <circle cx="15" cy="49" r="2" fill="#ff9800"/>
+</svg>`
+
+const sparklesSvg = `<svg viewBox="0 0 64 64" width="1em" height="1em">
+  <polygon points="32,4 36,24 56,24 40,36 46,56 32,44 18,56 24,36 8,24 28,24" fill="#ffd54f"/>
+  <polygon points="32,12 34,24 46,24 36,32 40,44 32,36 24,44 28,32 18,24 30,24" fill="#ffeb3b"/>
+  <circle cx="32" cy="28" r="4" fill="#fff"/>
+</svg>`
+
+const fallingIcons = [redEnvelopeSvg, fuSvg, lanternSvg, fireworkSvg, sparklesSvg]
 
 const closeBanner = () => {
     showBanner.value = false
@@ -274,8 +333,9 @@ onMounted(() => {
 /* 新年横幅 - 中国风 */
 .new-year-banner {
     position: fixed;
-    bottom: 20px;
+    bottom: 0px;
     left: 50%;
+    width: 100%;
     transform: translateX(-50%);
     pointer-events: auto;
     cursor: pointer;
@@ -288,16 +348,16 @@ onMounted(() => {
     background: linear-gradient(135deg, #c41e3a 0%, #ff4757 30%, #c41e3a 50%, #8b0000 100%);
     background-size: 200% 200%;
     animation: chinese-gradient 3s ease infinite;
-    padding: 16px 32px;
-    border-radius: 8px;
+    padding: 10px 32px;
+    /* border-radius: 8px; */
     display: flex;
     align-items: center;
-    gap: 12px;
+    /* gap: 12px; */
     box-shadow:
         0 4px 20px rgba(196, 30, 58, 0.5),
         inset 0 1px 0 rgba(255, 255, 255, 0.2),
         0 0 30px rgba(255, 215, 0, 0.3);
-    border: 3px solid #ffd700;
+    /* border: 3px solid #ffd700; */
     position: relative;
 }
 
@@ -377,9 +437,14 @@ onMounted(() => {
 /* 角落装饰 */
 .corner-decoration {
     position: fixed;
-    font-size: 40px;
+    font-size: 48px;
     animation: corner-swing 3s ease-in-out infinite;
     filter: drop-shadow(0 0 10px rgba(255, 100, 0, 0.6));
+}
+
+.corner-decoration :deep(svg) {
+    width: 1em;
+    height: 1.2em;
 }
 
 .corner-decoration.top-left {
@@ -415,15 +480,23 @@ onMounted(() => {
 }
 
 .falling-item {
-    font-size: 1.5em;
+    font-size: 2em;
     position: absolute;
     top: -10%;
     animation: fall-down linear infinite;
 }
 
 .falling-item .inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: item-spin 4s linear infinite;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.falling-item .inner :deep(svg) {
+    width: 1em;
+    height: 1em;
 }
 
 @keyframes fall-down {
