@@ -1,5 +1,5 @@
 <template>
-    <div class="new-year-effects">
+    <div class="new-year-effects" v-if="isNewYearPeriod">
         <!-- 烟花 Canvas -->
         <canvas ref="fireworksCanvas" class="fireworks-canvas"></canvas>
         <!-- 红包/福字飘落容器 -->
@@ -24,11 +24,25 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const fireworksCanvas = ref<HTMLCanvasElement | null>(null)
 const showBanner = ref(true)
 let animationId: number | null = null
+
+// 判断是否在新年期间（12月28日 - 次年3月1日）
+const isNewYearPeriod = computed(() => {
+    const now = new Date()
+    const month = now.getMonth() + 1 // getMonth() 返回 0-11
+    const day = now.getDate()
+
+    // 12月28日及之后 或 1月、2月全月 或 3月1日
+    if (month === 12 && day >= 28) return true
+    if (month === 1 || month === 2) return true
+    if (month === 3 && day === 1) return true
+
+    return false
+})
 
 // SVG 图标定义
 const redEnvelopeSvg = `<svg viewBox="0 0 64 64" width="1em" height="1em">
@@ -218,6 +232,9 @@ class Particle {
 }
 
 onMounted(() => {
+    // 如果不在新年期间，不启动动画
+    if (!isNewYearPeriod.value) return
+
     const canvas = fireworksCanvas.value
     if (!canvas) return
 
