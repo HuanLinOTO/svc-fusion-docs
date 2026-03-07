@@ -2,3 +2,5 @@
 .vitepress/dist
 
 node_modules
+
+raw_conent/

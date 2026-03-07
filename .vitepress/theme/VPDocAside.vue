@@ -4,11 +4,13 @@ import { useData } from 'vitepress/dist/client/theme-default/composables/data.js
 import VPDocAsideOutline from 'vitepress/dist/client/theme-default/components/VPDocAsideOutline.vue'
 import VPDocAsideCarbonAds from 'vitepress/dist/client/theme-default/components/VPDocAsideCarbonAds.vue'
 import { go_uc_ad, go_aigate_ad, go_xunduyun_ad } from '../../utils/ad'
-import AIGateAD from '../../imgs/AIGate-AD.jpg'
+import AIGateAD from '../../imgs/aigate_a10g.png'
 import UCloudAD from '../../imgs/UCloud-AD.png'
 import XunduyunAD from '../../imgs/d793fa7b2a698aa722a2fa361cf6c48a.png'
+import XinghaiComputeAd from '../../imgs/xinghai-compute-ad.svg'
 
 const { theme } = useData()
+const SHOW_XINGHAI_AD = false
 
 type SponsorCard = {
     id: string
@@ -20,7 +22,24 @@ type SponsorCard = {
     cardClass: string
 }
 
+const go_xinghai_ad = (): void => {
+    const url = 'https://xinghai-compute.ai'
+    const newWindow = window.open(url, '_blank')
+    if (newWindow) {
+        newWindow.focus()
+    }
+}
+
 const sponsors = ref<SponsorCard[]>([
+    ...(SHOW_XINGHAI_AD ? [{
+        id: 'xinghai-compute',
+        title: '星海智算',
+        image: XinghaiComputeAd,
+        alt: '星海智算',
+        description: '星海智算 · 大模型训练与推理的一站式 AI 算力平台',
+        action: go_xinghai_ad,
+        cardClass: 'sponsor-card-secondary'
+    }] : []),
     {
         id: 'aigate',
         title: '智算云扉',
@@ -50,7 +69,6 @@ const sponsors = ref<SponsorCard[]>([
     }
 ])
 
-// 随机打乱数组
 function shuffleArray<T>(array: T[]): T[] {
     const newArray = [...array]
     for (let i = newArray.length - 1; i > 0; i--) {
@@ -75,7 +93,6 @@ onMounted(() => {
 
         <div class="sponsors-grid">
             <div v-for="sponsor in sponsors" :key="sponsor.id" class="sponsor-card" :class="sponsor.cardClass">
-                <!-- <p class="sponsor-title">{{ sponsor.title }}</p> -->
                 <a @click="sponsor.action" class="sponsor-link">
                     <img :src="sponsor.image" :alt="sponsor.alt" class="sponsor-image">
                     <div class="sponsor-description">
