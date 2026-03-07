@@ -1,11 +1,32 @@
 [
   {
     "link": "https://pan.quark.cn/s/f5476dfbde71",
+    "date": "2026//6",
+    "version": "2.2.1",
+    "changes": [
+      "修复归档问题",
+      "添加日语",
+      "更新版本号至 v2.2.1"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://pan.quark.cn/s/f5476dfbde71",
+    "date": "2025/9/6",
+    "version": "2.2.0",
+    "changes": [
+      "添加添加F0预测器和声码器模块，支持多种音频处理功能",
+      "更新版本号至 v2.2.0"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://pan.quark.cn/s/f5476dfbde71",
     "date": "2025/9/6",
     "version": "2.1.1",
     "changes": [
       "修复归档问题",
-      "添加预训练模型未找到提示，并更新版本号至 v2.1.1"
+      "更新版本号至 v2.1.1"
     ],
     "env": null
   },
