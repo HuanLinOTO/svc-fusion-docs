@@ -1,3 +1,5 @@
+export const SHOW_XINGHAI_AD = false
+
 export const go_uc_ad = (): void => {
     const url = "https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF"
     // 打开新页面
@@ -53,5 +55,13 @@ export const go_xunduyun_ad = (): void => {
             event_category: 'ad',
             event_label: 'go_xunduyun_ad'
         });
+    }
+}
+
+export const go_xinghai_ad = (): void => {
+    const url = "https://spacehpc.com/user/register?inviteCode=21777196"
+    const newWindow = window.open(url, "_blank")
+    if (newWindow) {
+        newWindow.focus()
     }
 }

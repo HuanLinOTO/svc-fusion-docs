@@ -1,9 +1,10 @@
 <template>
     <div class="banner" :class="`banner--${current.key}`" @click="onClick">
         <!-- 背景渐变层 -->
+        <div class="banner-bg banner-bg--xinghai"></div>
         <div class="banner-bg banner-bg--aigate"></div>
         <div class="banner-bg banner-bg--ucloud"></div>
-        
+
         <!-- 内容层 -->
         <transition name="banner" mode="out-in">
             <div class="banner-content" :key="index">
@@ -26,7 +27,8 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import AIGateLogo from '../../imgs/AIGate-Logo.png'
-import { go_uc_ad, go_aigate_ad } from '../../utils/ad'
+import XinghaiComputeAd from '../../imgs/xinghai-compute-ad.svg'
+import { go_uc_ad, go_aigate_ad, go_xinghai_ad, SHOW_XINGHAI_AD } from '../../utils/ad'
 
 type Sponsor = {
     key: string
@@ -38,6 +40,14 @@ type Sponsor = {
 }
 
 const sponsors = ref<Sponsor[]>([
+    ...(SHOW_XINGHAI_AD ? [{
+        key: 'xinghai',
+        icon: XinghaiComputeAd,
+        alt: '星海智算',
+        text: '🚀 星海智算限时邀请福利：A10G 算力开箱即用，点击注册领取专属优惠与新手权益！',
+        bg: 'linear-gradient(135deg, #0c1530 0%, #1f4fff 55%, #42c2ff 100%)',
+        action: go_xinghai_ad
+    }] : []),
     {
         key: 'aigate',
         icon: AIGateLogo,
@@ -129,17 +139,22 @@ function onClick() {
         opacity: 0;
         transition: opacity 0.8s ease;
         z-index: 1;
-        
+
         &--aigate {
             background: linear-gradient(135deg, #39c5bb 0%, #4facfe 100%);
         }
-        
+
+        &--xinghai {
+            background: linear-gradient(135deg, #0c1530 0%, #1f4fff 55%, #42c2ff 100%);
+        }
+
         &--ucloud {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
     }
 
     // 控制显示哪个背景
+    &--xinghai &-bg--xinghai,
     &--aigate &-bg--aigate,
     &--ucloud &-bg--ucloud {
         opacity: 1;
