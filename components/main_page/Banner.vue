@@ -27,7 +27,7 @@
 <script lang="ts" setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import AIGateLogo from '../../imgs/AIGate-Logo.png'
-import XinghaiComputeAd from '../../imgs/xinghai-compute-ad.svg'
+import XinghaiComputeAd from '../../imgs/星海智算logo .png'
 import { go_uc_ad, go_aigate_ad, go_xinghai_ad, SHOW_XINGHAI_AD } from '../../utils/ad'
 
 type Sponsor = {
@@ -44,7 +44,7 @@ const sponsors = ref<Sponsor[]>([
         key: 'xinghai',
         icon: XinghaiComputeAd,
         alt: '星海智算',
-        text: '🚀 星海智算限时邀请福利：A10G 算力开箱即用，点击注册领取专属优惠与新手权益！',
+        text: '🚀 点击注册星海智算，无门槛立领30元支付券，充值再享5%额外优惠！',
         bg: 'linear-gradient(135deg, #0c1530 0%, #1f4fff 55%, #42c2ff 100%)',
         action: go_xinghai_ad
     }] : []),
@@ -193,10 +193,10 @@ function onClick() {
     }
 
     &-icon {
-        height: 40px;
+        height: 48px;
         border-radius: 8px;
         background: rgba(255, 255, 255, 0.9);
-        padding: 8px;
+        padding: 4px 10px;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 

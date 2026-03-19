@@ -7,7 +7,7 @@ import { go_uc_ad, go_aigate_ad, go_xunduyun_ad, go_xinghai_ad, SHOW_XINGHAI_AD 
 import AIGateAD from '../../imgs/aigate_a10g.png'
 import UCloudAD from '../../imgs/UCloud-AD.png'
 import XunduyunAD from '../../imgs/d793fa7b2a698aa722a2fa361cf6c48a.png'
-import XinghaiComputeAd from '../../imgs/xinghai-compute-ad.svg'
+import XinghaiComputeAd from '../../imgs/星海官网图.jpg'
 
 const { theme } = useData()
 
@@ -27,7 +27,7 @@ const sponsors = ref<SponsorCard[]>([
         title: '星海智算',
         image: XinghaiComputeAd,
         alt: '星海智算',
-        description: '星海智算 · 大模型训练与推理的一站式 AI 算力平台',
+        description: '点击注册星海智算，无门槛立领30元支付券，充值再享5%额外优惠！',
         action: go_xinghai_ad,
         cardClass: 'sponsor-card-secondary'
     }] : []),
