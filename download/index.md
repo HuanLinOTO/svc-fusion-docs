@@ -11,7 +11,9 @@ title: 下载中转页
 :::warning 如果你显卡垃圾需要上云，以下是云端地址合集：
 **1、星海智算（注册送 30 算力，需实名，充值再享5%额外优惠！ ）**
 
-SVC-Fusion：https://spacehpc.com/user/register?inviteCode=21777196
+SVC-Fusion-linux：https://spacehpc.com/image/share/kdDGGcFVnPYQ2uvd?inviteCode=21777196
+
+SVC-Fusion-win：https://spacehpc.com/image/share/Zm34hReP1WnnKFlN?inviteCode=21777196
 
 **2、优云智算（注册送 10 算力，需实名，高校认证后送 10 ）**
 

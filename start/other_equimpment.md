@@ -10,16 +10,14 @@
 
 ## MAC 用户
 
-![image.png](/imgs/image.png)
-
-由于适配 MAC 实在麻烦，同时项目组开发者手上也并没有 MAC 系统的电脑，当然如果你愿意赞助我们一台 MAC 用于测试和维护项目，我们可以考虑进行适配。
-
-目前最好的方式就是使用我们推荐的云平台进行训练和推理模型，省时省力。
+正在适配中，敬请期待
 
 :::warning 以下是云端地址合集：
 **1、星海智算（注册送 30 算力，需实名，充值再享5%额外优惠！ ）**
 
-SVC-Fusion：https://spacehpc.com/user/register?inviteCode=21777196
+SVC-Fusion-linux：https://spacehpc.com/image/share/kdDGGcFVnPYQ2uvd?inviteCode=21777196
+
+SVC-Fusion-win：https://spacehpc.com/image/share/Zm34hReP1WnnKFlN?inviteCode=21777196
 
 **2、优云智算（注册送 10 算力，需实名，高校认证后送 10 ）**
 
