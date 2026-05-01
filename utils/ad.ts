@@ -59,7 +59,7 @@ export const go_xunduyun_ad = (): void => {
 }
 
 export const go_xinghai_ad = (): void => {
-    const url = "https://spacehpc.com/user/register?inviteCode=21777196"
+    const url = "https://spacehpc.com/image/share/kdDGGcFVnPYQ2uvd?inviteCode=21777196"
     const newWindow = window.open(url, "_blank")
     if (newWindow) {
         newWindow.focus()
