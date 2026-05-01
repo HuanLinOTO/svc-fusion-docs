@@ -194,10 +194,8 @@ function onClick() {
 
     &-icon {
         height: 48px;
-        border-radius: 8px;
-        background: rgba(255, 255, 255, 0.9);
-        padding: 4px 10px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        display: block;
+        border-radius: 10px;
     }
 
 
