@@ -1,4 +1,5 @@
 export const SHOW_XINGHAI_AD = false
+export const SHOW_AIGATE_AD = false
 
 export const go_uc_ad = (): void => {
     const url = "https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF"

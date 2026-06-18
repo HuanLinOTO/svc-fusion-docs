@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useData } from 'vitepress/dist/client/theme-default/composables/data.js'
 import VPDocAsideOutline from 'vitepress/dist/client/theme-default/components/VPDocAsideOutline.vue'
 import VPDocAsideCarbonAds from 'vitepress/dist/client/theme-default/components/VPDocAsideCarbonAds.vue'
-import { go_uc_ad, go_aigate_ad, go_xunduyun_ad, go_xinghai_ad, SHOW_XINGHAI_AD } from '../../utils/ad'
+import { go_uc_ad, go_aigate_ad, go_xunduyun_ad, go_xinghai_ad, SHOW_XINGHAI_AD, SHOW_AIGATE_AD } from '../../utils/ad'
 import AIGateAD from '../../imgs/aigate_a10g.png'
 import UCloudAD from '../../imgs/UCloud-AD.png'
 import XunduyunAD from '../../imgs/d793fa7b2a698aa722a2fa361cf6c48a.png'
@@ -31,7 +31,7 @@ const sponsors = ref<SponsorCard[]>([
         action: go_xinghai_ad,
         cardClass: 'sponsor-card-secondary'
     }] : []),
-    {
+    ...(SHOW_AIGATE_AD ? [{
         id: 'aigate',
         title: '智算云扉',
         image: AIGateAD,
@@ -39,7 +39,7 @@ const sponsors = ref<SponsorCard[]>([
         description: '20元算力+16小时4090d免费用，充值再享8%额外优惠！',
         action: go_aigate_ad,
         cardClass: 'sponsor-card-secondary'
-    },
+    }] : []),
     {
         id: 'ucloud',
         title: '优云智算',

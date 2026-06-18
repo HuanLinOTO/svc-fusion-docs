@@ -26,9 +26,9 @@ SVC-Fusion：https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referra
 
 MSST：https://www.compshare.cn/images/compshareImage-19o9qlm9x5f6?referral_code=1ywd4VqDKknFWCEUZvOoWo
 
-**3、智算云扉（首推，注册送 20 算力 + 16小时4090D算力券，需实名，充值再享8%额外优惠）**
+<!-- **3、智算云扉（首推，注册送 20 算力 + 16小时4090D算力券，需实名，充值再享8%额外优惠）**
 
-SVC-Fusion：https://studio.aigate.cc/images/1007735255911759872?channel=E4Z7B2W5C&coupon=AM8HLIZE2C
+SVC-Fusion：https://studio.aigate.cc/images/1007735255911759872?channel=E4Z7B2W5C&coupon=AM8HLIZE2C -->
 
 **4、AutoDL**
 

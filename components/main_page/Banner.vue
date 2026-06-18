@@ -28,7 +28,7 @@
 import { ref, computed, onMounted, onUnmounted } from 'vue'
 import AIGateLogo from '../../imgs/AIGate-Logo.png'
 import XinghaiComputeAd from '../../imgs/星海智算logo .png'
-import { go_uc_ad, go_aigate_ad, go_xinghai_ad, SHOW_XINGHAI_AD } from '../../utils/ad'
+import { go_uc_ad, go_aigate_ad, go_xinghai_ad, SHOW_XINGHAI_AD, SHOW_AIGATE_AD } from '../../utils/ad'
 
 type Sponsor = {
     key: string
@@ -48,14 +48,14 @@ const sponsors = ref<Sponsor[]>([
         bg: 'linear-gradient(135deg, #0c1530 0%, #1f4fff 55%, #42c2ff 100%)',
         action: go_xinghai_ad
     }] : []),
-    {
+    ...(SHOW_AIGATE_AD ? [{
         key: 'aigate',
         icon: AIGateLogo,
         alt: '智算云扉',
         text: '🚀 点击此处注册智算云扉，实名送20算力和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享8%额外优惠',
         bg: 'linear-gradient(135deg, #39c5bb 0%, #4facfe 100%)',
         action: go_aigate_ad
-    },
+    }] : []),
     {
         key: 'ucloud',
         icon: 'https://cdn.udelivrs.com/2024/11/437c3c1914197056212918f3d2cb53c1_1730962202072.png',
