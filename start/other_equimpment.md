@@ -13,13 +13,13 @@
 正在适配中，敬请期待
 
 :::warning 以下是云端地址合集：
-**1、星海智算（注册送 30 算力，需实名，充值再享5%额外优惠！ ）**
+<!-- **1、星海智算（注册送 30 算力，需实名，充值再享5%额外优惠！ ）**
 
 SVC-Fusion-linux：https://spacehpc.com/image/share/kdDGGcFVnPYQ2uvd?inviteCode=21777196
 
-SVC-Fusion-win：https://spacehpc.com/image/share/Zm34hReP1WnnKFlN?inviteCode=21777196
+SVC-Fusion-win：https://spacehpc.com/image/share/Zm34hReP1WnnKFlN?inviteCode=21777196 -->
 
-**2、优云智算（注册送 10 算力，需实名，高校认证后送 10 ）**
+**1、优云智算（注册送 10 算力，需实名，高校认证后送 10 ）**
 
 SVC-Fusion：https://www.compshare.cn/images/compshareImage-1aly0zqh3gvc?referral_code=1ywd4VqDKknFWCEUZvOoWo&ytag=GPU_aiguoliuguo_SF
 
@@ -30,7 +30,7 @@ MSST：https://www.compshare.cn/images/compshareImage-19o9qlm9x5f6?referral_code
 
 SVC-Fusion：https://studio.aigate.cc/images/1007735255911759872?channel=E4Z7B2W5C&coupon=AM8HLIZE2C -->
 
-**4、AutoDL**
+**2、AutoDL**
 
 SVC-Fusion：https://www.codewithgpu.com/i/HuanLinOTO/SVCFusion/svc-fusion
 
