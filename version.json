@@ -1,7 +1,24 @@
 [
   {
     "link": "https://pan.quark.cn/s/f5476dfbde71",
-    "date": "2026//6",
+    "date": "2026/6/21",
+    "version": "2.2.1",
+    "changes": [
+      "RVC 完整集成，作为第 6 个模型家族接入",
+      "pymss 替换内置 MSST，重构音乐源分离",
+      "添加 IPC 鉴权与 TCP Socket 协议",
+      "添加 Studio 声库导出功能",
+      "添加同步变调伴奏与 TensorBoard 日志功能",
+      "补齐多语言 locale 与 header 翻译",
+      "修复 Windows 路径空格兼容性问题",
+      "修复 CUDA 设备检查与 autocast 问题",
+      "更新版本号至 v2.3.0"
+    ],
+    "env": null
+  },
+  {
+    "link": "https://pan.quark.cn/s/f5476dfbde71",
+    "date": "？？？",
     "version": "2.2.1",
     "changes": [
       "修复归档问题",
