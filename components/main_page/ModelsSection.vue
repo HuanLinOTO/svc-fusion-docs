@@ -54,8 +54,8 @@ const models = [
     },
     {
         name: 'RVC',
-        versions: '',
-        isWIP: true
+        versions: 'v2',
+        isWIP: false
     },
     {
         name: 'RIFT-SVC',
