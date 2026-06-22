@@ -2,7 +2,7 @@
   {
     "link": "https://pan.quark.cn/s/f5476dfbde71",
     "date": "2026/6/21",
-    "version": "2.2.1",
+    "version": "2.3.0",
     "changes": [
       "RVC 完整集成，作为第 6 个模型家族接入",
       "pymss 替换内置 MSST，重构音乐源分离",
@@ -18,7 +18,7 @@
   },
   {
     "link": "https://pan.quark.cn/s/f5476dfbde71",
-    "date": "？？？",
+    "date": "2026/2/1",
     "version": "2.2.1",
     "changes": [
       "修复归档问题",
