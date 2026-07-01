@@ -58,9 +58,18 @@ const friendLinks: FriendLink[] = [
 .VPFooter {
     position: relative;
     z-index: var(--vp-z-index-footer);
-    border-top: 1px solid var(--vp-c-gutter);
-    padding: 32px 24px;
-    background-color: var(--vp-c-bg);
+    overflow: hidden;
+    border-top: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+    padding: 48px 24px 40px;
+    background: var(--surface-page, #ffffff);
+}
+
+.VPFooter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 0%, rgba(99, 91, 255, 0.045) 0%, transparent 62%);
+    pointer-events: none;
 }
 
 .VPFooter.has-sidebar {
@@ -84,6 +93,8 @@ const friendLinks: FriendLink[] = [
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     margin: 0 auto;
     max-width: var(--vp-layout-max-width);
     text-align: center;
@@ -95,58 +106,58 @@ const friendLinks: FriendLink[] = [
 }
 
 .friend-links-title {
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-primary, #0a2540);
     margin-bottom: 16px;
+    letter-spacing: -0.01em;
 }
 
 .friend-links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
+    gap: 12px;
     margin-bottom: 16px;
 }
 
 .friend-link-item {
     display: block;
-    padding: 16px 20px;
-    background-color: rgba(80, 80, 80, 0.3);
-    border-radius: 12px;
+    padding: 14px 18px;
+    background-color: var(--surface-subtle, #f6f9fc);
+    border-radius: 8px;
     text-decoration: none;
-    transition: all 0.3s ease;
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+    border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
 }
 
 .friend-link-item:hover {
-    background-color: rgba(0, 0, 0, 0.158);
-    border-color: rgba(255, 255, 255, 0.2);
+    border-color: rgba(99, 91, 255, 0.3);
+    box-shadow: 0 4px 12px rgba(50, 50, 93, 0.06);
     transform: translateY(-2px);
 }
 
 .friend-link-title {
-    font-size: 15px;
+    font-size: 0.9rem;
     font-weight: 600;
-    color: white;
-    margin-bottom: 6px;
+    color: var(--text-primary, #0a2540);
+    margin-bottom: 4px;
+    letter-spacing: -0.01em;
 }
 
 .friend-link-description {
-    font-size: 13px;
-    color: whitesmoke;
+    font-size: 0.78rem;
+    color: var(--text-secondary, #425466);
     line-height: 1.5;
-    opacity: 0.8;
 }
 
 @media (max-width: 768px) {
     .friend-links-grid {
         grid-template-columns: 1fr;
-        gap: 12px;
+        gap: 10px;
     }
 
     .friend-link-item {
-        padding: 14px 16px;
+        padding: 12px 16px;
     }
 }
 
@@ -155,6 +166,41 @@ const friendLinks: FriendLink[] = [
     line-height: 24px;
     font-size: 14px;
     font-weight: 500;
-    color: var(--vp-c-text-2);
+    color: var(--text-muted, #8392ab);
+}
+
+/* Dark mode */
+.dark .VPFooter {
+    background: linear-gradient(to bottom, var(--surface-page, #0a2540) 0%, #071d33 100%);
+    border-top-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .VPFooter::before {
+    background:
+        radial-gradient(ellipse 70% 72% at 50% 0%, rgba(122, 115, 255, 0.09) 0%, transparent 62%),
+        radial-gradient(ellipse 42% 48% at 12% 20%, rgba(43, 212, 168, 0.045) 0%, transparent 66%);
+}
+
+.dark .friend-links-title {
+    color: var(--text-primary, #ffffff);
+}
+
+.dark .friend-link-item {
+    background-color: rgba(255, 255, 255, 0.035);
+    border-color: rgba(255, 255, 255, 0.075);
+}
+
+.dark .friend-link-item:hover {
+    background-color: rgba(255, 255, 255, 0.055);
+    border-color: rgba(122, 115, 255, 0.32);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22);
+}
+
+.dark .friend-link-title {
+    color: var(--text-primary, #ffffff);
+}
+
+.dark .friend-link-description {
+    color: var(--text-secondary, #c4cdda);
 }
 </style>

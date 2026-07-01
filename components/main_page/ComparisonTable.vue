@@ -1,7 +1,8 @@
 <template>
     <div class="comparison-section">
         <div class="section-header">
-            <h2 class="section-title">为什么推荐迁移羽毛整合包</h2>
+            <div class="section-eyebrow">对比</div>
+            <h2 class="section-title">为什么推荐 SVC Fusion</h2>
             <p class="section-subtitle">相比羽毛 So-VITS-SVC 整合包，我们提供更多功能和更好的用户体验</p>
         </div>
 
@@ -25,13 +26,23 @@
                         <td class="support-cell feather">
                             <span class="support-icon"
                                 :class="{ supported: feature.feather, unsupported: !feature.feather }">
-                                {{ feature.feather ? '✓' : '✗' }}
+                                <svg v-if="feature.feather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 13l4 4L19 7" />
+                                </svg>
+                                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 6L6 18M6 6l12 12" />
+                                </svg>
                             </span>
                         </td>
                         <td class="support-cell fusion">
                             <span class="support-icon"
                                 :class="{ supported: feature.fusion, unsupported: !feature.fusion }">
-                                {{ feature.fusion ? '✓' : '✗' }}
+                                <svg v-if="feature.fusion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 13l4 4L19 7" />
+                                </svg>
+                                <svg v-else viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 6L6 18M6 6l12 12" />
+                                </svg>
                             </span>
                         </td>
                     </tr>
@@ -66,43 +77,52 @@ const openLink = (url: string) => {
 
 <style lang="scss" scoped>
 .comparison-section {
-    padding: 80px 0;
-    color: #ffffff00;
-    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 96px 0;
+    background: var(--surface-page, #ffffff);
+    position: relative;
 
     .section-header {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 56px;
+        padding: 0 20px;
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--vp-c-brand-1, #635bff);
+            margin-bottom: 16px;
+        }
 
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--text-primary, #0a2540);
             margin: 0 0 16px 0;
-            line-height: 1.2;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: #64748b;
-            font-weight: 500;
-            margin: 0;
-            max-width: 600px;
+            font-size: 1.15rem;
+            color: var(--text-secondary, #425466);
+            font-weight: 400;
             margin: 0 auto;
+            max-width: 560px;
+            line-height: 1.6;
         }
     }
 
     .comparison-table-wrapper {
-        max-width: 800px;
+        max-width: 820px;
         margin: 0 auto;
-        background: white;
-        border-radius: 20px;
+        background: var(--surface-page, white);
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-        border: 1px solid rgba(102, 126, 234, 0.1);
+        box-shadow: 0 4px 12px rgba(50, 50, 93, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
     }
 
     .comparison-table {
@@ -111,32 +131,41 @@ const openLink = (url: string) => {
         display: table;
         margin: 0 !important;
 
-
         thead {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: var(--surface-muted, #f4f6f8);
+            border-bottom: 1px solid var(--border-default, rgba(50, 50, 93, 0.13));
 
             th {
-                padding: 24px 20px;
-                color: white;
+                padding: 20px 24px;
+                color: var(--text-primary, #0a2540);
                 font-weight: 700;
-                font-size: 1.1rem;
+                font-size: 0.95rem;
                 text-align: center;
                 border: none;
+                letter-spacing: -0.01em;
 
                 &.feature-header {
                     text-align: left;
-                    background: #39c5bb;
                 }
 
                 &.package-header {
                     position: relative;
 
                     &.feather {
-                        background: rgba(239, 68, 68, 0.9);
+                        color: var(--text-muted, #8392ab);
                     }
 
                     &.fusion {
-                        background: rgba(34, 197, 94, 0.9);
+                        color: var(--vp-c-brand-1, #635bff);
+
+                        &::after {
+                            content: '推荐';
+                            display: block;
+                            font-size: 0.7rem;
+                            font-weight: 600;
+                            margin-top: 4px;
+                            color: var(--vp-c-brand-1, #635bff);
+                        }
                     }
                 }
             }
@@ -144,38 +173,34 @@ const openLink = (url: string) => {
 
         tbody {
             .feature-row {
-                transition: all 0.3s ease;
+                transition: background-color 0.15s ease;
 
                 &:hover {
-                    background: rgba(102, 126, 234, 0.02);
-                }
-
-                &:nth-child(even) {
-                    background: rgba(248, 250, 252, 0.5);
-
-                    &:hover {
-                        background: rgba(102, 126, 234, 0.05);
-                    }
+                    background: var(--vp-c-brand-mute, rgba(99, 91, 255, 0.03));
                 }
 
                 td {
-                    padding: 20px;
-                    border-bottom: 1px solid #f1f5f9;
+                    padding: 18px 24px;
+                    border-bottom: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.06));
+
+                    &:last-child {
+                        border-bottom: none;
+                    }
 
                     &.feature-name {
-                        font-weight: 600;
-                        color: #374151;
-                        font-size: 1rem;
+                        font-weight: 500;
+                        color: var(--text-primary, #0a2540);
+                        font-size: 0.95rem;
 
                         .clickable-feature {
                             cursor: pointer;
-                            color: #667eea;
-                            text-decoration: underline;
-                            transition: all 0.3s ease;
+                            color: var(--vp-c-brand-1, #635bff);
+                            text-decoration: none;
+                            transition: color 0.15s ease;
 
                             &:hover {
-                                color: #764ba2;
-                                text-decoration: none;
+                                color: var(--vp-c-brand-3, #3b2fc9);
+                                text-decoration: underline;
                             }
                         }
                     }
@@ -184,26 +209,32 @@ const openLink = (url: string) => {
                         text-align: center;
 
                         .support-icon {
-                            display: inline-block;
-                            width: 32px;
-                            height: 32px;
+                            display: inline-flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 24px;
+                            height: 24px;
                             border-radius: 50%;
-                            line-height: 32px;
-                            font-weight: 700;
-                            font-size: 1rem;
-                            transition: all 0.3s ease;
+                            transition: transform 0.15s ease;
+
+                            svg {
+                                width: 14px;
+                                height: 14px;
+                            }
 
                             &.supported {
-                                background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-                                color: white;
-                                box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                                background: rgba(16, 185, 129, 0.12);
+                                color: #059669;
                             }
 
                             &.unsupported {
-                                background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-                                color: white;
-                                box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+                                background: rgba(239, 68, 68, 0.1);
+                                color: #dc2626;
                             }
+                        }
+
+                        &:hover .support-icon {
+                            transform: scale(1.1);
                         }
                     }
                 }
@@ -213,12 +244,12 @@ const openLink = (url: string) => {
 
     .section-footer {
         text-align: center;
-        margin-top: 40px;
+        margin-top: 32px;
 
         .footer-text {
-            font-size: 1.1rem;
-            color: #64748b;
-            font-style: italic;
+            font-size: 0.95rem;
+            color: var(--text-muted, #8392ab);
+            font-style: normal;
             margin: 0;
         }
     }
@@ -226,10 +257,10 @@ const openLink = (url: string) => {
 
 @media (max-width: 768px) {
     .comparison-section {
-        padding: 60px 20px;
+        padding: 64px 20px;
 
         .section-header .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         .comparison-table-wrapper {
@@ -238,28 +269,31 @@ const openLink = (url: string) => {
 
         .comparison-table {
             thead th {
-                padding: 16px 12px;
-                font-size: 0.9rem;
+                padding: 14px 12px;
+                font-size: 0.85rem;
             }
 
             tbody td {
-                padding: 16px 12px;
+                padding: 14px 12px;
 
                 &.feature-name {
-                    font-size: 0.9rem;
+                    font-size: 0.85rem;
                 }
 
                 &.support-cell .support-icon {
-                    width: 28px;
-                    height: 28px;
-                    line-height: 28px;
-                    font-size: 0.9rem;
+                    width: 22px;
+                    height: 22px;
+
+                    svg {
+                        width: 12px;
+                        height: 12px;
+                    }
                 }
             }
         }
 
         .section-footer .footer-text {
-            font-size: 1rem;
+            font-size: 0.9rem;
             padding: 0 20px;
         }
     }
@@ -268,7 +302,7 @@ const openLink = (url: string) => {
 @media (max-width: 480px) {
     .comparison-section {
         .section-header .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
 
         .comparison-table {
@@ -283,13 +317,6 @@ const openLink = (url: string) => {
                 &.feature-name {
                     font-size: 0.8rem;
                 }
-
-                &.support-cell .support-icon {
-                    width: 24px;
-                    height: 24px;
-                    line-height: 24px;
-                    font-size: 0.8rem;
-                }
             }
         }
     }
@@ -298,44 +325,59 @@ const openLink = (url: string) => {
 // Dark mode support
 .dark {
     .comparison-section {
-        background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+        background: var(--surface-page, #0a2540);
 
         .section-header {
+            .section-title {
+                color: var(--text-primary, #ffffff);
+            }
+
             .section-subtitle {
-                color: #94a3b8;
+                color: var(--text-secondary, #c4cdda);
             }
         }
 
         .comparison-table-wrapper {
-            background: rgba(30, 41, 59, 0.9);
-            border-color: rgba(102, 126, 234, 0.3);
+            background: var(--surface-page, #0a2540);
+            border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
         }
 
-        .comparison-table tbody {
-            .feature-row {
-                &:hover {
-                    background: rgba(102, 126, 234, 0.1);
-                }
+        .comparison-table {
+            thead {
+                background: var(--surface-muted, #1f243d);
+                border-bottom-color: var(--border-default, rgba(255, 255, 255, 0.13));
 
-                &:nth-child(even) {
-                    background: rgba(51, 65, 85, 0.3);
+                th {
+                    color: var(--text-primary, #ffffff);
 
-                    &:hover {
-                        background: rgba(102, 126, 234, 0.15);
+                    &.package-header.fusion {
+                        color: var(--vp-c-brand-2, #7a73ff);
+
+                        &::after {
+                            color: var(--vp-c-brand-2, #7a73ff);
+                        }
                     }
                 }
+            }
 
-                td {
-                    border-bottom-color: rgba(51, 65, 85, 0.5);
+            tbody {
+                .feature-row {
+                    &:hover {
+                        background: var(--vp-c-brand-soft, rgba(122, 115, 255, 0.08));
+                    }
 
-                    &.feature-name {
-                        color: #e2e8f0;
+                    td {
+                        border-bottom-color: var(--border-subtle, rgba(255, 255, 255, 0.06));
 
-                        .clickable-feature {
-                            color: #818cf8;
+                        &.feature-name {
+                            color: var(--text-primary, #ffffff);
 
-                            &:hover {
-                                color: #a5b4fc;
+                            .clickable-feature {
+                                color: var(--vp-c-brand-2, #7a73ff);
+
+                                &:hover {
+                                    color: var(--vp-c-brand-3, #3b2fc9);
+                                }
                             }
                         }
                     }
@@ -344,7 +386,7 @@ const openLink = (url: string) => {
         }
 
         .section-footer .footer-text {
-            color: #94a3b8;
+            color: var(--text-muted, #8b9bb4);
         }
     }
 }

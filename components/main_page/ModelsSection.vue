@@ -1,6 +1,7 @@
 <template>
     <div class="models-section" ref="modelsSection" :class="{ 'animate': isVisible }">
         <div class="section-header">
+            <div class="section-eyebrow">支持矩阵</div>
             <h2 class="section-title">支持的模型</h2>
             <p class="section-subtitle">SVC Fusion 支持多种主流 SVC 模型，满足不同用户的需求</p>
         </div>
@@ -14,8 +15,14 @@
                     <h3 class="model-name">{{ model.name }}</h3>
                     <p class="model-version" v-if="model.versions">{{ model.versions }}</p>
                     <div class="model-status">
-                        <span v-if="model.isWIP" class="status-badge wip">开发中</span>
-                        <span v-else class="status-badge ready">已支持</span>
+                        <span v-if="model.isWIP" class="status-badge wip">
+                            <span class="status-dot"></span>
+                            开发中
+                        </span>
+                        <span v-else class="status-badge ready">
+                            <span class="status-dot"></span>
+                            已支持
+                        </span>
                     </div>
                 </div>
                 <div v-if="model.isWIP" class="wip-overlay">
@@ -67,7 +74,11 @@ const models = [
 const getModelIcon = (modelName: string) => {
     const iconProps = {
         class: 'w-8 h-8',
-        fill: 'currentColor',
+        fill: 'none',
+        stroke: 'currentColor',
+        'stroke-width': 2,
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round',
         viewBox: '0 0 24 24'
     }
 
@@ -113,7 +124,7 @@ onMounted(() => {
                 })
             },
             {
-                threshold: 0.2,
+                threshold: 0.15,
                 rootMargin: '0px 0px -50px 0px'
             }
         )
@@ -130,8 +141,8 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .models-section {
-    padding: 80px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 96px 0;
+    background: var(--surface-page, #ffffff);
     position: relative;
     overflow: hidden;
 
@@ -142,36 +153,45 @@ onUnmounted(() => {
         left: 0;
         right: 0;
         bottom: 0;
-        background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><circle cx="10" cy="10" r="1"/></g></svg>') repeat;
+        background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99, 91, 255, 0.04) 0%, transparent 60%);
         pointer-events: none;
     }
 
     .section-header {
         text-align: center;
-        margin-bottom: 60px;
+        margin-bottom: 64px;
         position: relative;
         z-index: 1;
+        padding: 0 20px;
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--vp-c-brand-1, #635bff);
+            margin-bottom: 16px;
+        }
 
         .section-title {
-            font-size: 3rem;
+            font-size: clamp(2rem, 4vw, 3rem);
             font-weight: 800;
-            color: white;
+            color: var(--text-primary, #0a2540);
             margin: 0 0 16px 0;
-            line-height: 1.2;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-            animation: none;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
         }
 
         .section-subtitle {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-            margin: 0;
-            max-width: 600px;
+            font-size: 1.15rem;
+            color: var(--text-secondary, #425466);
+            font-weight: 400;
             margin: 0 auto;
-            animation: none;
+            max-width: 560px;
+            line-height: 1.6;
             opacity: 0;
             transform: translateY(20px);
         }
@@ -179,102 +199,120 @@ onUnmounted(() => {
 
     .models-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 40px;
         position: relative;
         z-index: 1;
     }
 
     .model-card {
-        background: rgba(255, 255, 255, 0.95);
-        border-radius: 20px;
+        background: var(--surface-page, #ffffff);
+        border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+        border-radius: 12px;
         padding: 32px 24px;
         text-align: center;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 2px solid rgba(255, 255, 255, 0.2);
+        transition: all 0.2s ease;
         position: relative;
         overflow: hidden;
-        backdrop-filter: blur(10px);
-        animation: none;
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(24px);
+        box-shadow: 0 1px 3px rgba(50, 50, 93, 0.05);
 
         &:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(50, 50, 93, 0.08), 0 4px 8px rgba(0, 0, 0, 0.03);
+            border-color: rgba(99, 91, 255, 0.2);
         }
 
         &.wip {
-            opacity: 0.8;
+            opacity: 0.85;
 
             .model-icon {
                 opacity: 0.6;
             }
 
             .model-name {
-                color: #64748b;
+                color: var(--text-muted, #8392ab);
             }
         }
 
         .model-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 24px;
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 20px;
-            color: white;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
-            animation: none;
+            background: var(--vp-c-brand-soft, rgba(99, 91, 255, 0.1));
+            border-radius: 12px;
+            color: var(--vp-c-brand-1, #635bff);
+            transition: all 0.2s ease;
 
             .icon {
-                width: 40px;
-                height: 40px;
+                width: 28px;
+                height: 28px;
             }
+        }
+
+        &:hover .model-icon {
+            transform: scale(1.05);
+            background: var(--gradient-stripe, linear-gradient(135deg, #635bff 0%, #7a73ff 100%));
+            color: white;
         }
 
         .model-content {
             .model-name {
-                font-size: 1.5rem;
+                font-size: 1.3rem;
                 font-weight: 700;
-                color: #1a202c;
+                color: var(--text-primary, #0a2540);
                 margin: 0 0 8px 0;
                 line-height: 1.3;
+                letter-spacing: -0.02em;
             }
 
             .model-version {
-                font-size: 1rem;
-                color: #667eea;
+                font-size: 0.9rem;
+                color: var(--vp-c-brand-1, #635bff);
                 font-weight: 600;
                 margin: 0 0 16px 0;
-                min-height: 24px;
+                min-height: 22px;
             }
 
             .model-status {
                 .status-badge {
-                    display: inline-block;
-                    padding: 6px 16px;
-                    border-radius: 20px;
-                    font-size: 0.85rem;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 6px;
+                    padding: 5px 12px;
+                    border-radius: 100px;
+                    font-size: 0.8rem;
                     font-weight: 600;
 
+                    .status-dot {
+                        width: 6px;
+                        height: 6px;
+                        border-radius: 50%;
+                    }
+
                     &.ready {
-                        background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-                        color: white;
-                        box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+                        background: rgba(16, 185, 129, 0.1);
+                        color: #059669;
+
+                        .status-dot {
+                            background: #10b981;
+                        }
                     }
 
                     &.wip {
-                        background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
-                        color: white;
-                        box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+                        background: rgba(245, 158, 11, 0.1);
+                        color: #d97706;
+
+                        .status-dot {
+                            background: #f59e0b;
+                        }
                     }
                 }
             }
@@ -282,40 +320,29 @@ onUnmounted(() => {
 
         .wip-overlay {
             position: absolute;
-            top: 0;
-            right: 0;
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.9) 0%, rgba(217, 119, 6, 0.9) 100%);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 0 20px 0 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transform: translateX(30%) translateY(-10%) rotate(40deg);
-            transform-origin: center;
-            min-width: 100px;
-            text-align: center;
-
-            .wip-text {
-                transform: rotate(-45deg);
-            }
-        }
-
-        &:hover .model-icon {
-            transform: scale(1.05);
-            box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+            top: 12px;
+            right: 12px;
+            background: rgba(245, 158, 11, 0.1);
+            color: #d97706;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
     }
 
     .section-footer {
         text-align: center;
-        margin-top: 60px;
+        margin-top: 48px;
         position: relative;
         z-index: 1;
 
         .footer-text {
-            font-size: 1.1rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-style: italic;
+            font-size: 1rem;
+            color: var(--text-muted, #8392ab);
+            font-style: normal;
             margin: 0;
         }
     }
@@ -324,122 +351,94 @@ onUnmounted(() => {
     &.animate {
         .section-header {
             .section-title {
-                animation: titleSlideIn 1s ease-out forwards;
+                animation: slideIn 0.6s ease-out forwards;
             }
 
             .section-subtitle {
-                animation: subtitleSlideIn 1s ease-out 0.3s forwards;
+                animation: slideIn 0.6s ease-out 0.15s forwards;
             }
         }
 
         .model-card {
-            animation: modelCardSlideIn 0.8s ease-out forwards;
+            animation: cardSlideIn 0.5s ease-out forwards;
 
             &:nth-child(1) {
                 animation-delay: 0.1s;
             }
 
             &:nth-child(2) {
-                animation-delay: 0.2s;
+                animation-delay: 0.18s;
             }
 
             &:nth-child(3) {
-                animation-delay: 0.3s;
+                animation-delay: 0.26s;
             }
 
             &:nth-child(4) {
-                animation-delay: 0.4s;
+                animation-delay: 0.34s;
             }
 
             &:nth-child(5) {
-                animation-delay: 0.5s;
-            }
-
-            .model-icon {
-                animation: iconPulse 2s ease-in-out infinite;
+                animation-delay: 0.42s;
             }
         }
     }
 }
 
-@keyframes titleSlideIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes subtitleSlideIn {
-    0% {
+@keyframes slideIn {
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes modelCardSlideIn {
-    0% {
+@keyframes cardSlideIn {
+    from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(24px);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
-    }
-}
-
-@keyframes iconPulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.05);
     }
 }
 
 @media (max-width: 768px) {
     .models-section {
-        padding: 60px 20px;
+        padding: 64px 0;
 
         .section-header .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         .models-grid {
             grid-template-columns: 1fr;
-            gap: 20px;
-            padding: 0 10px;
+            gap: 16px;
+            padding: 0 20px;
         }
 
         .model-card {
             padding: 24px 20px;
 
             .model-icon {
-                width: 60px;
-                height: 60px;
+                width: 48px;
+                height: 48px;
                 margin-bottom: 16px;
 
                 .icon {
-                    width: 30px;
-                    height: 30px;
+                    width: 24px;
+                    height: 24px;
                 }
             }
 
             .model-content .model-name {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
             }
         }
     }
@@ -448,30 +447,24 @@ onUnmounted(() => {
 @media (max-width: 480px) {
     .models-section {
         .section-header .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
 
         .model-card {
             padding: 20px 16px;
 
             .model-icon {
-                width: 50px;
-                height: 50px;
+                width: 44px;
+                height: 44px;
 
                 .icon {
-                    width: 25px;
-                    height: 25px;
+                    width: 22px;
+                    height: 22px;
                 }
             }
 
             .model-content .model-name {
-                font-size: 1.2rem;
-            }
-
-            .wip-overlay {
-                padding: 6px 12px;
-                font-size: 0.7rem;
-                min-width: 80px;
+                font-size: 1.1rem;
             }
         }
     }
@@ -480,21 +473,41 @@ onUnmounted(() => {
 // Dark mode support
 .dark {
     .models-section {
+        background: var(--surface-page, #0a2540);
+
+        &::before {
+            background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(122, 115, 255, 0.06) 0%, transparent 60%);
+        }
+
+        .section-header {
+            .section-title {
+                color: var(--text-primary, #ffffff);
+            }
+
+            .section-subtitle {
+                color: var(--text-secondary, #c4cdda);
+            }
+        }
+
         .model-card {
-            background: rgba(30, 41, 59, 0.95);
-            border-color: rgba(148, 163, 184, 0.2);
+            background: var(--surface-subtle, #1a1f36);
+            border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
 
             &:hover {
-                border-color: rgba(148, 163, 184, 0.4);
+                border-color: rgba(122, 115, 255, 0.3);
             }
 
             .model-content .model-name {
-                color: #e2e8f0;
+                color: var(--text-primary, #ffffff);
             }
 
             &.wip .model-content .model-name {
-                color: #94a3b8;
+                color: var(--text-muted, #8b9bb4);
             }
+        }
+
+        .section-footer .footer-text {
+            color: var(--text-muted, #8b9bb4);
         }
     }
 }

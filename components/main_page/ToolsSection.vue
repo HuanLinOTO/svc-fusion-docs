@@ -1,6 +1,7 @@
 <template>
     <div class="tools-section" ref="toolsSection" :class="{ 'animate': isVisible }">
         <div class="section-header">
+            <div class="section-eyebrow">工具集</div>
             <h2 class="section-title">丰富的小工具</h2>
             <p class="section-subtitle">一站式音频处理工具集，让你的工作流程更加高效</p>
         </div>
@@ -8,29 +9,18 @@
         <div class="tools-container">
             <div class="tools-grid">
                 <div v-for="(tool, index) in tools" :key="index" class="tool-card"
-                    :style="{ animationDelay: `${index * 0.1}s` }" @mouseenter="handleMouseEnter(index)"
+                    :style="{ animationDelay: `${index * 0.08}s` }" @mouseenter="handleMouseEnter(index)"
                     @mouseleave="handleMouseLeave(index)">
                     <div class="tool-icon-wrapper">
                         <div class="tool-icon" :class="`icon-${tool.type}`">
                             <component :is="getToolIcon(tool.type)" class="icon" />
                         </div>
-                        <div class="icon-ripple" :class="{ active: hoveredIndex === index }"></div>
                     </div>
                     <div class="tool-content">
                         <h3 class="tool-name">{{ tool.name }}</h3>
                         <p class="tool-description">{{ tool.description }}</p>
                     </div>
-                    <div class="tool-animation-bg" :class="{ active: hoveredIndex === index }"></div>
                 </div>
-            </div>
-
-            <!-- 浮动动画元素 -->
-            <div class="floating-elements">
-                <div class="floating-circle" style="top: 10%; left: 15%;"></div>
-                <div class="floating-square" style="top: 60%; right: 20%;"></div>
-                <div class="floating-triangle" style="bottom: 20%; left: 10%;"></div>
-                <div class="floating-diamond" style="top: 30%; right: 10%;"></div>
-                <div class="floating-circle" style="bottom: 10%; right: 30%;"></div>
             </div>
         </div>
     </div>
@@ -79,7 +69,6 @@ const tools = [
         description: '实时语音转换，即时体验',
         type: 'realtime'
     }
-
 ]
 
 const handleMouseEnter = (index: number) => {
@@ -93,7 +82,11 @@ const handleMouseLeave = (index: number) => {
 const getToolIcon = (type: string) => {
     const iconProps = {
         class: 'w-8 h-8',
-        fill: 'currentColor',
+        fill: 'none',
+        stroke: 'currentColor',
+        'stroke-width': 2,
+        'stroke-linecap': 'round',
+        'stroke-linejoin': 'round',
         viewBox: '0 0 24 24'
     }
 
@@ -142,14 +135,13 @@ onMounted(() => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
                         isVisible.value = true
-                        // 一旦开始动画就停止观察
                         observer?.unobserve(entry.target)
                     }
                 })
             },
             {
-                threshold: 0.2, // 当20%的元素可见时触发
-                rootMargin: '0px 0px -100px 0px' // 提前100px触发
+                threshold: 0.15,
+                rootMargin: '0px 0px -80px 0px'
             }
         )
         observer.observe(toolsSection.value)
@@ -165,10 +157,8 @@ onUnmounted(() => {
 
 <style lang="scss" scoped>
 .tools-section {
-    padding: 100px 0;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #667eea 100%);
-    background-size: 400% 400%;
-    animation: gradientShift 8s ease infinite;
+    padding: 96px 0;
+    background: var(--surface-page, #ffffff);
     position: relative;
     overflow: hidden;
 
@@ -179,35 +169,45 @@ onUnmounted(() => {
         left: 0;
         right: 0;
         bottom: 0;
-        background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(99, 91, 255, 0.05) 0%, transparent 60%);
         pointer-events: none;
     }
 
     .section-header {
         text-align: center;
-        margin-bottom: 80px;
+        margin-bottom: 64px;
         position: relative;
         z-index: 2;
+        padding: 0 20px;
+
+        .section-eyebrow {
+            display: inline-block;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--vp-c-brand-1, #635bff);
+            margin-bottom: 16px;
+        }
 
         .section-title {
-            font-size: 3.5rem;
-            font-weight: 900;
-            color: white;
-            margin: 0 0 20px 0;
-            line-height: 1.1;
-            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            animation: none; // 默认不播放动画
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-primary, #0a2540);
+            margin: 0 0 16px 0;
+            line-height: 1.15;
+            letter-spacing: -0.03em;
+            opacity: 0;
+            transform: translateY(20px);
         }
 
         .section-subtitle {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
-            font-weight: 500;
-            margin: 0;
-            max-width: 700px;
+            font-size: 1.15rem;
+            color: var(--text-secondary, #425466);
+            font-weight: 400;
             margin: 0 auto;
-            animation: none; // 默认不播放动画
+            max-width: 560px;
+            line-height: 1.6;
             opacity: 0;
             transform: translateY(20px);
         }
@@ -215,173 +215,108 @@ onUnmounted(() => {
 
     .tools-container {
         position: relative;
-        max-width: 1400px;
+        max-width: 1200px;
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 40px;
         z-index: 2;
     }
 
     .tools-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-        gap: 40px;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
         position: relative;
     }
 
     .tool-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 24px;
-        padding: 32px;
+        background: var(--surface-page, #ffffff);
+        border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+        border-radius: 12px;
+        padding: 28px;
         position: relative;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: all 0.2s ease;
         overflow: hidden;
-        animation: none; // 默认不播放动画
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
+        box-shadow: 0 1px 3px rgba(50, 50, 93, 0.04);
 
         &:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(50, 50, 93, 0.08), 0 4px 8px rgba(0, 0, 0, 0.03);
+            border-color: rgba(99, 91, 255, 0.2);
         }
 
         .tool-icon-wrapper {
             position: relative;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             display: inline-block;
 
             .tool-icon {
-                width: 80px;
-                height: 80px;
-                border-radius: 20px;
+                width: 48px;
+                height: 48px;
+                border-radius: 10px;
                 display: flex;
                 align-items: center;
                 justify-content: center;
                 color: white;
-                transition: all 0.4s ease;
+                transition: all 0.2s ease;
                 position: relative;
-                z-index: 2;
 
                 &.icon-benchmark {
-                    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+                    background: linear-gradient(135deg, #f43f5e 0%, #e11d48 100%);
                 }
 
                 &.icon-cut {
-                    background: linear-gradient(135deg, #4ecdc4, #44a08d);
+                    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
                 }
 
                 &.icon-resample {
-                    background: linear-gradient(135deg, #45b7d1, #96c93d);
+                    background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
                 }
 
                 &.icon-convert {
-                    background: linear-gradient(135deg, #f9ca24, #f0932b);
+                    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
                 }
 
                 &.icon-separate {
-                    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+                    background: linear-gradient(135deg, #635bff 0%, #5b3fd6 100%);
                 }
 
                 &.icon-pitch {
-                    background: linear-gradient(135deg, #fd79a8, #fdcb6e);
+                    background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
                 }
 
                 &.icon-realtime {
-                    background: linear-gradient(135deg, #00b894, #00cec9);
+                    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
                 }
 
                 .icon {
-                    width: 40px;
-                    height: 40px;
-                    animation: none; // 默认不播放动画
+                    width: 24px;
+                    height: 24px;
                 }
             }
+        }
+
+        &:hover .tool-icon {
+            transform: scale(1.05);
         }
 
         .tool-content {
             .tool-name {
-                font-size: 1.5rem;
+                font-size: 1.15rem;
                 font-weight: 700;
-                color: white;
-                margin: 0 0 12px 0;
+                color: var(--text-primary, #0a2540);
+                margin: 0 0 8px 0;
                 line-height: 1.3;
+                letter-spacing: -0.02em;
             }
 
             .tool-description {
-                font-size: 1rem;
-                color: rgba(255, 255, 255, 0.8);
+                font-size: 0.95rem;
+                color: var(--text-secondary, #425466);
                 margin: 0;
                 line-height: 1.5;
             }
-        }
-
-        .tool-animation-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transform: translateX(-100%);
-            transition: transform 0.8s ease;
-
-            &.active {
-                transform: translateX(100%);
-            }
-        }
-    }
-
-    .floating-elements {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        pointer-events: none;
-        z-index: 1;
-
-        .floating-circle,
-        .floating-square,
-        .floating-triangle,
-        .floating-diamond {
-            position: absolute;
-            animation: none; // 默认不播放动画
-            opacity: 0;
-        }
-
-        .floating-circle {
-            width: 60px;
-            height: 60px;
-            background: white;
-            border-radius: 50%;
-            animation-delay: -2s;
-        }
-
-        .floating-square {
-            width: 40px;
-            height: 40px;
-            background: white;
-            border-radius: 8px;
-            animation-delay: -4s;
-        }
-
-        .floating-triangle {
-            width: 0;
-            height: 0;
-            border-left: 25px solid transparent;
-            border-right: 25px solid transparent;
-            border-bottom: 43px solid white;
-            animation-delay: -1s;
-        }
-
-        .floating-diamond {
-            width: 35px;
-            height: 35px;
-            background: white;
-            transform: rotate(45deg);
-            animation-delay: -3s;
         }
     }
 
@@ -389,151 +324,72 @@ onUnmounted(() => {
     &.animate {
         .section-header {
             .section-title {
-                // animation: titleFloat 3s ease-in-out infinite;
+                animation: slideIn 0.6s ease-out forwards;
             }
 
             .section-subtitle {
-                animation: subtitleFade 2s ease-in-out forwards;
+                animation: slideIn 0.6s ease-out 0.15s forwards;
             }
         }
 
         .tool-card {
-            animation: cardSlideIn 0.8s ease-out forwards;
-
-            .tool-icon-wrapper .tool-icon .icon {
-                animation: iconFloat 2s ease-in-out infinite;
-            }
-        }
-
-        .floating-elements {
-
-            .floating-circle,
-            .floating-square,
-            .floating-triangle,
-            .floating-diamond {
-                animation: float 6s ease-in-out infinite;
-                opacity: 0.1;
-            }
-
-            .floating-circle {
-                animation-delay: -2s;
-            }
-
-            .floating-square {
-                animation-delay: -4s;
-            }
-
-            .floating-triangle {
-                animation-delay: -1s;
-            }
-
-            .floating-diamond {
-                animation-delay: -3s;
-            }
+            animation: cardSlideIn 0.5s ease-out forwards;
         }
     }
 }
 
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-}
-
-@keyframes titleFloat {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@keyframes subtitleFade {
-    0% {
+@keyframes slideIn {
+    from {
         opacity: 0;
         transform: translateY(20px);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
 @keyframes cardSlideIn {
-    0% {
+    from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
-@keyframes iconFloat {
-
-    0%,
-    100% {
-        transform: translateY(0px) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-5px) rotate(5deg);
-    }
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
-}
-
 @media (max-width: 768px) {
     .tools-section {
-        padding: 80px 20px;
+        padding: 64px 0;
 
         .section-header .section-title {
-            font-size: 2.5rem;
+            font-size: 2rem;
         }
 
         .tools-grid {
             grid-template-columns: 1fr;
-            gap: 30px;
+            gap: 16px;
         }
 
         .tool-card {
-            padding: 24px;
+            padding: 24px 20px;
 
             .tool-icon-wrapper .tool-icon {
-                width: 60px;
-                height: 60px;
+                width: 44px;
+                height: 44px;
 
                 .icon {
-                    width: 30px;
-                    height: 30px;
+                    width: 22px;
+                    height: 22px;
                 }
             }
 
             .tool-content .tool-name {
-                font-size: 1.3rem;
+                font-size: 1.1rem;
             }
         }
     }
@@ -542,24 +398,24 @@ onUnmounted(() => {
 @media (max-width: 480px) {
     .tools-section {
         .section-header .section-title {
-            font-size: 2rem;
+            font-size: 1.75rem;
         }
 
         .tool-card {
-            padding: 20px;
+            padding: 20px 16px;
 
             .tool-icon-wrapper .tool-icon {
-                width: 50px;
-                height: 50px;
+                width: 40px;
+                height: 40px;
 
                 .icon {
-                    width: 25px;
-                    height: 25px;
+                    width: 20px;
+                    height: 20px;
                 }
             }
 
             .tool-content .tool-name {
-                font-size: 1.2rem;
+                font-size: 1.05rem;
             }
         }
     }
@@ -568,12 +424,38 @@ onUnmounted(() => {
 // Dark mode support
 .dark {
     .tools-section {
+        background: var(--surface-page, #0a2540);
+
+        &::before {
+            background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(122, 115, 255, 0.06) 0%, transparent 60%);
+        }
+
+        .section-header {
+            .section-title {
+                color: var(--text-primary, #ffffff);
+            }
+
+            .section-subtitle {
+                color: var(--text-secondary, #c4cdda);
+            }
+        }
+
         .tool-card {
-            background: rgba(30, 41, 59, 0.8);
-            border-color: rgba(148, 163, 184, 0.3);
+            background: var(--surface-page, #0a2540);
+            border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
 
             &:hover {
-                border-color: rgba(148, 163, 184, 0.5);
+                border-color: rgba(122, 115, 255, 0.3);
+            }
+
+            .tool-content {
+                .tool-name {
+                    color: var(--text-primary, #ffffff);
+                }
+
+                .tool-description {
+                    color: var(--text-secondary, #c4cdda);
+                }
             }
         }
     }
