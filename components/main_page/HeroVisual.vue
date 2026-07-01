@@ -1,29 +1,16 @@
 <template>
-    <div class="hero-visual">
-        <div class="floating-card card-1">
-            <div class="card-content">
-                <div class="card-icon">🎵</div>
-                <div class="card-text">音频处理</div>
-            </div>
+    <div class="hero-visual" aria-hidden="true">
+        <!-- 多层渐变艺术 blob -->
+        <div class="gradient-canvas">
+            <div class="blob blob-1"></div>
+            <div class="blob blob-2"></div>
+            <div class="blob blob-3"></div>
+            <div class="blob blob-4"></div>
         </div>
-        <div class="floating-card card-2">
-            <div class="card-content">
-                <div class="card-icon">🤖</div>
-                <div class="card-text">AI 训练</div>
-            </div>
-        </div>
-        <div class="floating-card card-3">
-            <div class="card-content">
-                <div class="card-icon">⚡</div>
-                <div class="card-text">快速转换</div>
-            </div>
-        </div>
-        <div class="center-logo">
-            <div class="logo-ring"></div>
-            <div class="logo-core">
-                <img src="/favicon.ico" alt="">
-            </div>
-        </div>
+        <!-- Stripe 招牌细网格 -->
+        <div class="grid-overlay"></div>
+        <!-- logo -->
+        <img class="logo-img" src="/imgs/hero-logo.png" alt="SVC Fusion" draggable="false" />
     </div>
 </template>
 
@@ -42,142 +29,137 @@
 
 .hero-visual {
     position: relative;
-    width: 400px;
-    height: 400px;
-
-    .floating-card {
-        z-index: 999;
-        position: absolute;
-        background: white;
-        border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        animation: float 3s ease-in-out infinite;
-
-        &.card-1 {
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        &.card-2 {
-            top: 10%;
-            right: 20%;
-            animation-delay: 1s;
-        }
-
-        &.card-3 {
-            bottom: 20%;
-            left: 20%;
-            animation-delay: 2s;
-        }
-
-        .card-content {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-
-            .card-icon {
-                font-size: 2rem;
-            }
-
-            .card-text {
-                font-size: 0.9rem;
-                font-weight: 600;
-                color: #475569;
-            }
-        }
-    }
-
-    .center-logo {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        .logo-ring {
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border: 3px solid transparent;
-            border-radius: 50%;
-            animation: rotate 2s linear infinite;
-        }
-
-        .logo-core {
-            font-size: 2rem;
-            font-weight: 800;
-            color: #667eea;
-            z-index: 1;
-
-            img {
-                box-shadow: 0 4px 20px 20px rgba(0, 0, 0, 0.1);
-                width: 120px;
-                height: 120px;
-            }
-        }
-    }
+    width: 520px;
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-20px);
-    }
+/* 渐变艺术画布 */
+.gradient-canvas {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    border-radius: 32px;
+    filter: saturate(140%);
 }
 
-@keyframes rotate {
-    from {
-        transform: rotate(0deg);
-        border-top-color: #667eea;
-    }
+.blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(56px);
+    opacity: 0.7;
+}
 
-    to {
-        transform: rotate(360deg);
-        border-top-color: #764ba2;
-    }
+.blob-1 {
+    width: 320px;
+    height: 320px;
+    top: -40px;
+    left: -40px;
+    background: radial-gradient(circle at 30% 30%, #635bff 0%, rgba(99, 91, 255, 0) 70%);
+}
+
+.blob-2 {
+    width: 300px;
+    height: 300px;
+    top: 40px;
+    right: -60px;
+    background: radial-gradient(circle at 60% 40%, #9b6dff 0%, rgba(155, 109, 255, 0) 70%);
+}
+
+.blob-3 {
+    width: 280px;
+    height: 280px;
+    bottom: -50px;
+    left: 30px;
+    background: radial-gradient(circle at 50% 50%, #2bd4a8 0%, rgba(43, 212, 168, 0) 70%);
+    opacity: 0.45;
+}
+
+.blob-4 {
+    width: 260px;
+    height: 260px;
+    bottom: 0;
+    right: 20px;
+    background: radial-gradient(circle at 50% 50%, #ff8ac8 0%, rgba(255, 138, 200, 0) 70%);
+    opacity: 0.4;
+}
+
+/* Stripe 细网格叠加 */
+.grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(to right, rgba(99, 91, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(99, 91, 255, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 0%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 70% at 50% 50%, #000 0%, transparent 75%);
+    pointer-events: none;
+}
+
+/* logo — 大占比,无动画 */
+.logo-img {
+    position: relative;
+    width: 440px;
+    height: auto;
+    max-width: 90%;
+    max-height: 90%;
+    aspect-ratio: 1018 / 950;
+    object-fit: contain;
+    filter: drop-shadow(0 16px 40px rgba(99, 91, 255, 0.3));
+    z-index: 2;
 }
 
 @media (max-width: 1024px) {
     .hero-visual {
-        width: 300px;
-        height: 300px;
+        width: 420px;
+        height: 420px;
+    }
+
+    .logo-img {
+        width: 360px;
     }
 }
 
 @media (max-width: 768px) {
     .hero-visual {
-        width: 250px;
-        height: 250px;
+        width: 340px;
+        height: 340px;
+    }
 
-        .floating-card {
-            padding: 15px;
+    .logo-img {
+        width: 280px;
+    }
 
-            .card-content .card-icon {
-                font-size: 1.5rem;
-            }
-        }
+    .blob {
+        filter: blur(40px);
     }
 }
 
-// Dark mode support
+/* Dark mode — 增强发光 */
 .dark {
-    .floating-card {
-        background: #334155 !important;
-        color: white;
+    .blob {
+        opacity: 0.85;
+    }
 
-        .card-text {
-            color: #cbd5e1 !important;
-        }
+    .blob-3 {
+        opacity: 0.55;
+    }
+
+    .blob-4 {
+        opacity: 0.5;
+    }
+
+    .grid-overlay {
+        background-image:
+            linear-gradient(to right, rgba(122, 115, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(122, 115, 255, 0.08) 1px, transparent 1px);
+    }
+
+    .logo-img {
+        filter: drop-shadow(0 16px 44px rgba(122, 115, 255, 0.42));
     }
 }
 </style>
