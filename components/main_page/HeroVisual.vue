@@ -10,9 +10,47 @@
         <!-- Stripe 招牌细网格 -->
         <div class="grid-overlay"></div>
         <!-- logo -->
-        <img class="logo-img" src="/imgs/hero-logo.png" alt="SVC Fusion" draggable="false" />
+        <div class="logo-stage" :class="{ 'is-loaded': logoLoaded, 'is-animating': logoAnimating }">
+            <img class="logo-img logo-img-base" src="/imgs/hero-logo.webp" alt="SVC Fusion" draggable="false"
+                @load="handleLogoLoad" @error="handleLogoError" />
+            <img class="logo-img logo-img-blur" src="/imgs/hero-logo.webp" alt="" draggable="false" />
+        </div>
     </div>
 </template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+const logoLoaded = ref(false)
+const logoAnimating = ref(false)
+
+const markLogoLoaded = () => {
+    if (logoLoaded.value) return
+
+    logoLoaded.value = true
+
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            logoAnimating.value = true
+        })
+    })
+}
+
+const handleLogoLoad = (event: Event) => {
+    const image = event.target as HTMLImageElement
+
+    if (image.decode) {
+        image.decode().catch(() => undefined).finally(markLogoLoaded)
+        return
+    }
+
+    markLogoLoaded()
+}
+
+const handleLogoError = () => {
+    markLogoLoaded()
+}
+</script>
 
 <style lang="scss" scoped>
 @media (max-width: 480px) {
@@ -99,17 +137,65 @@
     pointer-events: none;
 }
 
-/* logo — 大占比,无动画 */
-.logo-img {
+.logo-stage {
     position: relative;
     width: 440px;
     height: auto;
     max-width: 90%;
     max-height: 90%;
     aspect-ratio: 1018 / 950;
-    object-fit: contain;
-    filter: drop-shadow(0 16px 40px rgba(99, 91, 255, 0.3));
     z-index: 2;
+    filter: drop-shadow(0 16px 40px rgba(99, 91, 255, 0.3));
+
+    &.is-loaded {
+        .logo-img-base {
+            opacity: 1;
+        }
+
+        .logo-img-blur {
+            opacity: 1;
+            filter: blur(20px);
+        }
+    }
+
+    &.is-animating {
+        .logo-img-blur {
+            animation: logoBlurOut 1.1s ease-out forwards;
+        }
+    }
+}
+
+/* logo — 大占比,加载完成后再显示 */
+.logo-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    user-select: none;
+}
+
+.logo-img-base {
+    opacity: 0;
+}
+
+.logo-img-blur {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    filter: blur(20px);
+    pointer-events: none;
+}
+
+@keyframes logoBlurOut {
+    from {
+        opacity: 1;
+        filter: blur(20px);
+    }
+
+    to {
+        opacity: 0;
+        filter: blur(0);
+    }
 }
 
 @media (max-width: 1024px) {
@@ -118,7 +204,7 @@
         height: 420px;
     }
 
-    .logo-img {
+    .logo-stage {
         width: 360px;
     }
 }
@@ -129,7 +215,7 @@
         height: 340px;
     }
 
-    .logo-img {
+    .logo-stage {
         width: 280px;
     }
 
@@ -158,8 +244,16 @@
             linear-gradient(to bottom, rgba(122, 115, 255, 0.08) 1px, transparent 1px);
     }
 
-    .logo-img {
+    .logo-stage {
         filter: drop-shadow(0 16px 44px rgba(122, 115, 255, 0.42));
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .logo-img-blur {
+        animation: none;
+        opacity: 0;
+        filter: blur(0);
     }
 }
 </style>
