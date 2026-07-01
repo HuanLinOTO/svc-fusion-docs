@@ -1,10 +1,5 @@
 <template>
     <div class="banner" :class="`banner--${current.key}`" @click="onClick">
-        <!-- 背景渐变层 -->
-        <div class="banner-bg banner-bg--xinghai"></div>
-        <div class="banner-bg banner-bg--aigate"></div>
-        <div class="banner-bg banner-bg--ucloud"></div>
-
         <!-- 内容层 -->
         <transition name="banner" mode="out-in">
             <div class="banner-content" :key="index">
@@ -15,8 +10,8 @@
                     <span class="banner-text">{{ current.text }}</span>
                 </div>
                 <div class="banner-arrow">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M8.59 16.59L13.17 12L8.59 7.41L10 6l6 6-6 6-1.41-1.41z" />
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </div>
             </div>
@@ -44,24 +39,24 @@ const sponsors = ref<Sponsor[]>([
         key: 'xinghai',
         icon: XinghaiComputeAd,
         alt: '星海智算',
-        text: '🚀 点击注册星海智算，无门槛立领30元支付券，充值再享5%额外优惠！',
-        bg: 'linear-gradient(135deg, #0c1530 0%, #1f4fff 55%, #42c2ff 100%)',
+        text: '点击注册星海智算，无门槛立领30元支付券，充值再享5%额外优惠！',
+        bg: '',
         action: go_xinghai_ad
     }] : []),
     ...(SHOW_AIGATE_AD ? [{
         key: 'aigate',
         icon: AIGateLogo,
         alt: '智算云扉',
-        text: '🚀 点击此处注册智算云扉，实名送20算力和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享8%额外优惠',
-        bg: 'linear-gradient(135deg, #39c5bb 0%, #4facfe 100%)',
+        text: '点击此处注册智算云扉，实名送20算力和8小时4090D算力券，微信公众号回复再得8小时4090D算力券，充值再享8%额外优惠',
+        bg: '',
         action: go_aigate_ad
     }] : []),
     {
         key: 'ucloud',
         icon: 'https://cdn.udelivrs.com/2024/11/437c3c1914197056212918f3d2cb53c1_1730962202072.png',
         alt: '优云智算',
-        text: '🚀 点击注册优云智算领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！',
-        bg: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+        text: '点击注册优云智算领10元算力金GPU免费用，高校/企业认证再得10元额外享受算力购买95折！',
+        bg: '',
         action: go_uc_ad
     }
 ])
@@ -125,63 +120,45 @@ function onClick() {
 <style lang="scss" scoped>
 .banner {
     cursor: pointer;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    background: var(--vp-c-brand-1, #635bff);
 
-    // 背景渐变层
-    &-bg {
+    // Stripe subtle gradient overlay using brand colors
+    &::after {
+        content: '';
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 0.8s ease;
+        inset: 0;
+        background:
+            radial-gradient(ellipse 50% 100% at 0% 50%, rgba(122, 115, 255, 0.4) 0%, transparent 65%),
+            radial-gradient(ellipse 50% 100% at 100% 50%, rgba(59, 47, 201, 0.3) 0%, transparent 65%);
         z-index: 1;
-
-        &--aigate {
-            background: linear-gradient(135deg, #39c5bb 0%, #4facfe 100%);
-        }
-
-        &--xinghai {
-            background: linear-gradient(135deg, #0c1530 0%, #1f4fff 55%, #42c2ff 100%);
-        }
-
-        &--ucloud {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
+        pointer-events: none;
     }
 
-    // 控制显示哪个背景
-    &--xinghai &-bg--xinghai,
-    &--aigate &-bg--aigate,
-    &--ucloud &-bg--ucloud {
-        opacity: 1;
-    }
-
-    // 高光效果层
+    // Shimmer effect — Stripe subtle
     &::before {
         content: '';
         position: absolute;
         top: 0;
         left: -100%;
-        width: 100%;
+        width: 50%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+        transition: left 0.8s ease;
         z-index: 2;
+        pointer-events: none;
     }
 
     &:hover::before {
-        left: 100%;
+        left: 150%;
     }
 
     &-content {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 12px 32px;
+        padding: 9px 32px;
         max-width: 1200px;
         margin: 0 auto;
         position: relative;
@@ -189,15 +166,19 @@ function onClick() {
     }
 
     &-icon-wrapper {
-        margin-right: 16px;
+        margin-right: 14px;
+        flex-shrink: 0;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 6px;
+        padding: 4px 6px;
+        line-height: 0;
     }
 
     &-icon {
-        height: 48px;
+        height: 24px;
         display: block;
-        border-radius: 10px;
+        border-radius: 3px;
     }
-
 
     &-text-wrapper {
         flex: 1;
@@ -205,36 +186,37 @@ function onClick() {
     }
 
     &-text {
-        font-size: 0.9em;
-        color: white;
-        font-weight: 600;
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        font-size: 0.85em;
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 500;
+        letter-spacing: -0.01em;
     }
 
     &-arrow {
-        margin-left: 16px;
-        width: 24px;
-        height: 24px;
-        color: white;
-        opacity: 0.8;
-        transition: transform 0.3s ease;
+        margin-left: 14px;
+        width: 18px;
+        height: 18px;
+        color: rgba(255, 255, 255, 0.8);
+        transition: transform 0.15s ease, color 0.15s ease;
+        flex-shrink: 0;
     }
 
     &:hover &-arrow {
-        transform: translateX(4px);
+        transform: translateX(3px);
+        color: white;
     }
 }
 
 /* 切换过渡 */
 .banner-enter-active,
 .banner-leave-active {
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .banner-enter-from,
 .banner-leave-to {
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-4px);
 }
 
 .banner-enter-to,
@@ -246,14 +228,45 @@ function onClick() {
 @media (max-width: 768px) {
     .banner {
         &-content {
-            padding: 10px 20px;
+            padding: 8px 20px;
             flex-direction: column;
-            gap: 12px;
+            gap: 8px;
+        }
+
+        &-icon {
+            height: 20px;
         }
 
         &-text {
-            font-size: 0.8em;
+            font-size: 0.78em;
         }
+    }
+}
+
+// Dark mode — tone down the banner so it's not glaring
+.dark .banner {
+    background: #1a1f36;
+
+    &::after {
+        background:
+            radial-gradient(ellipse 50% 100% at 0% 50%, rgba(99, 91, 255, 0.28) 0%, transparent 65%),
+            radial-gradient(ellipse 50% 100% at 100% 50%, rgba(59, 47, 201, 0.22) 0%, transparent 65%);
+    }
+
+    &-icon-wrapper {
+        background: rgba(255, 255, 255, 0.92);
+    }
+
+    &-text {
+        color: rgba(255, 255, 255, 0.88);
+    }
+
+    &-arrow {
+        color: rgba(255, 255, 255, 0.65);
+    }
+
+    &:hover &-arrow {
+        color: rgba(255, 255, 255, 0.95);
     }
 }
 </style>

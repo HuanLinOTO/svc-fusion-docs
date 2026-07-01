@@ -4,10 +4,9 @@
             <div class="modal-header">
                 <h3>加入社区交流</h3>
                 <p class="modal-subtitle">与开发者和用户一起探讨 SVC Fusion</p>
-                <button class="close-btn" @click="$emit('update:visible', false)">
-                    <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path
-                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                <button class="close-btn" @click="$emit('update:visible', false)" aria-label="关闭">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 6L6 18M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -15,7 +14,11 @@
             <div class="modal-content">
                 <div class="sponsor-notice">
                     <div class="notice-content">
-                        <span class="notice-icon">💝</span>
+                        <span class="notice-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                            </svg>
+                        </span>
                         <span class="notice-text">维护社区需要成本，欢迎赞助支持我们</span>
                     </div>
                 </div>
@@ -49,7 +52,12 @@
                                     }"></div>
                                 </div>
                             </div>
-                            <span class="join-btn">立即加入</span>
+                            <span class="join-btn">
+                                加入
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </span>
                         </div>
                     </div>
 
@@ -80,7 +88,12 @@
                                     }"></div>
                                 </div>
                             </div>
-                            <span class="join-btn">立即加入</span>
+                            <span class="join-btn">
+                                加入
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </span>
                         </div>
                     </div>
 
@@ -111,22 +124,39 @@
                                     }"></div>
                                 </div>
                             </div>
-                            <span class="join-btn">立即加入</span>
+                            <span class="join-btn">
+                                加入
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                </svg>
+                            </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="modal-tips">
                     <div class="tip-item">
-                        <span class="tip-icon">🔥</span>
+                        <span class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
                         <span>分享使用技巧和经验</span>
                     </div>
                     <div class="tip-item">
-                        <span class="tip-icon">❓</span>
+                        <span class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
                         <span>获取技术支持和帮助</span>
                     </div>
                     <div class="tip-item">
-                        <span class="tip-icon">🚀</span>
+                        <span class="tip-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 13l4 4L19 7" />
+                            </svg>
+                        </span>
                         <span>第一时间了解更新动态</span>
                     </div>
                 </div>
@@ -178,20 +208,17 @@ const getMemberCount = (groupId: number, fallback: string) => {
     return fallback
 }
 
-// 群最大人数档位
 const maxMemberLevels = [100, 300, 500, 1000, 2000, 3000]
 
-// 根据当前人数计算最大人数（向上取整到最近的档位）
 const getMaxMembers = (currentCount: number): number => {
     for (const level of maxMemberLevels) {
         if (currentCount <= level) {
             return level
         }
     }
-    return 3000 // 默认最大3000
+    return 3000
 }
 
-// 获取进度百分比
 const getMemberProgress = (groupId: number): number => {
     const group = groupsData.value.get(groupId)
     if (group) {
@@ -201,15 +228,13 @@ const getMemberProgress = (groupId: number): number => {
     return 0
 }
 
-// 获取进度条颜色（根据占用率）
 const getProgressColor = (groupId: number): string => {
     const progress = getMemberProgress(groupId)
-    if (progress >= 90) return '#ef4444' // 红色 - 快满了
-    if (progress >= 70) return '#f59e0b' // 橙色 - 较多
-    return '#10b981' // 绿色 - 正常
+    if (progress >= 90) return '#ef4444'
+    if (progress >= 70) return '#f59e0b'
+    return '#10b981'
 }
 
-// 获取最大人数显示
 const getMaxMembersDisplay = (groupId: number): string => {
     const group = groupsData.value.get(groupId)
     if (group) {
@@ -218,7 +243,6 @@ const getMaxMembersDisplay = (groupId: number): string => {
     return ''
 }
 
-// 当弹窗显示时获取数据
 watch(() => props.visible, (newVal) => {
     if (newVal) {
         fetchGroupsData()
@@ -239,46 +263,48 @@ const goto = (url: string) => {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(8px);
+    background: rgba(10, 37, 64, 0.5);
+    backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1000;
-    animation: modalFadeIn 0.3s ease-out;
+    animation: modalFadeIn 0.2s ease-out;
     padding: 20px;
 }
 
 .modal-container {
-    background: white;
-    border-radius: 24px;
-    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25);
-    max-width: 700px;
+    background: var(--surface-page, white);
+    border-radius: 16px;
+    box-shadow: 0 25px 50px -12px rgba(10, 37, 64, 0.25), 0 0 0 1px rgba(50, 50, 93, 0.05);
+    max-width: 640px;
     width: 100%;
     max-height: 90vh;
-    overflow: hidden; // header圆角等仍需隐藏溢出
-    animation: modalSlideIn 0.3s ease-out;
+    overflow: hidden;
+    animation: modalSlideIn 0.25s ease-out;
     position: relative;
     display: flex;
     flex-direction: column;
 }
 
 .modal-header {
-    padding: 32px 32px 24px;
+    padding: 28px 32px 24px;
     text-align: center;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--surface-subtle, #f6f9fc);
+    border-bottom: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+    color: var(--text-primary, #0a2540);
     position: relative;
 
     h3 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 700;
-        margin: 0 0 8px 0;
+        margin: 0 0 6px 0;
+        letter-spacing: -0.02em;
     }
 
     .modal-subtitle {
-        font-size: 1rem;
-        opacity: 0.9;
+        font-size: 0.95rem;
+        color: var(--text-secondary, #425466);
         margin: 0;
         font-weight: 400;
     }
@@ -287,21 +313,21 @@ const goto = (url: string) => {
         position: absolute;
         top: 20px;
         right: 20px;
-        background: rgba(255, 255, 255, 0.2);
+        background: transparent;
         border: none;
-        border-radius: 8px;
+        border-radius: 6px;
         width: 32px;
         height: 32px;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: white;
+        color: var(--text-muted, #8392ab);
         cursor: pointer;
-        transition: all 0.3s ease;
+        transition: all 0.15s ease;
 
         &:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.1);
+            background: var(--border-subtle, rgba(50, 50, 93, 0.08));
+            color: var(--text-primary, #0a2540);
         }
 
         svg {
@@ -312,30 +338,39 @@ const goto = (url: string) => {
 }
 
 .modal-content {
-    padding: 32px;
+    padding: 28px 32px;
     flex: 1 1 auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 }
 
 .sponsor-notice {
-    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
-    border: 1px solid #fb923c;
-    border-radius: 16px;
-    padding: 16px 20px;
-    margin-bottom: 32px;
+    background: linear-gradient(135deg,
+        rgba(99, 91, 255, 0.08) 0%,
+        rgba(255, 138, 200, 0.08) 100%);
+    border: 1px solid rgba(99, 91, 255, 0.16);
+    border-radius: 8px;
+    padding: 14px 18px;
+    margin-bottom: 24px;
 
     .notice-content {
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 10px;
 
         .notice-icon {
-            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            color: var(--vp-c-brand-1, #635bff);
+
+            svg {
+                width: 18px;
+                height: 18px;
+            }
         }
 
         .notice-text {
-            color: #c2410c;
+            color: var(--text-secondary, #425466);
             font-weight: 500;
             font-size: 0.9rem;
         }
@@ -344,30 +379,31 @@ const goto = (url: string) => {
 
 .groups-grid {
     display: grid;
-    gap: 20px;
-    margin-bottom: 32px;
+    gap: 16px;
+    margin-bottom: 24px;
 
     .group-item {
-        border: 2px solid #e5e7eb;
-        border-radius: 20px;
-        padding: 24px;
-        transition: all 0.3s ease;
-        background: #fafafa;
+        border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+        border-radius: 10px;
+        padding: 20px;
+        transition: all 0.15s ease;
+        background: var(--surface-page, white);
         position: relative;
         overflow: hidden;
+        box-shadow: 0 1px 2px rgba(50, 50, 93, 0.04);
 
         &.active {
             cursor: pointer;
 
             &:hover {
-                border-color: #667eea;
-                background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-                transform: translateY(-4px);
-                box-shadow: 0 12px 32px rgba(102, 126, 234, 0.15);
+                border-color: var(--vp-c-brand-1, #635bff);
+                box-shadow: 0 4px 12px rgba(99, 91, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.04);
+                transform: translateY(-1px);
 
                 .join-btn {
-                    background: #667eea;
+                    background: var(--gradient-stripe, linear-gradient(135deg, #635bff 0%, #7a73ff 100%));
                     color: white;
+                    border-color: transparent;
                 }
             }
         }
@@ -379,42 +415,42 @@ const goto = (url: string) => {
 
         .new-tag {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
-            padding: 6px 12px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+            top: 12px;
+            right: 12px;
+            background: var(--vp-c-brand-soft, rgba(99, 91, 255, 0.1));
+            color: var(--vp-c-brand-1, #635bff);
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 100px;
+            letter-spacing: 0;
         }
 
         .group-header {
             display: flex;
             align-items: center;
-            gap: 16px;
-            margin-bottom: 20px;
+            gap: 14px;
+            margin-bottom: 16px;
 
             .avatar-container {
                 position: relative;
                 flex-shrink: 0;
 
                 .group-avatar {
-                    width: 56px;
-                    height: 56px;
+                    width: 48px;
+                    height: 48px;
                     border-radius: 50%;
-                    border: 3px solid #e5e7eb;
+                    border: 2px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
                 }
 
                 .status-dot {
                     position: absolute;
                     bottom: 2px;
                     right: 2px;
-                    width: 16px;
-                    height: 16px;
+                    width: 12px;
+                    height: 12px;
                     border-radius: 50%;
-                    border: 3px solid white;
+                    border: 2px solid var(--surface-page, white);
 
                     &.online {
                         background: #10b981;
@@ -424,31 +460,22 @@ const goto = (url: string) => {
                         background: #6b7280;
                     }
                 }
-
-                .disabled-overlay {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    right: 0;
-                    bottom: 0;
-                    background: rgba(0, 0, 0, 0.5);
-                    border-radius: 50%;
-                }
             }
 
             .group-info {
                 flex: 1;
 
                 .group-name {
-                    font-size: 1.25rem;
+                    font-size: 1.1rem;
                     font-weight: 600;
-                    color: #1f2937;
-                    margin: 0 0 4px 0;
+                    color: var(--text-primary, #0a2540);
+                    margin: 0 0 2px 0;
+                    letter-spacing: -0.01em;
                 }
 
                 .group-desc {
-                    font-size: 0.9rem;
-                    color: #6b7280;
+                    font-size: 0.85rem;
+                    color: var(--text-muted, #8392ab);
                     margin: 0;
                     line-height: 1.4;
                 }
@@ -472,51 +499,51 @@ const goto = (url: string) => {
                     margin-bottom: 6px;
 
                     .member-count {
-                        font-size: 0.85rem;
-                        color: #374151;
+                        font-size: 0.8rem;
+                        color: var(--text-secondary, #425466);
                         font-weight: 600;
                     }
 
                     .max-count {
                         font-size: 0.75rem;
-                        color: #9ca3af;
+                        color: var(--text-muted, #8392ab);
                         font-weight: 500;
                     }
                 }
 
                 .progress-bar {
                     width: 100%;
-                    height: 6px;
-                    background: #e5e7eb;
-                    border-radius: 3px;
+                    height: 4px;
+                    background: var(--surface-muted, #f4f6f8);
+                    border-radius: 2px;
                     overflow: hidden;
 
                     .progress-fill {
                         height: 100%;
-                        border-radius: 3px;
+                        border-radius: 2px;
                         transition: width 0.5s ease, background-color 0.3s ease;
                     }
                 }
             }
 
-            .member-count {
-                font-size: 0.85rem;
-                color: #6b7280;
-                font-weight: 500;
-            }
-
             .join-btn {
-                background: #f3f4f6;
-                color: #374151;
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                background: var(--surface-page, white);
+                color: var(--vp-c-brand-1, #635bff);
                 font-size: 0.85rem;
                 font-weight: 600;
-                padding: 8px 16px;
-                border-radius: 12px;
-                transition: all 0.3s ease;
+                padding: 7px 14px;
+                border-radius: 6px;
+                border: 1px solid var(--vp-c-brand-1, #635bff);
+                transition: all 0.15s ease;
                 flex-shrink: 0;
 
-                &.disabled {
-                    opacity: 0.5;
+                svg {
+                    width: 14px;
+                    height: 14px;
+                    transition: transform 0.15s ease;
                 }
             }
         }
@@ -524,25 +551,34 @@ const goto = (url: string) => {
 }
 
 .modal-tips {
-    background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-    border: 1px solid #0ea5e9;
-    border-radius: 16px;
-    padding: 20px;
+    background: var(--surface-subtle, #f6f9fc);
+    border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+    border-radius: 10px;
+    padding: 18px 20px;
 
     .tip-item {
         display: flex;
         align-items: center;
-        gap: 12px;
-        margin-bottom: 12px;
+        gap: 10px;
+        margin-bottom: 10px;
         font-size: 0.9rem;
-        color: #0c4a6e;
+        color: var(--text-secondary, #425466);
 
         &:last-child {
             margin-bottom: 0;
         }
 
         .tip-icon {
-            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--vp-c-brand-1, #635bff);
+            flex-shrink: 0;
+
+            svg {
+                width: 16px;
+                height: 16px;
+            }
         }
     }
 }
@@ -561,7 +597,7 @@ const goto = (url: string) => {
 @keyframes modalSlideIn {
     from {
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
+        transform: translateY(20px) scale(0.98);
     }
 
     to {
@@ -572,15 +608,15 @@ const goto = (url: string) => {
 
 @media (max-width: 768px) {
     .modal-container {
-        margin: 20px;
-        border-radius: 20px;
+        margin: 16px;
+        border-radius: 12px;
     }
 
     .modal-header {
         padding: 24px 20px 20px;
 
         h3 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
         }
     }
 
@@ -589,18 +625,18 @@ const goto = (url: string) => {
     }
 
     .groups-grid .group-item {
-        padding: 20px;
+        padding: 18px 16px;
 
         .group-header {
             gap: 12px;
 
             .avatar-container .group-avatar {
-                width: 48px;
-                height: 48px;
+                width: 44px;
+                height: 44px;
             }
 
             .group-info .group-name {
-                font-size: 1.1rem;
+                font-size: 1.05rem;
             }
         }
     }
@@ -614,10 +650,110 @@ const goto = (url: string) => {
     .groups-grid .group-item .group-header {
         flex-direction: column;
         text-align: center;
-        gap: 16px;
+        gap: 14px;
 
         .group-info {
             text-align: center;
+        }
+    }
+}
+
+// Dark mode support
+.dark {
+    .modal-container {
+        background: var(--surface-page, #0a2540);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    .modal-header {
+        background: var(--surface-subtle, #1a1f36);
+        border-bottom-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+        color: var(--text-primary, #ffffff);
+
+        .modal-subtitle {
+            color: var(--text-secondary, #c4cdda);
+        }
+
+        .close-btn {
+            color: var(--text-muted, #8b9bb4);
+
+            &:hover {
+                background: var(--vp-c-brand-soft, rgba(122, 115, 255, 0.12));
+                color: var(--text-primary, #ffffff);
+            }
+        }
+    }
+
+    .groups-grid .group-item {
+        background: var(--surface-subtle, #1a1f36);
+        border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+
+        &.active:hover {
+            border-color: var(--vp-c-brand-2, #7a73ff);
+        }
+
+        .group-header {
+            .avatar-container .group-avatar {
+                border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+            }
+
+            .group-info {
+                .group-name {
+                    color: var(--text-primary, #ffffff);
+                }
+
+                .group-desc {
+                    color: var(--text-muted, #8b9bb4);
+                }
+            }
+        }
+
+        .group-footer {
+            .member-progress-section {
+                .member-count {
+                    color: var(--text-secondary, #c4cdda);
+                }
+
+                .progress-bar {
+                    background: var(--surface-muted, #1f243d);
+                }
+            }
+
+            .join-btn {
+                background: var(--surface-page, #0a2540);
+                color: var(--vp-c-brand-2, #7a73ff);
+                border-color: var(--vp-c-brand-2, #7a73ff);
+            }
+        }
+    }
+
+    .sponsor-notice {
+        background: linear-gradient(135deg,
+            rgba(122, 115, 255, 0.12) 0%,
+            rgba(255, 138, 200, 0.07) 100%);
+        border-color: rgba(122, 115, 255, 0.2);
+
+        .notice-content {
+            .notice-icon {
+                color: var(--vp-c-brand-2, #7a73ff);
+            }
+
+            .notice-text {
+                color: var(--text-secondary, #c4cdda);
+            }
+        }
+    }
+
+    .modal-tips {
+        background: var(--surface-subtle, #1a1f36);
+        border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+
+        .tip-item {
+            color: var(--text-secondary, #c4cdda);
+
+            .tip-icon {
+                color: var(--vp-c-brand-2, #7a73ff);
+            }
         }
     }
 }

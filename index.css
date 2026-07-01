@@ -22,6 +22,8 @@
   --surface-page: #ffffff;
   --surface-subtle: #f6f9fc;
   --surface-muted: #f4f6f8;
+  --nav-surface: rgba(255, 255, 255, 0.88);
+  --vp-nav-bg-color: var(--nav-surface);
   --border-subtle: rgba(50, 50, 93, 0.08);
   --border-default: rgba(50, 50, 93, 0.13);
 
@@ -44,13 +46,22 @@
 /* 导航栏样式 — Stripe frosted glass */
 .VPNav {
   backdrop-filter: saturate(180%) blur(20px);
-  background: rgba(255, 255, 255, 0.85) !important;
+  background: var(--nav-surface) !important;
   border-bottom: 1px solid var(--border-subtle);
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
-.VPNavBar {
+.VPNavBar,
+.VPNavBar .container,
+.VPNavBar .content,
+.VPNavBar .content-body,
+.VPNavBarTitle,
+.VPNavBarTitle.has-sidebar {
   background: transparent !important;
+}
+
+.VPNavBarTitle.has-sidebar .title {
+  background-color: var(--nav-surface) !important;
 }
 
 .VPNavBarTitle .title {
@@ -344,16 +355,25 @@
 
 /* 暗色模式支持 — Stripe dark theme */
 .dark {
-  --surface-page: #0a2540;
-  --surface-subtle: #1a1f36;
-  --surface-muted: #1f243d;
+  --surface-page: #0b1020;
+  --surface-subtle: #111827;
+  --surface-muted: #1f2937;
+  --nav-surface: rgba(16, 18, 28, 0.94);
+  --vp-nav-bg-color: var(--nav-surface);
   --border-subtle: rgba(255, 255, 255, 0.08);
   --border-default: rgba(255, 255, 255, 0.13);
-  --text-primary: #ffffff;
-  --text-secondary: #c4cdda;
-  --text-muted: #8b9bb4;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
 
-  --gradient-secondary: linear-gradient(180deg, #1a1f36 0%, #0a2540 100%);
+  --vp-c-bg: var(--surface-page);
+  --vp-c-bg-alt: var(--surface-subtle);
+  --vp-c-bg-soft: var(--surface-muted);
+  --vp-c-text-1: var(--text-primary);
+  --vp-c-text-2: var(--text-secondary);
+  --vp-c-text-3: var(--text-muted);
+
+  --gradient-secondary: linear-gradient(180deg, #111827 0%, #0b1020 100%);
   --gradient-soft: linear-gradient(135deg, #422006 0%, #78350f 100%);
   --vp-c-brand-soft: rgba(122, 115, 255, 0.15);
   --vp-c-brand-mute: rgba(122, 115, 255, 0.08);
@@ -365,6 +385,10 @@
     background: var(--surface-page);
   }
 
+  .VPContent {
+    background: var(--surface-page);
+  }
+
   /* 文档容器 */
   .VPDoc {
     background: var(--surface-subtle);
@@ -372,19 +396,29 @@
     border: 1px solid var(--border-subtle);
   }
 
+  .VPDoc .container,
+  .vp-doc {
+    background: var(--surface-subtle);
+  }
+
   /* 导航栏 */
   .VPNav {
-    background: rgba(10, 37, 64, 0.85) !important;
+    background: var(--nav-surface) !important;
     backdrop-filter: saturate(180%) blur(20px);
     border-bottom-color: var(--border-subtle);
   }
 
-  .VPNavBar {
+  .VPNavBar,
+  .VPNavBar .container,
+  .VPNavBar .content,
+  .VPNavBar .content-body,
+  .VPNavBarTitle,
+  .VPNavBarTitle.has-sidebar {
     background: transparent !important;
   }
 
   .VPNavBar div.title {
-    background-color: var(--surface-page) !important;
+    background-color: var(--nav-surface) !important;
   }
 
   .VPNavBarTitle .title {

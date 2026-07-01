@@ -113,86 +113,66 @@ onMounted(() => {
 .sponsors-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: 16px;
+    gap: 12px;
     margin-top: 24px;
 }
 
 .sponsor-card {
-    background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
-    border: 2px solid #fb923c;
-    border-radius: 16px;
-    padding: 16px;
-    transition: all 0.3s ease;
+    background: var(--surface-page, #ffffff);
+    border: 1px solid var(--border-default, rgba(50, 50, 93, 0.13));
+    border-radius: 10px;
+    padding: 0;
+    transition: box-shadow 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+    overflow: hidden;
+    box-shadow: 0 1px 2px rgba(50, 50, 93, 0.04);
 }
 
-.sponsor-card-secondary {
-    background: linear-gradient(135deg, #f0f9ff 0%, #bae6fd 100%);
-    border: 2px solid #0ea5e9;
-}
-
+.sponsor-card-secondary,
 .sponsor-card-tertiary {
-    background: linear-gradient(135deg, #f0fdf4 0%, #bbf7d0 100%);
-    border: 2px solid #22c55e;
+    /* unified look — no more per-card color variants */
 }
 
 .sponsor-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 32px rgba(251, 146, 60, 0.15);
-}
-
-.sponsor-card-secondary:hover {
-    box-shadow: 0 12px 32px rgba(14, 165, 233, 0.15);
-}
-
-.sponsor-card-tertiary:hover {
-    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.15);
+    border-color: rgba(99, 91, 255, 0.3);
+    box-shadow: 0 6px 16px rgba(50, 50, 93, 0.1), 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .sponsor-title {
-    font-weight: bold;
-    padding: 0 0 8px 0;
-    font-size: 0.9rem;
-    color: #c2410c;
+    font-weight: 700;
+    padding: 0 0 4px 0;
+    font-size: 0.85rem;
+    color: var(--text-primary, #0a2540);
     margin: 0;
-    text-align: center;
-}
-
-.sponsor-card-secondary .sponsor-title,
-.sponsor-card-secondary .sponsor-description {
-    color: #0c4a6e;
-}
-
-.sponsor-card-tertiary .sponsor-title,
-.sponsor-card-tertiary .sponsor-description {
-    color: #14532d;
+    text-align: left;
+    letter-spacing: -0.01em;
 }
 
 .sponsor-link {
     display: block;
     cursor: pointer;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
-    margin-bottom: 8px;
-    transition: all 0.3s ease;
+    transition: opacity 0.15s ease;
 }
 
 .sponsor-link:hover {
-    transform: scale(1.02);
+    opacity: 0.92;
 }
 
 .sponsor-image {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 10px;
 }
 
 .sponsor-description {
-    font-size: 0.75rem;
-    line-height: 1.4;
-    color: #c2410c;
-    text-align: center;
+    font-size: 0.72rem;
+    line-height: 1.5;
+    color: var(--text-secondary, #425466);
+    text-align: left;
     font-weight: 500;
+    padding: 12px 14px;
 }
 
 .spacer {
@@ -208,76 +188,80 @@ onMounted(() => {
     margin-top: 16px;
 }
 
-/* 目录导航样式优化 */
+/* 目录导航样式优化 — Stripe clean */
 .VPDocAside :deep(.VPDocAsideOutline) {
-    background: rgba(255, 255, 255, 0.6);
+    background: var(--surface-subtle, #f6f9fc);
     backdrop-filter: blur(10px);
-    border-radius: 16px;
-    padding: 20px;
-    border: 1px solid rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    padding: 16px;
+    border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
 }
 
 .VPDocAside :deep(.VPDocAsideOutline .outline-title) {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    font-weight: 600;
-    color: #00000000;
+    color: var(--text-primary, #0a2540);
+    font-weight: 700;
+    letter-spacing: -0.01em;
 }
 
 .VPDocAside :deep(.VPDocAsideOutline .outline-link) {
-    border-radius: 8px;
-    padding: 6px 12px;
-    margin: 2px 0;
-    transition: all 0.3s ease;
+    border-radius: 6px;
+    padding: 5px 10px;
+    margin: 1px 0;
+    transition: background-color 0.15s ease, color 0.15s ease;
+    color: var(--text-secondary, #425466);
 }
 
 .VPDocAside :deep(.VPDocAsideOutline .outline-link:hover) {
-    background: rgba(102, 126, 234, 0.1);
-    color: #667eea;
-    transform: translateX(4px);
+    background: var(--vp-c-brand-soft, rgba(99, 91, 255, 0.08));
+    color: var(--vp-c-brand-1, #635bff);
 }
 
 .VPDocAside :deep(.VPDocAsideOutline .outline-link.active) {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
+    background: var(--vp-c-brand-soft, rgba(99, 91, 255, 0.1));
+    color: var(--vp-c-brand-1, #635bff);
     font-weight: 600;
 }
 
-/* 暗色模式支持 */
+/* 暗色模式支持 — Stripe dark */
 .dark .sponsor-card {
-    background: linear-gradient(135deg, #451a03 0%, #92400e 100%);
-    border-color: #d97706;
+    background: var(--surface-subtle, #1a1f36);
+    border-color: var(--border-default, rgba(255, 255, 255, 0.13));
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
-.dark .sponsor-card-secondary {
-    background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 100%);
-    border-color: #0284c7;
+.dark .sponsor-card:hover {
+    border-color: rgba(122, 115, 255, 0.4);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
-.dark .sponsor-card-tertiary {
-    background: linear-gradient(135deg, #14532d 0%, #15803d 100%);
-    border-color: #16a34a;
+.dark .sponsor-title {
+    color: var(--text-primary, #ffffff);
 }
 
-.dark .sponsor-title,
 .dark .sponsor-description {
-    color: #fed7aa;
-}
-
-.dark .sponsor-card-secondary .sponsor-title,
-.dark .sponsor-card-secondary .sponsor-description {
-    color: #bae6fd;
-}
-
-.dark .sponsor-card-tertiary .sponsor-title,
-.dark .sponsor-card-tertiary .sponsor-description {
-    color: #bbf7d0;
+    color: var(--text-secondary, #c4cdda);
 }
 
 .dark .VPDocAside :deep(.VPDocAsideOutline) {
-    background: rgba(30, 41, 59, 0.8);
-    border-color: rgba(102, 126, 234, 0.2);
+    background: var(--surface-subtle, #1a1f36);
+    border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+}
+
+.dark .VPDocAside :deep(.VPDocAsideOutline .outline-title) {
+    color: var(--text-primary, #ffffff);
+}
+
+.dark .VPDocAside :deep(.VPDocAsideOutline .outline-link) {
+    color: var(--text-secondary, #c4cdda);
+}
+
+.dark .VPDocAside :deep(.VPDocAsideOutline .outline-link:hover) {
+    background: var(--vp-c-brand-soft, rgba(122, 115, 255, 0.12));
+    color: var(--vp-c-brand-2, #7a73ff);
+}
+
+.dark .VPDocAside :deep(.VPDocAsideOutline .outline-link.active) {
+    background: var(--vp-c-brand-soft, rgba(122, 115, 255, 0.15));
+    color: var(--vp-c-brand-2, #7a73ff);
 }
 </style>
