@@ -20,26 +20,39 @@
         <!-- 下载按钮区域 -->
         <div class="download-section">
           <div class="download-card">
-            <!-- <div class="download-header">
-              <div class="download-icon">
-                <span class="icon">📥</span>
-              </div>
-              <h2 class="download-title">准备下载</h2>
-            </div> -->
-
             <div class="download-content">
-              <div class="wait-info" v-if="props.wait_time > 0">
-                <div class="wait-timer">
-                  <span class="timer-icon">⏱️</span>
-                  <span class="timer-text">等待 {{ props.wait_time }}s 后，方可点击跳转按钮</span>
-                </div>
-              </div>
+              <!-- <div class="download-copy">
+                <div class="download-kicker">下载</div>
+                <h2 class="download-title">准备获取</h2>
+                <p class="download-description">跳转前会要求确认免责声明和隐私说明。</p>
+              </div> -->
 
-              <NButton @click="gogogo" class="download-btn" :class="{ disabled: props.wait_time > 0 }" size="large"
-                block>
-                <span class="btn-icon">🚀</span>
-                跳转到云盘
-              </NButton>
+              <div class="download-action">
+                <div class="wait-info" v-if="props.wait_time > 0">
+                  <div class="wait-timer">
+                    <span class="timer-icon" aria-hidden="true">
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="M12 6v6l4 2" />
+                      </svg>
+                    </span>
+                    <span class="timer-text">等待 {{ props.wait_time }}s 后可跳转</span>
+                  </div>
+                </div>
+
+                <NButton @click="gogogo" class="download-btn" :class="{ disabled: props.wait_time > 0 }"
+                  :disabled="props.wait_time > 0" size="large" block>
+                  <span class="btn-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                      stroke-linejoin="round">
+                      <path d="M5 12h14" />
+                      <path d="M12 5l7 7-7 7" />
+                    </svg>
+                  </span>
+                  跳转到云盘
+                </NButton>
+              </div>
             </div>
           </div>
         </div>
@@ -436,120 +449,124 @@ if (cur_version?.env) {
 }
 
 .download-card {
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(102, 126, 234, 0.15);
-  border-radius: 20px;
-  padding: 32px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
+  background: var(--surface-page, #ffffff);
+  border: 1px solid var(--border-subtle, rgba(50, 50, 93, 0.08));
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: 0 2px 5px rgba(50, 50, 93, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
 
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-    border-color: rgba(102, 126, 234, 0.25);
-  }
+  .download-content {
+    grid-template-columns: minmax(0, 1fr) 260px;
+    gap: 28px;
+    align-items: center;
 
-  .download-header {
-    text-align: center;
-    margin-bottom: 24px;
+    .download-copy {
+      min-width: 0;
+    }
 
-    .download-icon {
-      width: 64px;
-      height: 64px;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      box-shadow: 0 6px 18px rgba(102, 126, 234, 0.3);
-      animation: float 3s ease-in-out infinite;
-
-      .icon {
-        font-size: 32px;
-        color: white;
-      }
+    .download-kicker {
+      margin-bottom: 8px;
+      color: var(--vp-c-brand-1, #635bff);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
     }
 
     .download-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin: 0;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      margin: 0 0 8px;
+      color: var(--text-primary, #0a2540);
+      font-size: clamp(1.35rem, 2.4vw, 1.75rem);
+      font-weight: 800;
+      line-height: 1.2;
+      letter-spacing: -0.03em;
     }
-  }
 
-  .download-content {
+    .download-description {
+      margin: 0;
+      color: var(--text-secondary, #425466);
+      font-size: 0.95rem;
+      line-height: 1.55;
+    }
+
+    .download-action {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      min-width: 0;
+    }
+
     .wait-info {
-      margin-bottom: 20px;
-
       .wait-timer {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 10px;
-        padding: 12px 20px;
-        background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);
-        border: 2px solid #fb923c;
-        border-radius: 12px;
-        color: #c2410c;
+        gap: 8px;
+        min-height: 36px;
+        padding: 8px 12px;
+        background: rgba(99, 91, 255, 0.08);
+        border: 1px solid rgba(99, 91, 255, 0.14);
+        border-radius: 8px;
+        color: var(--text-secondary, #425466);
         font-weight: 600;
+        line-height: 1.2;
 
         .timer-icon {
-          font-size: 18px;
+          display: inline-flex;
+          width: 16px;
+          height: 16px;
+          color: var(--vp-c-brand-1, #635bff);
+          flex-shrink: 0;
+
+          svg {
+            width: 16px;
+            height: 16px;
+          }
         }
 
         .timer-text {
-          font-size: 1rem;
+          font-size: 0.85rem;
         }
       }
     }
 
     .download-btn {
       height: 48px;
-      border-radius: 14px;
-      font-size: 1.1rem;
+      border-radius: 6px;
+      font-size: 0.95rem;
       font-weight: 600;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #635bff;
       border: none;
       color: white;
-      transition: all 0.3s ease;
+      transition: background-color 0.15s ease, box-shadow 0.15s ease, transform 0.1s ease;
       position: relative;
       overflow: hidden;
 
-      &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-        transition: left 0.5s ease;
-      }
-
       &:hover:not(.disabled) {
+        background: #5851ee;
         transform: translateY(-1px);
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
-
-        &::before {
-          left: 100%;
-        }
+        box-shadow: 0 7px 14px rgba(99, 91, 255, 0.22), 0 3px 6px rgba(0, 0, 0, 0.05);
       }
 
       &.disabled {
-        opacity: 0.6;
+        opacity: 0.65;
         cursor: not-allowed;
-        background: linear-gradient(135deg, #9ca3af 0%, #6b7280 100%);
+        background: var(--surface-muted, #f4f6f8);
+        color: var(--text-muted, #8392ab);
+        box-shadow: none;
       }
 
       .btn-icon {
+        display: inline-flex;
+        width: 16px;
+        height: 16px;
         margin-right: 6px;
-        font-size: 1.1rem;
+        vertical-align: -3px;
+
+        svg {
+          width: 16px;
+          height: 16px;
+        }
       }
     }
   }
@@ -794,6 +811,15 @@ if (cur_version?.env) {
     }
   }
 
+  .download-card .download-content {
+    grid-template-columns: 1fr;
+    gap: 18px;
+
+    .download-action {
+      width: 100%;
+    }
+  }
+
   .modal-card {
     width: 95vw;
     padding: 20px 16px;
@@ -826,6 +852,41 @@ if (cur_version?.env) {
 
       strong {
         color: #e2e8f0;
+      }
+    }
+  }
+
+  .download-card {
+    background: var(--surface-subtle, #111827);
+    border-color: var(--border-subtle, rgba(255, 255, 255, 0.08));
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.28), 0 1px 2px rgba(0, 0, 0, 0.22);
+
+    .download-content {
+      .download-kicker {
+        color: var(--vp-c-brand-2, #7a73ff);
+      }
+
+      .download-title {
+        color: var(--text-primary, #f8fafc);
+      }
+
+      .download-description {
+        color: var(--text-secondary, #cbd5e1);
+      }
+
+      .wait-timer {
+        background: rgba(122, 115, 255, 0.12);
+        border-color: rgba(122, 115, 255, 0.22);
+        color: var(--text-secondary, #cbd5e1);
+
+        .timer-icon {
+          color: var(--vp-c-brand-2, #7a73ff);
+        }
+      }
+
+      .download-btn.disabled {
+        background: var(--surface-muted, #1f2937);
+        color: var(--text-muted, #94a3b8);
       }
     }
   }
@@ -984,9 +1045,12 @@ if (cur_version?.env) {
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -1091,15 +1155,20 @@ if (cur_version?.env) {
 }
 
 @keyframes bounce {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0);
   }
+
   25% {
     transform: translateY(-10px);
   }
+
   50% {
     transform: translateY(0);
   }
+
   75% {
     transform: translateY(-5px);
   }
