@@ -33,6 +33,15 @@ const videos = [
     bvid: 'BV1YeenzJExZ'
   },
   {
+    icon: '⏱️',
+    title: '【极速1分钟】步数与轮数',
+    author: '@阿祖拉达亚贡',
+    authorLink: 'https://space.bilibili.com/28723812',
+    authorIcon: '🎬',
+    description: 'AI 翻唱，今天我们来谈谈【步数与轮数】（极速扫盲版）。',
+    bvid: 'BV11pGw6EER9'
+  },
+  {
     icon: '⚙️',
     title: 'DDSP6.3 模型训练教程',
     author: '@Asterism_空无',
