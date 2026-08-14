@@ -2,6 +2,7 @@ import "../../index.css";
 import DefaultTheme from 'vitepress/theme'
 import { h } from 'vue'
 import DlcItem from '../../components/DlcItem.vue'
+import { inject } from '@vercel/analytics'
 
 export default {
     extends: DefaultTheme,
@@ -11,9 +12,14 @@ export default {
         })
     },
     enhanceApp({ app, router, siteData }) {
-        if (typeof window !== 'undefined' && /Mobi|Android/i.test(navigator.userAgent)) {
-            // html 插入 class use-mobile
-            document.documentElement.classList.add('use-mobile');
+        if (typeof window !== 'undefined') {
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                // html 插入 class use-mobile
+                document.documentElement.classList.add('use-mobile');
+            }
+            
+            // Inject Vercel Analytics
+            inject();
         }
 
         // 注册全局组件
